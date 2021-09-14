@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{url('css/app.css')}}">
+<link rel="stylesheet" href="{{asset('css/app.css')}}">
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -20,7 +20,7 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 <header class="bg-black" x-data="{ isOpen: false }">
-    <nav class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+    <nav class="container px-6 py-4 mx-auto md:flex te md:justify-between md:items-center">
         <div class="flex items-center justify-between sna">
             <a style="animation-iteration-count: infinite" class="text-xl animate__zoomInDown font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-700"
                {{--                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span></a>--}}

@@ -9,7 +9,6 @@
                     alt="User avatar"
                     src="{{Auth::user()->profile_picture}}"
                 />
-
                 <h1 class="text-gray-200 text-2xl subpixel-antialiased">{{ucfirst(strtolower(Auth::user()->first_name))}} {{ucfirst(strtolower(Auth::user()->last_name))}}</h1>
             </div>
 
