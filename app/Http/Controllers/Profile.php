@@ -24,7 +24,7 @@ class Profile extends Controller
 
 
         $updateImage = DB::table("users")
-            ->where("email","=",Auth::user()->email)
+            ->where("email_addr","=",Auth::user()->email)
             ->update(["profile_picture" => $currentImage]);
 
         return redirect()->back();
@@ -43,7 +43,7 @@ class Profile extends Controller
 
     public function personalInfoUpdate(Request $request){
 
-        $userPerInfoUpdate = User::where("email",Auth::user()->email)
+        $userPerInfoUpdate = User::where("email_addr",Auth::user()->email)
                                 ->update(["first_name" => $request->get("first_name"),
                                     "middle_name" => $request->get("middle_name"),
                                     "last_name" => $request->get("last_name"),
@@ -59,7 +59,7 @@ class Profile extends Controller
 
     public function residentialInfoUpdate(Request $request){
 
-            $userResInfoUpdate = User::where("email",Auth::user()->email)
+            $userResInfoUpdate = User::where("email_addr",Auth::user()->email)
                                 ->update(["street_address" => $request->get("street_address"),
                                     "district_town" => $request->get("district_town"),
                                     "postal_zone" => $request->get("postal_zone"),
@@ -71,7 +71,7 @@ class Profile extends Controller
 
     public function socialInfoUpdate(Request $request){
 
-        $userSocialInfoUpdate = User::where("email",Auth::user()->email)
+        $userSocialInfoUpdate = User::where("email_addr",Auth::user()->email)
                                 ->update(["whatsapp" => $request->get("whatsapp"),
                                     "twitter" => $request->get("twitter"),
                                     "instagram" => $request->get("instagram")]);
@@ -83,7 +83,7 @@ class Profile extends Controller
 
     public function paymentInfoUpdate(Request $request){
 
-        $userPaymentInfoUpdate = User::where("email",Auth::user()->email)
+        $userPaymentInfoUpdate = User::where("email_addr",Auth::user()->email)
                                 ->update(["card_number" => $request->get("card_number"),
                                     "card_holder" => $request->get("card_holder"),
                                     "expiration_month" => $request->get("expiration_month"),

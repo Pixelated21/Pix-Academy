@@ -14,7 +14,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
                         </svg>
-                        <label>@error('email'){{$message}}@enderror</label>
+                        <label>@error('email_addr'){{$message}}@enderror</label>
                     </div>
                 </div>
                 @endif
@@ -26,13 +26,13 @@
                     <div>
 
                         <input type="email"
-                               name="email"
+                               name="email_addr"
                                id="login-email"
                                autofocus
                                autocomplete
                                required
                                placeholder="Enter Email Address"
-                               class="focus:border-pink-500 w-full px-4 py-3 duration-75 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                               class="focus:border-pink-500  w-full px-4 py-3 duration-75 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                         >
                     </div>
 
@@ -48,12 +48,12 @@
                                required
                                placeholder="Enter Password"
                                minlength="6"
-                               class="focus:border-pink-500 w-full px-4 py-3  rounded-lg bg-gray-200  border focus:border-blue-500 focus:bg-white focus:outline-none"
+                               class="focus:border-pink-500  w-full px-4 py-3  rounded-lg bg-gray-200  border focus:border-blue-500 focus:bg-white focus:outline-none"
                                >
                             <button
                                 id="viewPwdBtn"
                                 type="button"
-                                class="absolute top-0 right-0 rounded-l-none btn btn-ghost hover:bg-transparent">
+                                class="absolute focus:outline-none top-0 p-2 h-full right-0 rounded-l-none btn btn-ghost hover:bg-transparent">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -66,7 +66,7 @@
                             <button
                                 id="hidePwdBtn"
                                 type="button"
-                                class="absolute top-0 right-0 rounded-l-none btn btn-ghost hover:bg-transparent">
+                                class="absolute top-0 right-0 p-2 h-full focus:outline-none rounded-l-none btn btn-ghost hover:bg-transparent">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />

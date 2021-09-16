@@ -16,7 +16,7 @@ class Login extends Controller
     public function loginUser(Request $request)
     {
         $validation = $request->validate([
-            'email' => ['required','email'],
+            'email_addr' => ['required','email'],
             'password' => ['required','min:2'],
         ]);
 
@@ -24,6 +24,7 @@ class Login extends Controller
             return redirect('/home');
 
         }
+
         return back()->withErrors([
             'email' => 'Username or Password Incorrect.'
         ]);

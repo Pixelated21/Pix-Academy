@@ -18,16 +18,15 @@
         <x-user.nav-bar/>
     </div>
 
-    <div >
         <!-- component -->
 
         <div class="w-full">
-            <div class="flex bg-white" style="height:594px;">
+            <div class="flex bg-white" style="height:590px;">
                 <div
                     class="flex  items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
-                    <div class="">
+                    <div>
 
-                        <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">Web Development</h2>
+                        <h2 class="text-3xl font-semibold mt-10 md:mt-2 text-gray-800 md:text-4xl">Web Development</h2>
 
                         <h2 class="font-semibold text-gray-800 md:text-xl md:mt-1">Stony Hill Academy</h2>
 
@@ -69,16 +68,14 @@
 
                         <br>
                         <div class="text-md">
-                            <div/>
                             <span style="font-family: 'Proza Libre',sans-serif;"
                                   class="font-extrabold">Price: </span><span> $5000</span>
-                        </div>
                     </div>
 
-                    <div class="flex justify-center lg:justify-start mt-6">
+                    <div class="flex justify-center w-full  lg:justify-start mt-6">
 
                         <button
-                            class="bg-pink-600 px-5 py-3 text-sm shadow-sm font-medium tracking-wider text-pink-100 rounded hover:shadow-2xl hover:bg-pink-700">
+                            class="bg-pink-600 text-base w-full px-5 py-3 mb-3 md:m-1  shadow-sm font-medium tracking-wider text-pink-100 rounded hover:shadow-2xl hover:bg-pink-700">
                             Registered
                         </button>
                     </div>

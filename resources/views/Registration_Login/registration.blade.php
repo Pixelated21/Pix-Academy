@@ -11,7 +11,7 @@
 
             <h1 class="text-xl md:text-4xl font-bold leading-tight mt-12">Registration </h1>
 
-            <form class="mt-6" action="#" method="POST">
+            <form class="mt-6" action="" method="POST">
                 @csrf
 
 

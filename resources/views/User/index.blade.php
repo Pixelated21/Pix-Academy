@@ -49,10 +49,18 @@
 </style>
 <body>
 <div>
-
     <header class="bg-black" x-data="{ isOpen: false }">
-        <nav class="container sticky z-50 w-screen top-0 px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
-            <div class="flex items-center justify-between">
+        <video
+            autoplay
+            muted
+            loop
+            preload="auto"
+            class="absolute" style="filter: grayscale(0.3) contrast(1.5) opacity(0.1) blur(2px);">
+            <source src="{{"public/homepage/pix-academy.mp4"}}" type="video/mp4"/>
+        </video>
+
+        <nav class="container relative  sticky z-50 w-screen top-0 px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+            <div class="flex items-center  justify-between">
                 <a class="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-700"
                    {{--                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span></a>--}}
                    href="#"><span class="text-pink-600">Pix</span>-<span class="text-yellow-400">Ac</span><span
@@ -82,7 +90,8 @@
                    href="{{url('/dashboard')}}">Dashboard</a>
                 <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
                    href="{{url('/contact')}}">Contact Us</a>
-                @if (Auth::check())
+
+                 @if(Auth::check())
                     <form action="{{url('/logout')}}" method="post">
                         @csrf
                         <button
@@ -100,14 +109,15 @@
             </div>
         </nav>
 
-        <section class="flex items-center justify-center" style="height: 92vh;">
-            <div class="text-center">
+        <section class="flex items-center relative justify-center" style="height: 92vh;">
+            <div class="text-center flex flex-col gap-y-8">
                 {{--                <p class="text-xl font-medium tracking-wider text-white">Welcome To <span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span>--}}
-                <p class="text-xl font-medium tracking-wider text-white">Welcome To <span
+                <p class="text-5xl font-medium tracking-wider text-white">Welcome To <span
                         class="text-pink-600">Pix</span>-<span class="text-yellow-400">Ac</span><span
                         class="text-green-400">ade</span><span class="text-gray-600">my</span>
                 </p>
-                <h2 class="mt-6 text-3xl font-bold hover:text-white text-gray-300 md:text-5xl">Start learning from, <br>
+                <div class="flex flex-col">
+                <h2 class="mt-6 text-3xl font-bold hover:text-white text-gray-300 md:text-2xl">Start learning from, <br>
                     <span class="text-yellow-400">Jam</span><span class="text-green-400">ai</span><span
                         class="text-gray-700">ca's</span> best institutions...</h2>
 
@@ -115,6 +125,7 @@
                     {{--        TODO Animated Scroll To Section--}}
                     <a class="px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform bg-pink-700 rounded hover:bg-pink-600"
                        href="{{url('/application')}}">Apply Now</a>
+                </div>
                 </div>
 
             </div>
@@ -145,6 +156,10 @@
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
+{{--                    <video src="https://www.pornhub.com/view_video.php?viewkey=ph5f21edcba3380">--}}
+
+{{--                    </video>--}}
+
                     <h3 class="text-2xl font-semibold text-gray-800">With Over A <br> 99% Success Rate</h3>
                     <p class="max-w-md mt-4 text-gray-600">At Pix-Academy we strive to offer the best training and
                         equipments

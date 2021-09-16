@@ -16,6 +16,7 @@ class Register extends Controller
 
     public function registerNewUser(Request $request){
 
+
         $validate = $request->validate([
             'first_nm' => ['required','string','alpha','min:2'],
             'last_nm' => ['required','string','alpha','min:2'],
@@ -24,11 +25,14 @@ class Register extends Controller
             'password_confirmation' => ['required','alpha_dash','min:5'],
         ]);
 
+//        dd($validate);
+
         $student = new Student();
         $student->first_nm = strtoupper($request->get('first_nm'));
         $student->last_nm = strtoupper($request->get('last_nm'));
         $student->gender = $request->get('gender');
         $student->dob = $request->get('dob');
+//        dd($student);
         $user = new User();
         $user->email_addr = strtoupper($request->get('email_addr'));
         $user->password = Hash::make($request->get('password'));
