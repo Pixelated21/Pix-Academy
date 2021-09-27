@@ -17,7 +17,8 @@ class CreateCourseApplicationsTable extends Migration
             $table->id("course_applicants_id");
             $table->foreignId("course_id")->constrained("courses","course_id")->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId("student_id")->constrained("students","student_id")->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string("payment_status");
+            $table->string("payment_status")->default('Not Paid');
+            $table->string("status")->default('Pending');
             $table->timestamps();
         });
     }

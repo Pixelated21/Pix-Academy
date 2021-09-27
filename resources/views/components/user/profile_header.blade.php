@@ -1,3 +1,4 @@
+
 <div class=" border border-white p-4 bg-black bg-opacity-100 rounded-t">
 
     <div class=" mx-auto md:w-full md:mx-0 ">
@@ -7,10 +8,10 @@
                 <img
                     class="w-10 h-10 object-cover z-0 rounded-full"
                     alt="User avatar"
-                    src="{{Auth::user()->profile_picture}}"
+                    src="{{\App\Models\Media::where("student_id",'=',\App\Models\Student::where("user_id",'=',Auth::user()->user_id)->first()->student_id)->first()->profile_pic}}"
                 />
 
-                <h1 class="text-gray-200 text-2xl subpixel-antialiased">{{ucfirst(strtolower(Auth::user()->first_name))}} {{ucfirst(strtolower(Auth::user()->last_name))}}</h1>
+                <h1 class="text-gray-200 text-2xl subpixel-antialiased">{{ucfirst(strtolower(\App\Models\Student::where("user_id",'=',Auth::user()->user_id)->first()->first_nm))}} {{ucfirst(strtolower(\App\Models\Student::where("user_id",'=',Auth::user()->user_id)->first()->last_nm))}}</h1>
             </div>
 
             <div>

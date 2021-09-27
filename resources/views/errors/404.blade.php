@@ -13,7 +13,7 @@
 {{--                TODO ANIMATE THIS BITCH--}}
             <a style="animation-iteration-count: infinite" class="animate__animate animate__zoomInDown font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-700"
                {{--                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span></a>--}}
-               href="{{url('/home')}}"><span class="text-pink-600 text-3xl">Pix</span>-<span class="text-yellow-400 text-3xl">Ac</span><span class="text-green-400 text-3xl">ade</span><span class="text-gray-600 text-3xl">my</span>
+               href="{{url('/')}}"><span class="text-pink-600 text-3xl">Pix</span>-<span class="text-yellow-400 text-3xl">Ac</span><span class="text-green-400 text-3xl">ade</span><span class="text-gray-600 text-3xl">my</span>
             </a>
             </div>
 

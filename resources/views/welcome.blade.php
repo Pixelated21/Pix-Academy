@@ -13,13 +13,13 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen bg-ye antialiased leading-none font-sans">
+<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
 <div class="flex flex-col">
     @if(Route::has('login'))
         <div
-            class="absolute text-pink-500 text-red  top-0 right-0 text-blue mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
+            class="absolute text-pink-500 top-0 right-0 text-blue mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
             @auth
-                <a href="{{ url('/home') }}"
+                <a href="{{ url('/') }}"
                    class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
             @else
                 <a href="{{ route('login') }}"

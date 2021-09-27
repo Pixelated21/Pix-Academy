@@ -13,151 +13,145 @@
             </div>
 
 
-            <div class="bg-black dark:bg-black h-full flex flex-col items-center justify-center   space-y-6 0">
 
-                <div class="bg-black h-full  flex flex-col jus w-full">
-                    <!-- component -->
-                    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+                <div class="flex items-center h-full overflow-y-scroll bg-cool-gray-300 justify-center">
+                    <div class="col-span-12 h-full w-full">
+                        <div class="overflow-auto h-full lg:overflow-visible w-full">
+
+                            @if (isset($applications))
 
 
-                    <section
-                        class="h-full w-full bg-white flex flex-col-reverse sm:flex-row min-h-0 min-w-0 overflow-hidden">
+                            <table class="table text-gray-400 border-separate bg-cool-gray-300   space-y-6 w-full text-sm">
+                                <thead class="bg-gray-800 sticky top-0 z-50 text-gray-500">
 
-                        <main class="sm:h-full w-full flex-1 flex flex-col min-h-0 min-w-0 overflow-auto">
+                                <tr class="bg-black ">
 
-                            <section class="flex-1 pt-3 md:p-6 lg:mb-0 lg:min-h-0 lg:min-w-0">
+                                    <th class="p-3 text-center">Course</th>
+                                    <th class="p-3 text-center">Modality</th>
+                                    <th class="p-3 text-center">Price</th>
+                                    <th class="p-3 text-center">Status</th>
+                                    <th class="p-3 text-center">Action</th>
 
-                                <div class="flex flex-col flex-between lg:flex-row h-full w-full">
 
-                                    <div
-                                        class=" justify-center h-full  w-full  px-3 flex flex-row lg:flex-col flex-wrap lg:flex-nowrap">
 
-                                        <!-- control content left -->
+                                </tr>
 
-                                        <div class="bg-red-200 w-full h-52 min-h-0 min-w-0 mb-4">
-                                            <div class="w-full h-full ">
-                                                <div
-                                                    class="widget h-full w-full p-6 bg-white border border-black dark:bg-gray-900 dark:border-gray-800">
-                                                    <div class="flex  flex-row items-center justify-between">
-                                                        <div class="flex  flex-col">
-                                                            <div class="text-xs uppercase font-light text-gray-500">
-                                                                No New Activity
-                                                            </div>
+                                </thead>
+                                <tbody>
 
-                                                        </div>
-                                                        <a href="#">
-                                                            <svg class="stroke-current text-gray-500" fill="none"
-                                                                 height="24" stroke="currentColor"
-                                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                                 stroke-width="2" viewbox="0 0 24 24" width="24"
-                                                                 xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
-                                                                </path>
-                                                                <polyline points="15 3 21 3 21 9">
-                                                                </polyline>
-                                                                <line x1="10" x2="21" y1="14" y2="3">
-                                                                </line>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </div>
+
+
+                                @foreach($applications as $application)
+
+                                <tr class="bg-gray-800">
+                                    <td class=" h-36">
+                                        <div class="flex relative h-full w-full align-items-center">
+                                            <img style="filter: brightness(40%) grayscale(10%) blur(2px)" class="bg rounded-l-xl w-full h-full object-cover object-center absolute z-0" src="{{\App\Models\Course::find($application["course_id"])->course_img}}" alt="unsplash image">
+                                            <div class="w-full items-center flex flex-col justify-center relative">
+                                                <div class="text-2xl text-center md:text-3xl text-white">{{\App\Models\Course::find($application["course_id"])->course_nm}}</div>
                                             </div>
                                         </div>
+                                    </td>
+                                    <td class="p-3 text-center">
+                                        {{\App\Models\Course::find($application["course_id"])->modality}}
+                                    </td>
+                                    <td class="p-3 text-center font-bold">
+                                        ${{number_format((int)(\App\Models\Course::find($application["course_id"])->price))}} JMD
+                                    </td>
+                                    <td class="p-3 text-center">
+                                        @if ($application["status"] === "Pending")
 
-                                        <div class="bg-red-200 w-full h-52 min-h-0 min-w-0 mb-4">
-                                            <div class="w-full h-full">
-                                                <div
-                                                    class=" h-full w-full bg-white border border-black dark:bg-gray-900 dark:border-gray-800">
-                                                    <div class="flex flex-row h-full items-center justify-between">
+                                        <span class="bg-yellow-400 text-gray-50 font-bold rounded-md px-3 py-2">
+                                                {{$application["status"]}}
+                                        </span>
 
-                                                        <div class="w-1/3   h-full">
-                                                            <div class="h-full w-full">
-                                                                <img class="object-cover object-center h-full w-full "
-                                                                     src="https://source.unsplash.com/random">
-                                                            </div>
-                                                        </div>
+                                            @elseif ($application["status"] === "Rejected")
 
-                                                        <div class="text-black h-full w-2/3 flex-col flex ">
+                                            <span class="bg-red-600  text-gray-50 font-bold rounded-md px-2 py-2">
+                                                {{$application["status"]}}
+                                             </span>
 
-                                                            <div>
-                                                                <h1 class="text-2xl text-center bg-gray-200 border-b border-black">
-                                                                    Web Development</h1>
-                                                            </div>
-
-                                                            <div class=" h-full flex justify-center items-center">
-                                                                <div class="flex justify-around flex-col h-full w-full">
-                                                                    <div>
-                                                                        <div class="flex justify-around"><h1>
-                                                                                Duration</h1>
-                                                                            <h1>Modality</h1>
-                                                                            <h1>Lovely</h1></div>
-
-                                                                        Lorem ipsum dolor sit amet, consectetur
-                                                                        adipisicing elit.
-                                                                        Aperiam consectetur ducimus libero. Aliquam
-                                                                        dicta,
-                                                                        inventore qui quibusdam rem sequi.
-                                                                        Accusamus adipisci dolorem eaque et inventore
-                                                                        libero nisi quos, sunt tenetur!
-                                                                    </div>
-
-                                                                    {{--                                                                                <p>Action</p>--}}
-                                                                </div>
+                                        @else
+                                            <span class="bg-green-500 text-gray-50 font-bold rounded-md px-2 py-2">
+                                                {{$application["status"]}}
+                                        </span>
 
 
-                                                                <div
-                                                                    class=" h-full flex justify-center w-5 items-center bg-yellow-300 ">
-                                                                    <p class="transform rotate-90  text-center">
-                                                                        Pending</p>
-                                                                </div>
+                                        @endif
 
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    </td>
+                                    <td class="p-3 text-center ">
+
+                                        @if ($application["status"] === 'Rejected')
+
+                                        @elseif ($application["status"] === 'Pending')
+
+                                            <button disabled  class="text-gray-400 opacity-50 cursor-default hover:text-gray-100 mr-2">
+                                                <span class="bg-pink-500 text-gray-50 rounded-md px-2 py-2">Make Payment</span>
+                                            </button>
+
+                                        @elseif($application["payment_status"] === 'Not Paid' && $application["status"] === 'Accepted' )
+
+                                            <a  class="text-gray-400 hover:text-gray-100 mr-2">
+                                                <span class="bg-pink-500 cursor-pointer text-gray-50 rounded-md px-2 py-2">Make Payment</span>
+                                            </a>
+
+                                        @else
+                                            <a  class="text-gray-400 hover:text-gray-100 mr-2">
+                                                <span class="bg-green-500 text-gray-50 rounded-md font-bold px-6 py-2">Paid</span>
+                                            </a>
+                                        @endif
+
+
+                                    </td>
+                                </tr>
+
+                                @endforeach
+
+                                </tbody>
+                            </table>
+
+                            @else
+                                    <div class="flex relative h-full w-full align-items-center">
+                                        <img class="bg  w-full h-full object-cover object-center absolute z-0" src="https://source.unsplash.com/random" alt="unsplash image">
+                                        <div class="w-full items-center flex flex-col justify-center relative">
+                                            <div class="text-2xl text-center md:text-6xl text-white">No Activity</div>
                                         </div>
-
-
                                     </div>
-
-
-                                </div>
-                            </section>
-                        </main>
-                    </section>
-
-                    <style>
-                        @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-
-                        body {
-                            font-family: "Nunito", sans-serif;
-                        }
-
-                        main {
-                            font-size: clamp(0.9rem, 3vw, 1rem);
-                        }
-
-                        #page-icon img {
-                            -webkit-animation: cssfilter 3s infinite;
-                        }
-
-
-                        @-webkit-keyframes cssfilter {
-                            0%, 100% {
-                                filter: invert(75%) drop-shadow(0px 0px 2px blue)
-                            }
-
-                            50% {
-                                filter: invert(0%) drop-shadow(0px 0px 1px teal);
-                            }
-                        }
-                    </style>
+                            @endif
+                        </div>
+                    </div>
                 </div>
+                <style>
+                    .table {
+                        border-spacing: 0 15px;
+                    }
+
+                    i {
+                        font-size: 1rem !important;
+                    }
+
+                    .table tr {
+                        border-radius: 20px;
+
+                    }
+
+                    .table th{
+                        border-bottom: 1px solid white;
+                    }
+
+                    /*tr td:nth-child(n+5),*/
+                    /*tr th:nth-child(n+5) {*/
+                    /*    border-radius: 0 .625rem .625rem 0;*/
+                    /*}*/
+
+                    /*tr td:nth-child(1),*/
+                    /*tr th:nth-child(1) {*/
+                    /*    border-radius: .625rem 0 0 .625rem;*/
+                    /*}*/
+                </style>
 
             </div>
-        </div>
     </section>
 @endsection
 

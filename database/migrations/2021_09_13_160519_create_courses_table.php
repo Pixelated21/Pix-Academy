@@ -18,7 +18,10 @@ class CreateCoursesTable extends Migration
             $table->foreignId("institution_id")->constrained("institutions","institution_id")->cascadeOnDelete()->cascadeOnUpdate();
             $table->string("course_nm");
             $table->text("course_desc");
+            $table->date("training_start");
+            $table->date("training_end");
             $table->string("award_type");
+            $table->integer("price");
             $table->longText("course_img");
             $table->string("training_type");
             $table->string("format");

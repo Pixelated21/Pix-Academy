@@ -24,7 +24,7 @@
         <div class="flex items-center justify-between sna">
             <a style="animation-iteration-count: infinite" class="text-xl animate__zoomInDown font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-700"
                {{--                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span></a>--}}
-               href="{{url('/home')}}"><span class="text-pink-600">Pix</span>-<span class="text-yellow-400">Ac</span><span class="text-green-400">ade</span><span class="text-gray-600">my</span>
+               href="{{url('/')}}"><span class="text-pink-600">Pix</span>-<span class="text-yellow-400">Ac</span><span class="text-green-400">ade</span><span class="text-gray-600">my</span>
             </a>
             <!-- Mobile menu button -->
             <div @click="isOpen = !isOpen" class="flex md:hidden">

@@ -13,11 +13,11 @@
             <x-user.profile_header/>
             </div>
 
-            <div class="md:inline-flex  bg-white space-y-4 justify-center md:space-y-0 w-full p-4 text-gray-500 items-center">
+            <div class="md:inline-flex flex-col md:flex-row  bg-white space-y-4 justify-center md:space-y-0 w-full p-4 text-gray-500 items-center">
 
                 <button id="personalInfo-Header" class="md:w-1/5  mx-auto max-w-sm mb-3  text-center text-2xl">Personal</button>
                 <button id="residentialInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">Residential</button>
-                <button id="socialInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">Social</button>
+                <button id="QualificationInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">Qualifications</button>
                 <button id="paymentInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">Payment</button>
 
             </div>
@@ -35,7 +35,7 @@
                                     name="street_address"
                                     type="text"
                                     disabled
-                                    value="{{ucwords(strtolower(Auth::user()->street_address))}}"
+                                    value="{{$student[0]["student"]["addr_ln_1"]}}"
                                     placeholder="Street Adress"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
 
@@ -51,7 +51,7 @@
                                     name="district_town"
                                     type="text"
                                     disabled
-                                    value="{{ucwords(strtolower(Auth::user()->district_town))}}"
+                                    value="{{$student[0]["student"]["city_nm"]}}"
                                     placeholder="District / Town"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
@@ -65,7 +65,7 @@
                                     name="postal_zone"
                                     type="text"
                                     disabled
-                                    value="{{(Auth::user()->postal_zone)}}"
+                                    value="{{$student[0]["student"]["postal_zone"]}}"
                                     placeholder="Street Adress"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
 
@@ -78,7 +78,6 @@
                                 <select
                                     name="parish"
                                     disabled
-                                    type="text"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
                                     <option selected>St.Catherine</option>
@@ -117,7 +116,7 @@
                                     name="first_name"
                                     type="text"
                                     disabled
-                                    value="{{ucfirst(strtolower(Auth::user()->first_name))}}"
+                                    value="{{ucwords(strtolower($student[0]["student"]["first_nm"]))}}"
                                     placeholder="First Name"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
 
@@ -130,7 +129,7 @@
                                     name="middle_name"
                                     type="text"
                                     disabled
-                                    value="{{ucwords(strtolower(Auth::user()->middle_name))}}"
+                                    value="{{ucwords(strtolower($student[0]["student"]["middle_nm"]))}}"
                                     placeholder="Middle Name"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
@@ -143,7 +142,7 @@
                                     name="last_name"
                                     disabled
                                     type="text"
-                                    value="{{ucfirst(strtolower(Auth::user()->last_name))}}"
+                                    value="{{ucwords(strtolower($student[0]["student"]["last_nm"]))}}"
                                     placeholder="Last Name"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
@@ -155,7 +154,7 @@
                                 <input
                                     name="email"
                                     disabled
-                                    value="{{(strtolower(Auth::user()->email))}}"
+                                    value="{{strtolower($student[0]["email_addr"])}}"
                                     type="text"
                                     placeholder="Email"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
@@ -171,7 +170,7 @@
                                     name="gender"
                                     disabled
                                     type="text"
-                                    value="{{Auth::user()->gender}}"
+                                    value="{{ucwords(strtolower($student[0]["student"]["gender"]))}}"
                                     placeholder="Gender"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
@@ -183,7 +182,7 @@
                                 <input
                                     name="TRN"
                                     disabled
-                                    value="{{Auth::user()->TRN}}"
+                                    value="{{($student[0]["student"]["trn_nbr"])}}"
                                     type="text"
                                     placeholder="TRN"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
@@ -196,7 +195,7 @@
                                 <input
                                     name="dob"
                                     disabled
-                                    value="{{Auth::user()->dob}}"
+                                    value="{{($student[0]["student"]["dob"])}}"
                                     type="date"
                                     placeholder="DOB"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
@@ -210,7 +209,7 @@
                                     name="telephone"
                                     disabled
                                     type="text"
-                                    value="{{Auth::user()->telephone}}"
+                                    value="{{($student[0]["student"]["tele_nbr"])}}"
                                     placeholder="Telephone Number"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
@@ -227,10 +226,10 @@
                             <label class="text-sm text-gray-400">Card Holder</label>
                             <div class="w-full inline-flex">
                                 <input
-                                    name="card_holder"
+                                    name="card_holder_nm"
                                     type="text"
+                                    value="{{$student[0]["student"]["payment_info"][0]["card_holder_nm"]}}"
                                     disabled
-                                    value="{{ucwords(strtolower(Auth::user()->card_holder))}}"
                                     placeholder="Card Holder"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
 
@@ -244,30 +243,45 @@
                                     name="card_number"
                                     type="text"
                                     disabled
-                                    value="{{(Auth::user()->card_number)}}"
-                                    placeholder="Middle Name"
+                                    value="{{$student[0]["student"]["payment_info"][0]["card_nbr"]}}"
+                                    placeholder="Card Number"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
                             </div>
                         </div>
 
                         <div>
+                            <label class="text-sm text-gray-400">Billing Address</label>
+                            <div class="w-full inline-flex">
+                                <input
+                                    name="billing_addr"
+                                    disabled
+                                    type="text"
+                                    value="{{$student[0]["student"]["payment_info"][0]["billing_addr"]}}"
+                                    placeholder="Billing Address"
+                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
+                        <div>
                             <label class="text-sm text-gray-400">CVV</label>
                             <div class="w-full inline-flex">
                                 <input
                                     name="cvv"
                                     disabled
-                                    type="text"
-                                    value="{{Auth::user()->cvv}}"
+                                    type="number"
+                                    value="{{$student[0]["student"]["payment_info"][0]["cvv"]}}"
                                     placeholder="CVV"
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
                         <div class="md:w-full max-w-sm mx-auto">
                             <label class="text-sm text-gray-400">Expiration Year</label>
                             <div class="w-full inline-flex">
@@ -277,7 +291,8 @@
                                     class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
 
                                     @for ($i = date("Y",strtotime(now())); $i < 2034 ; $i++)
-                                        @if ($i == Auth::user()->expiration_year)
+                                        @if ($i === $student[0]["student"]["payment_info"][0]["exp_year"])
+
                                             <option selected value="{{$i}}">{{$i}}</option>
                                         @else
                                         <option value="{{$i}}">{{$i}}</option>
@@ -313,51 +328,38 @@
                     </div>
                 </form>
 
-                <form id="socialInfo" action="{{url('/siUpdate')}}" method="post" class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
+                <form id="qualificationInfo" action="{{url('/qiUpdate')}}" method="post" class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
                     @csrf
 
-                    <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
-                        <div>
-                            <label class="text-sm text-gray-400">Whatsapp</label>
-                            <div class="w-full inline-flex">
-                                <input
-                                    name="whatsapp"
-                                    type="text"
-                                    disabled
-                                    value="{{(Auth::user()->whatsapp)}}"
-                                    placeholder="WhatsApp"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
+                    <div class="grid-cols-1 md:grid-cols-2 gap-10 grid w-full ">
 
-                            </div>
-                        </div>
-                        <div class="md:w-full max-w-sm mx-auto">
-{{--                            TODO explode and hide certain parts of the value--}}
-                            <label class="text-sm text-gray-400">Twitter</label>
-                            <div class="w-full inline-flex">
-                                <input
-                                    name="twitter"
-                                    type="text"
-                                    disabled
-                                    value="{{(Auth::user()->twitter)}}"
-                                    placeholder="twitter"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                        <div class=" text-center">
 
-                            </div>
+{{--                            <form method="post" enctype="multipart/form-data"  id="imageChanger" action="">--}}
+                                    <img id="output" src="{{$student[0]["student"]["media"][0]["profile_pic"]}}" class="mb-2 h-72 w-full object-cover rounded-t-2xl ">
+                                <label>
+                                    <span class="h-full">
+                                        <div class="bg-pink-500 rounded-b-2xl text-white text-2xl py-5">Add Picture Of Qualification</div>
+                                    <input name="profilePicture" class=" hidden" id="file" type="file" onchange="changeImage(event)"/>
+                                    </span>
+                                </label>
+{{--                            </form>--}}
+
                         </div>
 
-                        <div>
-                            <label class="text-sm text-gray-400">Instagram</label>
-                            <div class="w-full inline-flex">
-                                <input
-                                    name="instagram"
-                                    disabled
-                                    type="text"
-                                    value="{{Auth::user()->instagram}}"
-                                    placeholder="Instagram"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                        <div class="text-center">
 
-                            </div>
+{{--                            <form method="post" enctype="multipart/form-data"  id="imageChanger" action="">--}}
+                                <img id="output" src="{{$student[0]["student"]["media"][0]["profile_pic"]}}" class="mb-2 h-72 w-full object-cover rounded-t-2xl ">
+                                <label>
+                                    <span class="h-full">
+                                        <div class="bg-pink-500 rounded-b-2xl text-white text-2xl py-5">Add Passport Size Picture</div>
+                                    <input name="profilePicture" class=" hidden" id="file" type="file" onchange="changeImage(event)"/>
+                                    </span>
+                                </label>
+{{--                            </form>--}}
                         </div>
+
 
                     </div>
 
@@ -455,8 +457,8 @@
 
                 </div>
 
-                <div id="socialInfoBtnGroup" class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
-                    <button id="si-update-btn" class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                <div id="qualificationInfoBtnGroup" class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
+                    <button id="qi-update-btn" class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg
                             fill="none"
                             class="w-4 text-white mr-2"
@@ -473,7 +475,7 @@
                         Update
                     </button>
 
-                    <button id="si-back-btn" class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                    <button id="qi-back-btn" class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -488,7 +490,7 @@
                         <p class="font-medium">Back</p>
                     </button>
 
-                    <button id="si-submit-btn" class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                    <button id="qi-submit-btn" class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"

@@ -50,16 +50,17 @@
 <body>
 <div>
     <header class="bg-black" x-data="{ isOpen: false }">
-        <video
-            autoplay
-            muted
-            loop
-            preload="auto"
-            class="absolute" style="filter: grayscale(0.3) contrast(1.5) opacity(0.1) blur(2px);">
-            <source src="{{"public/homepage/pix-academy.mp4"}}" type="video/mp4"/>
-        </video>
+        {{--        <video--}}
+        {{--            autoplay--}}
+        {{--            muted--}}
+        {{--            loop--}}
+        {{--            preload="auto"--}}
+        {{--            class="absolute" style="filter: grayscale(0.3) contrast(1.5) opacity(0.1) blur(2px);">--}}
+        {{--            <source src="{{"/media/pix-academy.mp4"}}" type="video/mp4"/>--}}
+        {{--        </video>--}}
 
-        <nav class="container relative  sticky z-50 w-screen top-0 px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+        <nav
+            class="container relative  sticky z-50 w-screen top-0 px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div class="flex items-center  justify-between">
                 <a class="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-700"
                    {{--                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span></a>--}}
@@ -87,11 +88,14 @@
                 <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
                    href="{{url("/courses")}}">Courses</a>
                 <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
+                   href="{{url('/gallery')}}">Gallery</a>
+                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
                    href="{{url('/dashboard')}}">Dashboard</a>
                 <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
                    href="{{url('/contact')}}">Contact Us</a>
 
-                 @if(Auth::check())
+
+                @if(Auth::check())
                     <form action="{{url('/logout')}}" method="post">
                         @csrf
                         <button
@@ -117,15 +121,16 @@
                         class="text-green-400">ade</span><span class="text-gray-600">my</span>
                 </p>
                 <div class="flex flex-col">
-                <h2 class="mt-6 text-3xl font-bold hover:text-white text-gray-300 md:text-2xl">Start learning from, <br>
-                    <span class="text-yellow-400">Jam</span><span class="text-green-400">ai</span><span
-                        class="text-gray-700">ca's</span> best institutions...</h2>
+                    <h2 class="mt-6 text-3xl font-bold hover:text-white text-gray-300 md:text-2xl">Start learning from,
+                        <br>
+                        <span class="text-yellow-400">Jam</span><span class="text-green-400">ai</span><span
+                            class="text-gray-700">ca's</span> best institutions...</h2>
 
-                <div class="flex justify-center mt-8">
-                    {{--        TODO Animated Scroll To Section--}}
-                    <a class="px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform bg-pink-700 rounded hover:bg-pink-600"
-                       href="{{url('/application')}}">Apply Now</a>
-                </div>
+                    <div class="flex justify-center mt-8">
+                        {{--        TODO Animated Scroll To Section--}}
+                        <a class="px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform bg-pink-700 rounded hover:bg-pink-600"
+                           href="{{url('/courses')}}">Apply Now</a>
+                    </div>
                 </div>
 
             </div>
@@ -156,14 +161,13 @@
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
-{{--                    <video src="https://www.pornhub.com/view_video.php?viewkey=ph5f21edcba3380">--}}
 
-{{--                    </video>--}}
-
-                    <h3 class="text-2xl font-semibold text-gray-800">With Over A <br> 99% Success Rate</h3>
-                    <p class="max-w-md mt-4 text-gray-600">At Pix-Academy we strive to offer the best training and
-                        equipments
-                        to produce world class students that will pave the path for the world tomorrow</p>
+                    <h3 class="text-3xl font-semibold text-gray-800">With Over A  99% Success Rate</h3>
+                    <p class="max-w-md mt-4 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Dignissimos dolorum, excepturi harum ipsa officia praesentium tempore voluptatem? Accusantium
+                        alias beatae corporis deserunt eos, excepturi impedit iste iusto mollitia nesciunt odio officiis
+                        optio possimus quasi ratione reiciendis repellendus similique sunt tempore unde, vel vero vitae.
+                        Optio porro quidem quisquam rem voluptatibus!</p>
                     {{--                    TODO Make Testimonial Page P.S. Templates Sir--}}
                     <a href="#" class="block mt-8 text-indigo-700 underline">Testimonials</a>
                 </div>
@@ -180,7 +184,7 @@
         </div>
     </section>
 
-    <section class="bg-gray-200  duration-300 transform hover:scale-105 hover:-rotate-1 ">
+    <section class="bg-gray-200  duration-300 transform hover:scale-105 hover:scale-105 ">
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
@@ -192,12 +196,13 @@
                     </div>
                 </div>
 
-                <div class="mt-8 md:mt-0 md:w-1/2 transform duration-300 hover:rotate-1">
-                    <h3 class="text-2xl font-semibold text-gray-800">Lorem ipsum dolor sit <br> amet, consectetur</h3>
-                    <p class="max-w-md mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="mt-8 md:mt-0 md:w-1/2 transform duration-300 ">
+                    <h3 class="text-3xl font-semibold text-gray-800">Lorem ipsum dolor sit amet, consectetur</h3>
+                    <p class="max-w-md mt-4 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+                        amet aspernatur explicabo sequi tenetur? Deserunt dicta, nostrum officia perspiciatis temporibus
+                        vero? Atque cum cumque dolores eaque ex explicabo illo inventore laboriosam, libero mollitia
+                        obcaecati perspiciatis provident reprehenderit suscipit unde. At laudantium natus saepe. Amet
+                        distinctio magnam quo voluptate. Numquam, sint!</p>
                     {{--                    <a href="#" class="block mt-8 text-indigo-700 underline">Experienced team</a>--}}
                 </div>
             </div>
@@ -215,119 +220,45 @@
                 <div class="container px-5 py-14 mx-auto">
                     <div class="flex flex-wrap -m-4">
 
-                        {{--                        {{dd($topCourses)}}--}}
-                        {{--                        @foreach($topCourses as $courses)--}}
-                        {{--                                {{dd($courses)}}--}}
-                        <div class="p-4 md:w-1/3">
-                            <div
-                                class="hover:shadow-2xl duration-300 transform  hover:scale-105  h-full border-2 border-gray-3y00 border-opacity-60 rounded-lg overflow-hidden">
-                                <img class="lg:h-48 md:h-36 w-full object-cover object-center"
-                                     src="{{url('/public/homepage/enginering.jpg')}}" alt="blog">
-                                <div class="p-6">
-                                    <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Web Development</h1>
-                                    <p class="leading-relaxed mb-3">{{--{{$courses->description}}--}} Lorem ipsum dolor
-                                        sit amet, consectetur adipisicing elit. Ducimus eos fugit laboriosam vitae? A
-                                        beatae delectus deserunt dolores explicabo, impedit molestias neque officia
-                                        perferendis placeat qui quo, tenetur veniam. Odio.</p>
-                                    <div class="flex items-center flex-wrap ">
-                                        <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Apply
-                                            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor"
-                                                 stroke-width="2" fill="none" stroke-linecap="round"
-                                                 stroke-linejoin="round">
-                                                <path d="M5 12h14"></path>
-                                                <path d="M12 5l7 7-7 7"></path>
-                                            </svg>
-                                        </a>
-                                        <span
-                                            class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                        @foreach($topCourses as $topCourse)
+
+                            <div class="p-4 md:w-1/3">
+                                <div
+                                    class="hover:shadow-2xl duration-300 transform  hover:scale-105  h-full border-2 border-gray-3y00 border-opacity-60 rounded-lg overflow-hidden">
+                                    <img class="lg:h-48 md:h-36 w-full object-cover object-center"
+                                         src="{{$topCourse->course_img}}" alt="blog">
+                                    <div class="p-6">
+                                        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{$topCourse->course_nm}}</h1>
+                                        <p class="leading-relaxed mb-3">
+                                            {{$topCourse->course_desc}}
+                                        </p>
+                                        <div class="flex items-center flex-wrap ">
+                                            <a href="{{'/courses/'.$topCourse->course_id}}"
+                                               class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Apply
+                                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor"
+                                                     stroke-width="2" fill="none" stroke-linecap="round"
+                                                     stroke-linejoin="round">
+                                                    <path d="M5 12h14"></path>
+                                                    <path d="M12 5l7 7-7 7"></path>
+                                                </svg>
+                                            </a>
+                                            <span
+                                                class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
                      stroke-linejoin="round" viewBox="0 0 24 24">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
-                </svg>100
+                Views </svg>{{$topCourse->views}}
               </span>
-                                        <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                Enrolled 20
+                                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                Enrolled {{$topCourse->amt_enrolled}}
               </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-
-                        <div class="p-4 md:w-1/3">
-                            <div
-                                class="hover:shadow-2xl duration-300 transform  hover:scale-105  h-full border-2 border-gray-3y00 border-opacity-60 rounded-lg overflow-hidden">
-                                <img class="lg:h-48 md:h-36 w-full object-cover object-center"
-                                     src="{{url('/public/homepage/enginering.jpg')}}" alt="blog">
-                                <div class="p-6">
-                                    <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Web Development</h1>
-                                    <p class="leading-relaxed mb-3">{{--{{$courses->description}}--}} Lorem ipsum dolor
-                                        sit amet, consectetur adipisicing elit. Ducimus eos fugit laboriosam vitae? A
-                                        beatae delectus deserunt dolores explicabo, impedit molestias neque officia
-                                        perferendis placeat qui quo, tenetur veniam. Odio.</p>
-                                    <div class="flex items-center flex-wrap ">
-                                        <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Apply
-                                            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor"
-                                                 stroke-width="2" fill="none" stroke-linecap="round"
-                                                 stroke-linejoin="round">
-                                                <path d="M5 12h14"></path>
-                                                <path d="M12 5l7 7-7 7"></path>
-                                            </svg>
-                                        </a>
-                                        <span
-                                            class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                     stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>100
-              </span>
-                                        <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                Enrolled 20
-              </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="p-4 md:w-1/3">
-                            <div
-                                class="hover:shadow-2xl duration-300 transform  hover:scale-105  h-full border-2 border-gray-3y00 border-opacity-60 rounded-lg overflow-hidden">
-                                <img class="lg:h-48 md:h-36 w-full object-cover object-center"
-                                     src="{{url('/public/homepage/enginering.jpg')}}" alt="blog">
-                                <div class="p-6">
-                                    <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Web Development</h1>
-                                    <p class="leading-relaxed mb-3">{{--{{$courses->description}}--}} Lorem ipsum dolor
-                                        sit amet, consectetur adipisicing elit. Ducimus eos fugit laboriosam vitae? A
-                                        beatae delectus deserunt dolores explicabo, impedit molestias neque officia
-                                        perferendis placeat qui quo, tenetur veniam. Odio.</p>
-                                    <div class="flex items-center flex-wrap ">
-                                        <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Apply
-                                            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor"
-                                                 stroke-width="2" fill="none" stroke-linecap="round"
-                                                 stroke-linejoin="round">
-                                                <path d="M5 12h14"></path>
-                                                <path d="M12 5l7 7-7 7"></path>
-                                            </svg>
-                                        </a>
-                                        <span
-                                            class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                     stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>100
-              </span>
-                                        <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                Enrolled 20
-              </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{--                        @endforeach--}}
+                        @endforeach
 
                     </div>
                 </div>
@@ -345,9 +276,11 @@
 
                     <div>
                         <h4 class="text-xl font-medium text-gray-800">Design concept</h4>
-                        <p class="max-w-lg mt-4 text-gray-600">Vitae nulla nunc euismod vel nunc euismod velpretium
-                            tellus
-                            accumsan nulla nunc euismod ve semper.</p>
+                        <p class="max-w-lg mt-4 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Autem corporis, debitis ea eveniet incidunt nisi nobis quas rerum temporibus vero. Accusamus
+                            assumenda aut consequatur deleniti earum eligendi et in ipsum itaque maxime non porro
+                            praesentium quibusdam quis quisquam ratione repellendus, reprehenderit repudiandae saepe
+                            temporibus unde ut illum, voluptas.</p>
                     </div>
                 </div>
 
@@ -361,12 +294,11 @@
 
                     <div>
                         <h4 class="text-xl font-medium text-gray-800">Developing websites</h4>
-                        <p class="max-w-lg mt-4 text-gray-600 overflow-clip h-10 overflow-hidden">Vitae nulla euismod
-                            velpretium tellus accumsan nulla nunc
-                            euismod ve semper. Vitae nulla euismod velpretium tellus
-                            accumsan nulla nunc euismod ve semper. Vitae nulla euismod velpretium tellus accumsan nulla
-                            nunc
-                            euismod ve semper.</p>
+                        <p class="max-w-lg mt-4 text-gray-600  ">Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Animi autem consequuntur earum harum id, illo magnam nesciunt officiis porro quaerat
+                            quis quo quos rem tempore velit. Ad eaque eius enim, esse excepturi fugit harum non odio
+                            optio pariatur quam quas quibusdam ratione, reiciendis tempore! Ipsa iusto labore nihil
+                            tempora voluptate!</p>
                     </div>
                 </div>
             </div>
@@ -384,7 +316,7 @@
                 </div>
 
                 <a class="px-8 py-2 text-lg font-medium  text-white transition-colors duration-300 transform bg-pink-700 rounded hover:bg-pink-600"
-                   href="{{url('/courses')}}">All Courses</a>
+                   href="{{url('/about')}}">About Us</a>
             </div>
         </div>
     </section>
@@ -397,26 +329,15 @@
             </div>
 
             <div class="grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
-                <div class="px-6 py-8 overflow-hidden bg-white rounded-md shadow-md">
-                    <h2 class="text-xl font-medium text-gray-800">New Course Name</h2>
-                    <p class="max-w-md mt-4  text-gray-400">Description Of The New Course That Was Added And Will Be
-                        Promoted.</p>
-                    <p class="flex justify-end">Time Added</p>
-                </div>
+                @foreach($newCourses as $newCourse)
 
-                <div class="px-6 py-8 overflow-hidden bg-white rounded-md shadow-md">
-                    <h2 class="text-xl font-medium text-gray-800">New Course Name</h2>
-                    <p class="max-w-md mt-4 text-gray-400">Description Of The New Course That Was Added And Will Be
-                        Promoted.</p>
-                    <p class="flex justify-end">Time Added</p>
-                </div>
+                    <div class="px-6 py-8 overflow-hidden bg-white rounded-md shadow-md">
+                        <h2 class="text-xl font-medium text-gray-800">{{$newCourse->course_nm}}</h2>
+                        <p class="max-w-md mt-4  text-gray-400">{{$newCourse->course_desc}}</p>
+                        <p class="flex text-sm font-bold text-gray-500 justify-end">{{$newCourse->created_at}}</p>
+                    </div>
 
-                <div class="px-6 py-8 overflow-hidden bg-white rounded-md shadow-md">
-                    <h2 class="text-xl font-medium text-gray-800">New Course Name</h2>
-                    <p class="max-w-md mt-4 text-gray-400">Description Of The New Course That Was Added And Will Be
-                        Promoted.</p>
-                    <p class="flex justify-end">Time Added</p>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

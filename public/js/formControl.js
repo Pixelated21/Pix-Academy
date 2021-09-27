@@ -6,6 +6,7 @@ $(document).ready(function () {
     let residentialInfoForm = $("#residentialInfo");
     let socialInfoForm = $("#socialInfo");
     let cardInfoForm = $("#paymentInfo");
+    let qualificationsForm = $("#qualificationInfo")
 
     let personalInfoHeader = $("#personalInfo-Header")
     let piButtonGroup = $("#personalInfoBtnGroup")
@@ -19,11 +20,11 @@ $(document).ready(function () {
     let riBackBTN = $("#ri-back-btn")
     let riSubmitBTN = $("#ri-submit-btn")
 
-    let socialInfoHeader = $("#socialInfo-Header")
-    let siButtonGroup = $("#socialInfoBtnGroup")
-    let siUpdateBTN = $("#si-update-btn")
-    let siBackBTN = $("#si-back-btn")
-    let siSubmitBTN = $("#si-submit-btn")
+    let qualificationsInfoHeader = $("#QualificationInfo-Header")
+    let qiButtonGroup = $("#qualificationInfoBtnGroup")
+    let qiUpdateBTN = $("#qi-update-btn")
+    let qiBackBTN = $("#qi-back-btn")
+    let qiSubmitBTN = $("#qi-submit-btn")
 
     let cardInfoHeader = $("#paymentInfo-Header")
     let ciButtonGroup = $("#cardInfoBtnGroup")
@@ -37,10 +38,10 @@ $(document).ready(function () {
     piSubmitBTN.hide()
     riSubmitBTN.hide()
     riBackBTN.hide()
-    siSubmitBTN.hide()
-    siBackBTN.hide()
     ciSubmitBTN.hide()
     ciBackBTN.hide()
+    qiSubmitBTN.hide()
+    qiBackBTN.hide()
 
     displayFormToggle("personal")
 
@@ -69,14 +70,14 @@ $(document).ready(function () {
         }
     }
 
-    function socialInfoFormDisplayToggle(toggle){
+    function qualificationInfoFormDisplayToggle(toggle){
         if (toggle === false) {
-            siButtonGroup.hide()
-            socialInfoForm.hide()
+            qiButtonGroup.hide()
+            qualificationsForm.hide()
         }
         else if(toggle === true){
-            siButtonGroup.show()
-            socialInfoForm.show()
+            qiButtonGroup.show()
+            qualificationsForm.show()
         }
     }
 
@@ -97,43 +98,40 @@ $(document).ready(function () {
     function displayFormToggle(Form) {
 
         piUpdateBtnToggle(false)
-        siUpdateBtnToggle(false)
         ciUpdateBtnToggle(false)
         riUpdateBtnToggle(false)
+        qiUpdateBtnToggle(false)
+
+        qualificationInfoFormDisplayToggle(false)
+        cardInfoFormDisplayToggle(false)
+        personalInfoFormDisplayToggle(false)
+        residentialInfoFormDisplayToggle(false)
+
+
+
 
         enableFormInputs(personalInfoForm[0], false)
         enableFormInputs(residentialInfoForm[0], false)
-        enableFormInputs(socialInfoForm[0], false)
         enableFormInputs(cardInfoForm[0], false)
+        enableFormInputs(qualificationsForm[0], false)
 
 
         if (Form === "card"){
             activeTab(Form)
             cardInfoFormDisplayToggle(true)
-            socialInfoFormDisplayToggle(false)
-            personalInfoFormDisplayToggle(false)
-            residentialInfoFormDisplayToggle(false)
         }
         else if (Form === "personal"){
             activeTab(Form)
-            cardInfoFormDisplayToggle(false)
-            socialInfoFormDisplayToggle(false)
             personalInfoFormDisplayToggle(true)
-            residentialInfoFormDisplayToggle(false)
         }
         else if(Form === "residential"){
             activeTab(Form)
-            cardInfoFormDisplayToggle(false)
-            socialInfoFormDisplayToggle(false)
-            personalInfoFormDisplayToggle(false)
             residentialInfoFormDisplayToggle(true)
         }
-        else if(Form === "social"){
+        else if(Form === "qualification"){
             activeTab(Form)
-            cardInfoFormDisplayToggle(false)
-            socialInfoFormDisplayToggle(true)
-            personalInfoFormDisplayToggle(false)
-            residentialInfoFormDisplayToggle(false)
+            qualificationInfoFormDisplayToggle(true)
+
         }
     }
 /////////////////////////////////////////
@@ -148,11 +146,12 @@ $(document).ready(function () {
         residentialInfoHeader.removeClass("text-4xl")
         residentialInfoHeader.removeClass("text-pink-500")
 
-        socialInfoHeader.removeClass("text-4xl")
-        socialInfoHeader.removeClass("text-pink-500")
 
         cardInfoHeader.removeClass("text-4xl")
         cardInfoHeader.removeClass("text-pink-500")
+
+        qualificationsInfoHeader.removeClass("text-4xl")
+        qualificationsInfoHeader.removeClass("text-pink-500")
 //
 
 
@@ -166,15 +165,17 @@ $(document).ready(function () {
             residentialInfoHeader.addClass("text-4xl")
             residentialInfoHeader.addClass("text-pink-500")
         }
-        else if(Form === "social"){
-            socialInfoHeader.addClass("duration-300")
-            socialInfoHeader.addClass("text-4xl")
-            socialInfoHeader.addClass("text-pink-500")
-        }
+
         else if(Form === "card"){
             cardInfoHeader.addClass("duration-300")
             cardInfoHeader.addClass("text-4xl")
             cardInfoHeader.addClass("text-pink-500")
+        }
+
+        else if(Form === "qualification"){
+            qualificationsInfoHeader.addClass("duration-300")
+            qualificationsInfoHeader.addClass("text-4xl")
+            qualificationsInfoHeader.addClass("text-pink-500")
         }
     }
 
@@ -205,16 +206,16 @@ $(document).ready(function () {
         }
     }
 
-    function siUpdateBtnToggle(toggle) {
+    function qiUpdateBtnToggle(toggle) {
         update = toggle;
         if (update === false) {
-            siUpdateBTN.fadeIn(2000);
-            siBackBTN.fadeOut();
-            siSubmitBTN.fadeOut();
+            qiUpdateBTN.fadeIn(2000);
+            qiBackBTN.fadeOut();
+            qiSubmitBTN.fadeOut();
         } else {
-            siUpdateBTN.fadeOut();
-            siBackBTN.fadeIn(2000);
-            siSubmitBTN.fadeIn(2000);
+            qiUpdateBTN.fadeOut();
+            qiBackBTN.fadeIn(2000);
+            qiSubmitBTN.fadeIn(2000);
         }
     }
 
@@ -270,12 +271,13 @@ $(document).ready(function () {
         displayFormToggle("residential");
     });
 
-    socialInfoHeader.click(function (){
-        displayFormToggle("social");
-    });
 
     cardInfoHeader.click(function (){
         displayFormToggle("card");
+    });
+
+    qualificationsInfoHeader.click(function (){
+       displayFormToggle("qualification")
     });
 
 //////////////
@@ -316,20 +318,21 @@ $(document).ready(function () {
     });
 
 
-    siUpdateBTN.click(function () {
-        siUpdateBtnToggle(true)
-        enableFormInputs(socialInfoForm[0], true)
+    qiUpdateBTN.click(function () {
+        qiUpdateBtnToggle(true)
+        enableFormInputs(qualificationsForm[0], true)
     });
 
-    siBackBTN.click(function () {
-        siUpdateBtnToggle(false);
-        enableFormInputs(socialInfoForm[0], false)
+    qiBackBTN.click(function () {
+        qiUpdateBtnToggle(false);
+        enableFormInputs(qualificationsForm[0], false)
     });
 
-    siSubmitBTN.click(function () {
-        socialInfoForm[0].submit()
+    qiSubmitBTN.click(function () {
+        qualificationsForm[0].submit()
 
     });
+
 
     ciUpdateBTN.click(function () {
         ciUpdateBtnToggle(true)

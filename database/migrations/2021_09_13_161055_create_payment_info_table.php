@@ -16,11 +16,12 @@ class CreatePaymentInfoTable extends Migration
         Schema::create('payment_info', function (Blueprint $table) {
             $table->id("payment_info_id");
             $table->foreignId("student_id")->constrained("students","student_id")->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string("card_nbr");
-            $table->string("card_holder_nm");
-            $table->longText("billing_addr");
-            $table->string("exp_month");
-            $table->string("exp_year");
+            $table->string("card_nbr")->nullable();
+            $table->string("card_holder_nm")->nullable();
+            $table->longText("billing_addr")->nullable();
+            $table->integer("cvv")->nullable();
+            $table->string("exp_month")->nullable();
+            $table->string("exp_year")->nullable();
             $table->timestamps();
         });
     }

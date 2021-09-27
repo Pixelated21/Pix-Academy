@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Application;
 use App\Http\Controllers\Components_Testing;
 use App\Http\Controllers\Contact;
+use App\Http\Controllers\Course;
 use App\Http\Controllers\Courses;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Homepage;
@@ -38,9 +39,18 @@ Route::post('/logout',[Login::class,'logout'])->name("logout");
 // User Access
 
 Route::get('/application',[Application::class,'index']);
-Route::get('/home',[Homepage::class,'index']);
+Route::get('/',[Homepage::class,'index']);
 Route::get("/contact",[Contact::class,'index']);
+
+//// Courses
 Route::get("/courses",[Courses::class,'index']);
+
+//Single View
+Route::get("/courses/{course_id}",[Course::class,'singleCourseView']);
+
+//Course Registration
+Route::post("/courses/register",[Course::class,'courseApplication'])->name("On-Course-Application");
+////
 
 /// Dashboard
 Route::get('/dashboard',[Dashboard::class,'index']);
@@ -60,11 +70,14 @@ Route::post("/ciUpdate",[Profile::class,'paymentInfoUpdate']);
 
 ////
 
-// Admin
+// AdminController
 
-Route::get('/admin/home',[Admin::class,'index']);
+Route::get('/admin/home',[AdminController::class,'index']);
+Route::post('/admin/applicant/{id}',[AdminController::class,'viewApplicant'])->name("View-Applicant");
 
-// Admin Actions
+// AdminController Actions
+
+Route::post('/admin/addInstitution',[AdminController::class,'addInstitution'])->name("Add Institution");
 
 //
 

@@ -22,7 +22,7 @@
         <div class="top h-screen w-full bg-black overflow-hidden relative" >
             {{--                TODO give option to set a specific cover page or to randomize again--}}
 
-            <img id="profile-cover" style="filter: brightness(40%) blur(3px)" src="https://source.unsplash.com/random" alt="" class="bg w-full h-full object-cover object-center absolute z-0">
+            <img id="profile-cover" style="filter: brightness(40%) blur(3px)" src="{{$student[0]["student"]["media"][0]["cover_pic"]}}" alt="" class="bg w-full h-full object-cover object-center absolute z-0">
 
             <div class="flex flex-col justify-center items-center relative h-full bg-black bg-opacity-50 text-white">
 
@@ -30,10 +30,12 @@
                 @csrf
                     <label>
                     <input name="profilePicture" class="hidden" id="file" type="file" {{--onchange="changeImage(event)"--}}/>
-                    <img id="output" src="{{Auth::user()->profile_picture}}" class="mb-20 h-56 w-56 object-cover rounded-full">
+                    <img id="output" src="{{$student[0]["student"]["media"][0]["profile_pic"]}}" class="mb-20 h-56 w-56 object-cover rounded-full">
                 </label>
                 </form>
-                <h1 class="text-2xl font-semibold">{{ucfirst(strtolower(Auth::user()->first_name))}} {{ucfirst(strtolower(Auth::user()->last_name))}}</h1>
+                <h1 class="text-2xl font-semibold">{{ucwords(strtolower($student[0]["student"]["first_nm"]))}} {{ucwords(strtolower($student[0]["student"]["last_nm"]))}}
+
+                </h1>
                 <h4 class=" font-semibold">Joined Since: {{date('d F Y',strtotime(Auth::user()->created_at))}}</h4>
             </div>
         </div>
@@ -60,7 +62,3 @@
 </body>
 </html>
 
-<script>
-    let profile_cover = $("#profile-cover")
-    console.log(profile_cover)
-</script>
