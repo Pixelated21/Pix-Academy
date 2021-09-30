@@ -32,6 +32,11 @@ class Payment_Activity extends Model
     protected $primaryKey = "payment_activity";
     protected $table = "payment_activity";
 
+    protected $fillable = [
+      'amount_paid',
+        'payment_info_id',
+    ];
+
     public function payment_activity(){
         return $this->belongsTo(Payment_info::class);
     }

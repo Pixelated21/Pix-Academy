@@ -65,6 +65,14 @@ class Student extends Model
     protected $primaryKey = "student_id";
     protected $table = "students";
 
+    protected $fillable = [
+      'addr_ln_1',
+      'tele_nbr',
+      'city_nm',
+      'parish_nm',
+      'postal_zone'
+    ];
+
 public function users(){
     return $this->belongsTo(User::class,"user_id","user_id");
 }

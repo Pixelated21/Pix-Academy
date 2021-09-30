@@ -2,7 +2,7 @@ $(document).ready(function (){
 
     let course_card_btn = $("#course_card_btn"),
         institution_card_btn = $("#institution_card_btn"),
-        payment_activity_card_btn = $("#payment_activity_card_btn"),
+        applicant_card_btn = $("#applicant_card_btn"),
 
         all_course_btn = $("#view_all_course-btn"),
         all_user_activity_btn = $("#view_all_user_activity"),
@@ -13,6 +13,7 @@ $(document).ready(function (){
         institution_view = $("#institution-view"),
         user_activity = $("#user-activity-view"),
         payment_activity = $("#payment-activity-view"),
+        setting_view = $('#settings-view'),
 
         show_course_view = $("#show-course-view"),
         add_course_view = $("#add-course-view"),
@@ -30,7 +31,10 @@ $(document).ready(function (){
         course_btn = $("#course-btn"),
         inst_btn = $("#institution-btn"),
         userActivity_btn = $("#user_activity-btn"),
-        payActivity_btn = $("#payment_activity-btn")
+        payActivity_btn = $("#payment_activity-btn"),
+        settings_btn = $("#settings-btn")
+
+    // console.log(settings_btn)
 
 
 
@@ -93,58 +97,34 @@ $(document).ready(function (){
             institution_view.hide()
             user_activity.hide()
             payment_activity.hide()
+            setting_view.hide()
 
             activeTabView(form)
 
             if (form === "dashboard"){
                 dash_view.show()
-                appli_view.hide()
-                course_view.hide()
-                institution_view.hide()
-                user_activity.hide()
-                payment_activity.hide()
             }
             if (form === "application"){
-                dash_view.hide()
                 appli_view.show()
-                course_view.hide()
-                institution_view.hide()
-                user_activity.hide()
-                payment_activity.hide()
             }
             if (form === "course"){
                 coursesBtnControl("show")
-                dash_view.hide()
-                appli_view.hide()
                 course_view.show()
-                institution_view.hide()
-                user_activity.hide()
-                payment_activity.hide()
             }
             if (form === "institution"){
                 institutionBtnControl("show")
-                dash_view.hide()
-                appli_view.hide()
-                course_view.hide()
                 institution_view.show()
-                user_activity.hide()
-                payment_activity.hide()
+
             }
             if (form === "user_activity"){
-                dash_view.hide()
-                appli_view.hide()
-                course_view.hide()
-                institution_view.hide()
+
                 user_activity.show()
-                payment_activity.hide()
             }
             if (form === "payment_activity"){
-                dash_view.hide()
-                appli_view.hide()
-                course_view.hide()
-                institution_view.hide()
-                user_activity.hide()
                 payment_activity.show()
+            }
+            if (form === "settings"){
+                setting_view.show()
             }
 
 
@@ -178,6 +158,10 @@ $(document).ready(function (){
             payActivity_btn.removeClass("border-l-4")
             payActivity_btn.removeClass("border-pink-500")
 
+           settings_btn.removeClass("bg-pink-700")
+            settings_btn.removeClass("border-l-4")
+            settings_btn.removeClass("border-pink-500")
+
             if (form === "dashboard"){
                 dash_btn.addClass("bg-pink-700")
                 dash_btn.addClass("border-l-4")
@@ -208,6 +192,12 @@ $(document).ready(function (){
                 payActivity_btn.addClass("border-l-4")
                 payActivity_btn.addClass("border-pink-500")
             }
+            if (form === "settings"){
+                settings_btn.addClass("bg-pink-700")
+                settings_btn.addClass("border-l-4")
+                settings_btn.addClass("border-pink-500")
+            }
+
 
         }
 
@@ -221,8 +211,8 @@ $(document).ready(function (){
             adminFormDisplay("institution")
         });
 
-        payment_activity_card_btn.on("click",function (){
-            adminFormDisplay("payment_activity")
+        applicant_card_btn.on("click",function (){
+            adminFormDisplay("application")
         });
 
 
@@ -259,6 +249,10 @@ $(document).ready(function (){
 
         payActivity_btn.on("click",function (){
             adminFormDisplay("payment_activity")
+        });
+
+        settings_btn.on("click",function (){
+            adminFormDisplay("settings")
         });
 
 

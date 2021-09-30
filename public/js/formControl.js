@@ -32,6 +32,9 @@ $(document).ready(function () {
     let ciBackBTN = $("#ci-back-btn")
     let ciSubmitBTN = $("#ci-submit-btn")
 
+    let qualificationImageForm = $("#qualImageChanger"),
+        passportImageForm = $("#passImageChanger")
+
     let update;
 
     piBackBTN.hide()
@@ -320,17 +323,19 @@ $(document).ready(function () {
 
     qiUpdateBTN.click(function () {
         qiUpdateBtnToggle(true)
-        enableFormInputs(qualificationsForm[0], true)
+        enableFormInputs(qualificationImageForm[0], true)
+        enableFormInputs(passportImageForm[0], true)
     });
 
     qiBackBTN.click(function () {
         qiUpdateBtnToggle(false);
-        enableFormInputs(qualificationsForm[0], false)
+        enableFormInputs(qualificationImageForm[0], false)
+        enableFormInputs(passportImageForm[0], false)
     });
 
     qiSubmitBTN.click(function () {
-        qualificationsForm[0].submit()
-
+        qualificationImageForm.submit()
+        passportImageForm.submit()
     });
 
 

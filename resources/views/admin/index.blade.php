@@ -149,7 +149,6 @@
 
             <div id="applicant-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
 
-                <!-- Social Traffic -->
                 <div
                     class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                     <div class="rounded-t mb-0 px-0  border-0">
@@ -202,31 +201,7 @@
                                         </td>
 
                                         <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                            <form>
-                                                <button class="py-2 bg-pink-400 px-4 font-bold rounded">View</button>
-                                            </form>
-
-                                        </td>
-
-
-                                    </tr>
-                                    <tr class="text-gray-700 dark:text-gray-100">
-                                        <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>
-                                        <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                            {{$applicant['student'][0]['last_nm']}}</td>
-                                        <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                            <div class="flex justify-center items-center">
-                                                <span
-                                                    class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>
-                                            </div>
-                                        </td>
-
-                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                            {{\App\Models\Course::find($applicant['course_id'])->course_nm}}
-                                        </td>
-
-                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                            <form method="post" action="{{url("/admin/applicant/".$applicant['student'][0]['users']['user_id'])}}">
+                                            <form method="post" action="{{route("View-Applicant",[$applicant["course_applicants_id"],$applicant['student'][0]['users']['user_id']])}}">
                                                 @csrf
                                                 <button class="py-2 bg-pink-400 px-4 font-bold rounded">View</button>
                                             </form>
@@ -252,7 +227,6 @@
 
             <div id="course-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
 
-                <!-- Social Traffic -->
                 <div
                     class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                     <div class="rounded-t mb-0 px-0  border-0">
@@ -784,7 +758,6 @@
 
             <div id="user-activity-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
 
-                <!-- Social Traffic -->
                 <div
                     class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                     <div class="rounded-t mb-0 px-0  border-0">
@@ -964,7 +937,6 @@
 
             <div id="payment-activity-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
 
-                <!-- Social Traffic -->
                 <div
                     class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                     <div class="rounded-t mb-0 px-0  border-0">
@@ -1141,6 +1113,118 @@
 
             <!-- Recent Activities -->
                 <!-- ./Recent Activities -->
+            </div>
+
+
+            <div id="settings-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
+
+                <div
+                    class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
+                    <div class="rounded-t mb-0 px-0  border-0">
+                        <div class="flex flex-wrap items-center top-0 sticky bg-gray-100   px-4 py-4">
+                            <div class="relative w-full max-w-full flex-grow   flex-1">
+                                <div
+                                    class="font-semibold flex gap-10 justify-around text-base text-2xl text-center text-gray-900  dark:text-gray-50">
+                                    <div class="bg-orange-400  font-bold rounded py-2 h-full w-2/3">Settings</div>
+                                    <button class="bg-blue-500 font-bold rounded py-2 h-full w-1/3">All Applicants XML</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="block w-full">
+                            <table id="show-course-view" class="items-center w-full bg-transparent border-collapse">
+                                <thead class="top-20 sticky">
+                                <tr>
+                                    <th class=" bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                       ID
+                                    </th>
+                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        First Name
+                                    </th>
+                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Last Name
+                                    </th>
+                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Gender
+                                    </th>
+                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        DOB
+                                    </th>
+
+                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Telephone NBR
+                                    </th>
+
+                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
+                                        Course
+                                    </th>
+                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
+                                        Action
+                                    </th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+
+                                @forelse($acceptedApplicants as $acceptedApplicant)
+                                <tr>
+
+                                    <td class="border-t-0 font-bold text-center align-middle border-l-0 border-r-0 text-xs  p-4 text-left">
+                                        {{$acceptedApplicant['student'][0]['student_id']}}
+                                    </td>
+                                    <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs  p-4">
+                                        {{$acceptedApplicant['student'][0]['first_nm']}}
+                                    </td>
+                                    <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs  p-4">
+
+                                        <div class="flex justify-center items-center">
+                                            <span class="mr-2 font-bold text-center">
+                                                {{$acceptedApplicant['student'][0]['last_nm']}}
+                                            </span>
+                                        </div>
+                                    </td>
+
+                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+{{--                                        {{$acceptedApplicant['student'][0]['gender']}}--}}
+                                        Male
+                                    </td>
+
+                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs p-4 text-center">
+                                        {{$acceptedApplicant['student'][0]['dob']}}
+                                    </td>
+
+
+                                    <td class="border-t-0 font-bold align-middle border-l-0 border-r-0 text-xs  p-4 text-center">
+                                        {{$acceptedApplicant['student'][0]['tele_nbr']}}
+                                    </td>
+
+                                    <td class="border-t-0 font-bold align-middle border-l-0 border-r-0 text-xs  p-4 text-center">
+                                        {{\App\Models\Course::find((int)$acceptedApplicant['course_id'])->course_nm}}
+                                    </td>
+
+                                    <td class="border-t-0  font-bold  align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                       <button>
+                                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                           </svg>
+                                       </button>
+                                    </td>
+
+
+                                </tr>
+                                    @empty
+
+                                @endforelse
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>

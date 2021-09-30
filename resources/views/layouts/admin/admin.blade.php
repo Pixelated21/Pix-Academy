@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div
-                    id="payment_activity_card_btn"
+                    id="applicant_card_btn"
                     class="bg-black cursor-pointer hover:bg-gray-800 duration-300 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-pink-600 dark:border-gray-600 text-white font-medium group">
                     <div
                         class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
@@ -85,8 +85,8 @@
                         </svg>
                     </div>
                     <div class="text-right cursor-pointer">
-                        <p class="text-2xl">$75,257</p>
-                        <p>Income</p>
+                        <p class="text-2xl">{{$applicationCount}}</p>
+                        <p>Applications</p>
                     </div>
                 </div>
             </div>

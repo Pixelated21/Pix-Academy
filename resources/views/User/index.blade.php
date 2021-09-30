@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Amber-Heart Academy</title>
 </head>
 <style>
     html {
@@ -50,14 +50,14 @@
 <body>
 <div>
     <header class="bg-black" x-data="{ isOpen: false }">
-        {{--        <video--}}
-        {{--            autoplay--}}
-        {{--            muted--}}
-        {{--            loop--}}
-        {{--            preload="auto"--}}
-        {{--            class="absolute" style="filter: grayscale(0.3) contrast(1.5) opacity(0.1) blur(2px);">--}}
-        {{--            <source src="{{"/media/pix-academy.mp4"}}" type="video/mp4"/>--}}
-        {{--        </video>--}}
+        {{--                <video--}}
+        {{--                    autoplay--}}
+        {{--                    muted--}}
+        {{--                    loop--}}
+        {{--                    preload="auto"--}}
+        {{--                    class="absolute object-cover" style="filter: grayscale(0.3) contrast(1.5) opacity(0.1) blur(2px);">--}}
+        {{--                    <source src="{{"/media/pix-academy.mp4"}}" type="video/mp4"/>--}}
+        {{--                </video>--}}
 
         <nav
             class="container relative  sticky z-50 w-screen top-0 px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
@@ -162,7 +162,7 @@
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
 
-                    <h3 class="text-3xl font-semibold text-gray-800">With Over A  99% Success Rate</h3>
+                    <h3 class="text-3xl font-semibold text-gray-800">With Over A 99% Success Rate</h3>
                     <p class="max-w-md mt-4 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Dignissimos dolorum, excepturi harum ipsa officia praesentium tempore voluptatem? Accusantium
                         alias beatae corporis deserunt eos, excepturi impedit iste iusto mollitia nesciunt odio officiis
@@ -385,7 +385,6 @@
 
 
     <footer class="border-t bg-gray-200 ">
-
         <x-user.footer/>
     </footer>
 </div>

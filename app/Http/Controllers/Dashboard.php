@@ -22,7 +22,7 @@ class Dashboard extends Controller
 
         $applications = $appWithStudent[0]['course_application'];
 
-//        dd($applications);
+//        dd($student);
 
 //        dd($applications);
 

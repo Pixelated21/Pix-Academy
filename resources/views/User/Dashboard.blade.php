@@ -1,6 +1,7 @@
 @extends('layouts.profile')
 
 
+@section("Page_Title",'Dashboard')
 
 @section('Content')
 
@@ -43,7 +44,8 @@
 
                                 @foreach($applications as $application)
 
-                                <tr class="bg-gray-800">
+
+                                    <tr class="bg-gray-800">
                                     <td class=" h-36">
                                         <div class="flex relative h-full w-full align-items-center">
                                             <img style="filter: brightness(40%) grayscale(10%) blur(2px)" class="bg rounded-l-xl w-full h-full object-cover object-center absolute z-0" src="{{\App\Models\Course::find($application["course_id"])->course_img}}" alt="unsplash image">
@@ -92,9 +94,11 @@
 
                                         @elseif($application["payment_status"] === 'Not Paid' && $application["status"] === 'Accepted' )
 
-                                            <a  class="text-gray-400 hover:text-gray-100 mr-2">
-                                                <span class="bg-pink-500 cursor-pointer text-gray-50 rounded-md px-2 py-2">Make Payment</span>
-                                            </a>
+
+                                            <form method="post" action="{{route("Payment",[$application['course_applicants_id'],$application['course_id'],$student[0]['student']['payment_info'][0]["payment_info_id"]])}}"  class="text-gray-400 hover:text-gray-100 mr-2">
+                                                @csrf
+                                                <button class="bg-pink-500 cursor-pointer text-gray-50 rounded-md px-2 py-2">Make Payment</button>
+                                            </form>
 
                                         @else
                                             <a  class="text-gray-400 hover:text-gray-100 mr-2">

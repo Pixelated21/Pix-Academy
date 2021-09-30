@@ -20,9 +20,6 @@ class Profile extends Controller
     {
 
 
-
-
-
         $currentImage = "/public/media/" . uniqid('', true) . "." . $request->file("profilePicture")->getClientOriginalExtension();
 
         $saveImage = $request->file("profilePicture")->storeAs("/", $currentImage);
@@ -30,7 +27,7 @@ class Profile extends Controller
 
         User_Activity::create([
             'activity_type' => "Profile Picture Update",
-            "student_id" => Student::with('course_application')->where("user_id","=", \Illuminate\Support\Facades\Auth::user()->user_id)->first()->student_id,
+            "student_id" => Student::with('course_application')->where("user_id","=", Auth::user()->user_id)->first()->student_id,
         ]);
 
         if (Media::where("student_id", '=', Student::where("user_id", '=', Auth::user()->user_id)->first()->student_id)->first()->profile_pic !== "/public/media/default_profile.jpg") {
@@ -77,7 +74,7 @@ class Profile extends Controller
 
         User_Activity::create([
             'activity_type' => "Personal Info Update",
-            "student_id" => Student::with('course_application')->where("user_id","=", \Illuminate\Support\Facades\Auth::user()->user_id)->first()->student_id,
+            "student_id" => Student::with('course_application')->where("user_id","=", Auth::user()->user_id)->first()->student_id,
         ]);
 
 
@@ -88,7 +85,7 @@ class Profile extends Controller
     public function residentialInfoUpdate(Request $request)
     {
 
-        $userResInfoUpdate = Student::where("student_id", Auth::user()->user_id)
+        $userResInfoUpdate = Student::where("student_id",'=', Auth::user()->user_id)
             ->update(["addr_ln_1" => $request->get("street_address"),
                 "city_nm" => $request->get("district_town"),
                 "postal_zone" => $request->get("postal_zone"),
@@ -96,10 +93,66 @@ class Profile extends Controller
 
         User_Activity::create([
             'activity_type' => "Residential Information Update",
-            "student_id" => Student::with('course_application')->where("user_id","=", \Illuminate\Support\Facades\Auth::user()->user_id)->first()->student_id,
+            "student_id" => Student::with('course_application')->where("user_id","=", Auth::user()->user_id)->first()->student_id,
         ]);
 
         return redirect("/dashboard/profile#header");
+    }
+
+    public function qualificationsUpdate(Request $request){
+
+
+        // Qualifications Update Process
+
+        $qualificationImage = "/public/media/" . uniqid('', true) . "." . $request->file("qualImg")->getClientOriginalExtension();
+
+        $saveQualImage = $request->file("qualImg")->storeAs("/", $qualificationImage);
+
+
+        User_Activity::create([
+            'activity_type' => "Qualifications Update",
+            "student_id" => Student::with('course_application')->where("user_id","=", Auth::user()->user_id)->first()->student_id,
+        ]);
+        ///
+
+
+
+        $deletePreviousQual = Storage::delete(Media::where("student_id", '=', Student::where("user_id", '=', Auth::user()->user_id)->first()->student_id)->first()->qualification_pic);
+
+
+        $qualImage = Media::where("student_id",'=',Student::where('user_id','=',Auth::user()->user_id)->first()->student_id)
+            ->update([
+                'qualification_pic' => $qualificationImage,
+            ]);
+
+
+        return redirect("/dashboard/profile#header");
+    }
+
+    public function passportUpdate(Request $request) {
+
+        // Passport Update Process
+        $passportImage = "/public/media/" . uniqid('', true) . "." . $request->file("passportImg")->getClientOriginalExtension();
+
+        $savePassPImage = $request->file("passportImg")->storeAs("/", $passportImage);
+
+
+        User_Activity::create([
+            'activity_type' => "Passport Image Update",
+            "student_id" => Student::with('course_application')->where("user_id","=", Auth::user()->user_id)->first()->student_id,
+        ]);
+
+
+        $deletePreviousPassP = Storage::delete(Media::where("student_id", '=', Student::where("user_id", '=', Auth::user()->user_id)->first()->student_id)->first()->passport_pic);
+
+        $passportImage = Media::where("student_id",'=',Student::where('user_id','=',Auth::user()->user_id)->first()->student_id)
+            ->update([
+                'passport_pic' => $passportImage,
+            ]);
+
+        return redirect("/dashboard/profile#header");
+
+        ///
     }
 
 
@@ -110,7 +163,9 @@ class Profile extends Controller
 
 //       dd(($request->all()));
         $userPaymentInfoUpdate = Payment_info::find(Payment_info::where("student_id",'=',Student::where('user_id','=',Auth::user()->user_id)->first()->student_id)->first()->student_id)
-                                    ->update(["billing_addr" => $request->get("billing_addr"),
+                                    ->update([
+
+                                        "billing_addr" => $request->get("billing_addr"),
                                     "cvv" => (($request->get("cvv"))),
                                     "card_nbr" => $request->get("card_number"),
                                     "card_holder_nm" => $request->get("card_holder_nm"),
@@ -119,7 +174,7 @@ class Profile extends Controller
 
         User_Activity::create([
             'activity_type' => "Payment Information Update",
-            "student_id" => Student::with('course_application')->where("user_id","=", \Illuminate\Support\Facades\Auth::user()->user_id)->first()->student_id,
+            "student_id" => Student::with('course_application')->where("user_id","=", Auth::user()->user_id)->first()->student_id,
         ]);
 
         return redirect("/dashboard/profile#header");

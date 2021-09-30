@@ -18,6 +18,8 @@ class CreateMediaTable extends Migration
             $table->foreignId("student_id")->constrained("students","student_id")->cascadeOnUpdate()->cascadeOnDelete();
             $table->string("profile_pic");
             $table->string("cover_pic");
+            $table->string("passport_pic")->nullable();
+            $table->string("qualification_pic")->nullable();
             $table->timestamps();
         });
     }

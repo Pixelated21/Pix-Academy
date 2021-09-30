@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string("email_addr")->unique();
             $table->string("account_type")->default("user");
             $table->string("account_stat")->default("active");
-            $table->string("verify_stat")->default("unverified");
             $table->string("password");
             $table->timestamps();
         });

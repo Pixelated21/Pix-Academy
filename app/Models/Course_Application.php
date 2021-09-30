@@ -40,14 +40,19 @@ class Course_Application extends Model
     protected $table = "course_applications";
 
     protected $fillable = [
-      'student_id',
-      'course_id',
-      'payment_status'
+        'student_id',
+        'course_id',
+        'payment_status',
+        'status'
     ];
-    public function course(){
+
+    public function course()
+    {
         return $this->belongsTo(Course::class);
     }
-    public function student(){
-        return $this->hasMany(Student::class,"student_id","student_id")->with(["media","users","payment_info"]);
+
+    public function student()
+    {
+        return $this->hasMany(Student::class, "student_id", "student_id")->with(["media", "users", "payment_info"]);
     }
 }

@@ -4,27 +4,36 @@
 @section('Content')
 
 
-{{--TODO Window Snap--}}
+    {{--TODO Window Snap--}}
 
     <section class=" bg-opacity-50 ">
         <div class="mx-auto h-full flex flex-col">
 
             <div id="header">
-            <x-user.profile_header/>
+                <x-user.profile_header/>
             </div>
 
-            <div class="md:inline-flex flex-col md:flex-row  bg-white space-y-4 justify-center md:space-y-0 w-full p-4 text-gray-500 items-center">
+            <div
+                class="md:inline-flex flex-col md:flex-row  bg-white space-y-4 justify-center md:space-y-0 w-full p-4 text-gray-500 items-center">
 
-                <button id="personalInfo-Header" class="md:w-1/5  mx-auto max-w-sm mb-3  text-center text-2xl">Personal</button>
-                <button id="residentialInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">Residential</button>
-                <button id="QualificationInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">Qualifications</button>
-                <button id="paymentInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">Payment</button>
+                <button id="personalInfo-Header" class="md:w-1/5  mx-auto max-w-sm mb-3  text-center text-2xl">
+                    Personal
+                </button>
+                <button id="residentialInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">
+                    Residential
+                </button>
+                <button id="QualificationInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">
+                    Qualifications
+                </button>
+                <button id="paymentInfo-Header" class="md:w-1/5 mx-auto max-w-sm mb-3  text-center text-2xl">Payment
+                </button>
 
             </div>
 
             <div class="bg-white dark:bg-black h-full flex flex-col items-center justify-start -mt-1  mt-0 space-y-6 0">
 
-                <form id="residentialInfo" action="{{url('/riUpdate')}}" method="post" class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
+                <form id="residentialInfo" action="{{url('/riUpdate')}}" method="post"
+                      class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
                     @csrf
 
                     <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
@@ -43,7 +52,7 @@
                         </div>
 
 
-{{--                        {{dd(Auth::user())}}--}}
+                        {{--                        {{dd(Auth::user())}}--}}
                         <div class="md:w-full max-w-sm mx-auto">
                             <label class="text-sm text-gray-400">District / Town</label>
                             <div class="w-full inline-flex">
@@ -105,7 +114,8 @@
 
                 </form>
 
-                <form id="personalInfo" action="{{url('/periUpdate')}}" method="post" class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
+                <form id="personalInfo" action="{{url('/periUpdate')}}" method="post"
+                      class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
                     @csrf
 
                     <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
@@ -218,7 +228,8 @@
                     </div>
                 </form>
 
-                <form id="paymentInfo" action="{{url('/ciUpdate')}}" method="post" class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
+                <form id="paymentInfo" action="{{url('/ciUpdate')}}" method="post"
+                      class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
                     @csrf
 
                     <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
@@ -236,7 +247,7 @@
                             </div>
                         </div>
                         <div class="md:w-full max-w-sm mx-auto">
-{{--                            TODO explode and hide certain parts of the value--}}
+                            {{--                            TODO explode and hide certain parts of the value--}}
                             <label class="text-sm text-gray-400">Card Number</label>
                             <div class="w-full inline-flex">
                                 <input
@@ -295,7 +306,7 @@
 
                                             <option selected value="{{$i}}">{{$i}}</option>
                                         @else
-                                        <option value="{{$i}}">{{$i}}</option>
+                                            <option value="{{$i}}">{{$i}}</option>
                                         @endif
                                     @endfor
 
@@ -316,7 +327,7 @@
                                         @if ($i < 10)
                                             <option value="{{$i}}">0{{$i}}</option>
                                         @else
-                                        <option value="{{$i}}">{{$i}}</option>
+                                            <option value="{{$i}}">{{$i}}</option>
                                         @endif
 
                                     @endfor
@@ -328,45 +339,73 @@
                     </div>
                 </form>
 
-                <form id="qualificationInfo" action="{{url('/qiUpdate')}}" method="post" class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
+                <div id="qualificationInfo"
+                     class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
                     @csrf
 
                     <div class="grid-cols-1 md:grid-cols-2 gap-10 grid w-full ">
 
                         <div class=" text-center">
 
-{{--                            <form method="post" enctype="multipart/form-data"  id="imageChanger" action="">--}}
-                                    <img id="output" src="{{$student[0]["student"]["media"][0]["profile_pic"]}}" class="mb-2 h-72 w-full object-cover rounded-t-2xl ">
+                            <form method="post" enctype="multipart/form-data" id="qualImageChanger"
+                                  action="{{route("Qualifications-Update")}}">
+                                @csrf
+                                <img id="qualOutput"
+                                     src="@if (empty($student[0]["student"]["media"][0]["qualification_pic"]))
+
+
+                                         /public/media/addDocument.jpg
+
+                                     @else
+
+                                     {{$student[0]["student"]["media"][0]["qualification_pic"]}}
+
+                                     @endif" class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
                                 <label>
                                     <span class="h-full">
                                         <div class="bg-pink-500 rounded-b-2xl text-white text-2xl py-5">Add Picture Of Qualification</div>
-                                    <input name="profilePicture" class=" hidden" id="file" type="file" onchange="changeImage(event)"/>
+                                    <input name="qualImg" class=" hidden" id="qualImgInput" type="file"
+                                           onchange="submit()"/>
                                     </span>
                                 </label>
-{{--                            </form>--}}
+                            </form>
 
                         </div>
 
                         <div class="text-center">
 
-{{--                            <form method="post" enctype="multipart/form-data"  id="imageChanger" action="">--}}
-                                <img id="output" src="{{$student[0]["student"]["media"][0]["profile_pic"]}}" class="mb-2 h-72 w-full object-cover rounded-t-2xl ">
+                            <form method="post" enctype="multipart/form-data" id="passImageChanger"
+                                  action="{{route("Passport-Update")}}">
+                                @csrf
+                                <img id="passportOutput"
+                                     src="@if (empty($student[0]["student"]["media"][0]["passport_pic"]))
+
+                                         /public/media/addFile.png
+
+                                     @else
+
+                                            {{$student[0]["student"]["media"][0]["passport_pic"]}}
+
+                                     @endif" class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
                                 <label>
                                     <span class="h-full">
                                         <div class="bg-pink-500 rounded-b-2xl text-white text-2xl py-5">Add Passport Size Picture</div>
-                                    <input name="profilePicture" class=" hidden" id="file" type="file" onchange="changeImage(event)"/>
+                                    <input name="passportImg" class=" hidden" id="passportImgInput" type="file"
+                                           onchange="submit()"/>
                                     </span>
                                 </label>
-{{--                            </form>--}}
+                            </form>
                         </div>
 
 
                     </div>
 
-                </form>
+                </div>
 
-                <div id="personalInfoBtnGroup" class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
-                    <button id="pi-update-btn" class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                <div id="personalInfoBtnGroup"
+                     class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
+                    <button id="pi-update-btn"
+                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg
                             fill="none"
                             class="w-4 text-white mr-2"
@@ -383,7 +422,8 @@
                         Update
                     </button>
 
-                    <button id="pi-back-btn" class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                    <button id="pi-back-btn"
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -391,28 +431,35 @@
                              stroke="currentColor">
                             <path
                                 stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M15 19l-7-7 7-7" />
+                                d="M15 19l-7-7 7-7"/>
                         </svg>
                         <p class="font-medium">Back</p>
                     </button>
 
-                    <button id="pi-submit-btn" class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                    <button id="pi-submit-btn"
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"
                              viewBox="0 0 20 20"
                              fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd"
+                                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"/>
+                            <path fill-rule="evenodd"
+                                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"/>
                         </svg>
                     </button>
 
                 </div>
 
-                <div id="residentialInfoBtnGroup" class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
-                    <button id="ri-update-btn" class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                <div id="residentialInfoBtnGroup"
+                     class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
+                    <button id="ri-update-btn"
+                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg
                             fill="none"
                             class="w-4 text-white mr-2"
@@ -429,7 +476,8 @@
                         Update
                     </button>
 
-                    <button id="ri-back-btn" class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                    <button id="ri-back-btn"
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -437,28 +485,36 @@
                              stroke="currentColor">
                             <path
                                 stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M15 19l-7-7 7-7" />
+                                d="M15 19l-7-7 7-7"/>
                         </svg>
                         <p class="font-medium">Back</p>
                     </button>
 
-                    <button id="ri-submit-btn" class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                    <button id="ri-submit-btn"
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"
                              viewBox="0 0 20 20"
                              fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd"
+                                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"/>
+                            <path fill-rule="evenodd"
+                                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"/>
                         </svg>
                     </button>
 
                 </div>
 
-                <div id="qualificationInfoBtnGroup" class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
-                    <button id="qi-update-btn" class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+
+                <div id="cardInfoBtnGroup"
+                     class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
+                    <button id="ci-update-btn"
+                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg
                             fill="none"
                             class="w-4 text-white mr-2"
@@ -475,82 +531,42 @@
                         Update
                     </button>
 
-                    <button id="qi-back-btn" class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                    <button id="ci-back-btn"
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
                              viewBox="0 0 24 24"
                              stroke="currentColor">
-                            <path
-                                stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M15 19l-7-7 7-7" />
-                        </svg>
-                        <p class="font-medium">Back</p>
-                    </button>
-
-                    <button id="qi-submit-btn" class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
-                        <p class="font-medium">Submit</p>
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-4 font-bold text-white ml-2"
-                             viewBox="0 0 20 20"
-                             fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-
-                </div>
-
-                <div id="cardInfoBtnGroup" class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
-                    <button id="ci-update-btn" class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
-                        <svg
-                            fill="none"
-                            class="w-4 text-white mr-2"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                            />
-                        </svg>
-                        Update
-                    </button>
-
-                    <button id="ci-back-btn" class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-4 font-extrabold text-white mr-2"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor">
-                            <path
-                                stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M15 19l-7-7 7-7" />
+                                d="M15 19l-7-7 7-7"/>
                         </svg>
                         <p class="font-medium">Back</p>
                     </button>
 
-                    <button id="ci-submit-btn" class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                    <button id="ci-submit-btn"
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"
                              viewBox="0 0 20 20"
                              fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd"
+                                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"/>
+                            <path fill-rule="evenodd"
+                                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"/>
                         </svg>
                     </button>
 
                 </div>
             </div>
         </div>
-{{--        TODO ADJUST BACK TO MENU ON REFRESH--}}
+        {{--        TODO ADJUST BACK TO MENU ON REFRESH--}}
     </section>
 
 
