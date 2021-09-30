@@ -21,19 +21,23 @@
 
 <div>
     <div class="w-full relative mt-0 shadow-2xl bg-black">
-        <div class="top h-screen w-full bg-black overflow-hidden relative" >
+        <div class="top h-screen w-full bg-black overflow-hidden relative">
             {{--                TODO give option to set a specific cover page or to randomize again--}}
 
-            <img id="profile-cover" style="filter: brightness(40%) blur(3px)" src="{{$student[0]["student"]["media"][0]["cover_pic"]}}" alt="" class="bg w-full h-full object-cover object-center absolute z-0">
+            <img id="profile-cover" style="filter: brightness(40%) blur(3px)"
+                 src="{{$student[0]["student"]["media"][0]["cover_pic"]}}" alt=""
+                 class="bg w-full h-full object-cover object-center absolute z-0">
 
             <div class="flex flex-col justify-center items-center relative h-full bg-black bg-opacity-50 text-white">
 
                 <form method="post" enctype="multipart/form-data" id="imageChanger" action="{{url("/ppChange")}}">
-                @csrf
+                    @csrf
                     <label>
-                    <input name="profilePicture" class="hidden" id="file" type="file" {{--onchange="changeImage(event)"--}}/>
-                    <img id="output" src="{{$student[0]["student"]["media"][0]["profile_pic"]}}" class="mb-20 h-56 w-56 object-cover rounded-full">
-                </label>
+                        <input name="profilePicture" class="hidden" id="file"
+                               type="file" {{--onchange="changeImage(event)"--}}/>
+                        <img id="output" src="{{$student[0]["student"]["media"][0]["profile_pic"]}}"
+                             class="mb-20 h-56 w-56 object-cover rounded-full">
+                    </label>
                 </form>
                 <h1 class="text-2xl font-semibold">{{ucwords(strtolower($student[0]["student"]["first_nm"]))}} {{ucwords(strtolower($student[0]["student"]["last_nm"]))}}
 
@@ -49,12 +53,12 @@
     <div id="sideBar" class=" h-screen">
         <!-- Sidebar -->
         <x-user.profile_sidebar/>
-{{--        Sidebar--}}
+        {{--        Sidebar--}}
     </div>
 
     <div class=" flex-col bg-white w-screen ">
 
-                @yield('Content')
+        @yield('Content')
 
     </div>
 

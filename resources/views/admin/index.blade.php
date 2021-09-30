@@ -1126,7 +1126,13 @@
                                 <div
                                     class="font-semibold flex gap-10 justify-around text-base text-2xl text-center text-gray-900  dark:text-gray-50">
                                     <div class="bg-orange-400  font-bold rounded py-2 h-full w-2/3">Settings</div>
-                                    <button class="bg-blue-500 font-bold rounded py-2 h-full w-1/3">All Applicants XML</button>
+                                    <div class=" w-2/3">
+                                        <form class="w-full" method="post" action="{{route("All Student XML")}}">
+                                            @csrf
+                                            <button type="submit" class="bg-blue-500 font-bold rounded py-2 h-full w-full">All Applicants XML</button>
+                                        </form>
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -1205,11 +1211,17 @@
                                     </td>
 
                                     <td class="border-t-0  font-bold  align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                       <button>
-                                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                           </svg>
-                                       </button>
+                                        <div class=" flex justify-center items-center">
+                                            <form class="w-full  flex items-center justify-center" method="post" action="{{route("Single Student XML",[$acceptedApplicant['student'][0]['student_id']])}}">
+                                                @csrf
+                                                <button type="submit" class="flex justify-center text-center font-bold rounded py-2 h-full w-full">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                                        </svg>
+                                                </button>
+                                            </form>
+                                        </div>
+
                                     </td>
 
 

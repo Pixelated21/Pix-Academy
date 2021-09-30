@@ -12,6 +12,7 @@ use App\Http\Controllers\Login;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\Register;
+use App\Http\Controllers\XMLController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,7 +56,7 @@ Route::post("/courses/register", [Course::class, 'courseApplication'])->name("On
 
 /// Dashboard
 Route::get('/dashboard', [Dashboard::class, 'index']);
-Route::post('/makePayment/{application_id}/{course_id}/{payment_id}',[PaymentController::class,"makePayment"])->name("Payment");
+Route::post('/makePayment/{application_id}/{course_id}/{payment_id}', [PaymentController::class, "makePayment"])->name("Payment");
 
 //Profile
 Route::get('/dashboard/profile', [Profile::class, 'ProfileView']);
@@ -68,8 +69,6 @@ Route::post("/siUpdate", [Profile::class, 'socialInfoUpdate']);
 Route::post("/ciUpdate", [Profile::class, 'paymentInfoUpdate']);
 Route::post("/qualUpdate", [Profile::class, 'qualificationsUpdate'])->name("Qualifications-Update");
 Route::post("/passUpdate", [Profile::class, 'passportUpdate'])->name("Passport-Update");
-
-
 ////
 
 // AdminController
@@ -81,8 +80,10 @@ Route::post('/admin/applicant/{application_id}/{student_id}', [AdminController::
 
 Route::post('/admin/addInstitution', [AdminController::class, 'addInstitution'])->name("Add Institution");
 
-
 Route::post('/admin/applicantAction/{application_id}/{course_id}', [AdminController::class, 'applicantAction'])->name("Admin_Applicant_Action");
+
+Route::post('/singleStudentXML/{student_id}', [XMLController::class, "singleStudent"])->name("Single Student XML");
+Route::post('/allStudentXML', [XMLController::class, "allStudent"])->name("All Student XML");
 
 //
 

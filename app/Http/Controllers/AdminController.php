@@ -24,7 +24,7 @@ class AdminController extends Controller
 
         $courses = Course::with('course_application')->where('status', '=', 'open')->orderBy('amt_enrolled', 'desc')->get()->toArray();
 
-        $applicants = Course_Application::with('student')->orderBy('created_at', 'desc')->where('status','=','Pending')->get()->toArray();
+        $applicants = Course_Application::with('student')->orderBy('created_at', 'desc')->where('status', '=', 'Pending')->get()->toArray();
 
         $coursesInfo = Course::orderBy('status', 'desc')->orderBy('amt_enrolled', 'desc')->get()->toArray();
 
@@ -32,7 +32,7 @@ class AdminController extends Controller
 
         $usersActivity = User_Activity::with('student')->orderBy('created_at', 'desc')->get()->toArray();
 
-        $acceptedApplicants = Course_Application::with('student')->orderBy('created_at', 'desc')->where('status','=','Accepted')->get()->toArray();
+        $acceptedApplicants = Course_Application::with('student')->orderBy('created_at', 'desc')->where('status', '=', 'Accepted')->get()->toArray();
 
 //        dd($usersActivity);
 //        dd($institutionsInfo);
@@ -42,12 +42,11 @@ class AdminController extends Controller
 //        dd($acceptedApplicants);
 
 
-
         return view('admin.index', compact('studentCount',
             'courseCount', 'institutionCount',
             'courses', 'applicants', 'coursesInfo',
             'institutionsInfo', 'usersActivity',
-            'usersActivityCard','applicationCount',
+            'usersActivityCard', 'applicationCount',
             'acceptedApplicants'));
 
     }
@@ -63,7 +62,7 @@ class AdminController extends Controller
         return view('admin.applicant', compact('studentInfo', 'application'));
     }
 
-    public function applicantAction(Request $request, int $application_id,int $course_id)
+    public function applicantAction(Request $request, int $application_id, int $course_id)
     {
 
         $decision = null;
@@ -74,7 +73,7 @@ class AdminController extends Controller
             $courseAmt = Course::find($course_id)->amt_enrolled;
 
             Course::find($course_id)->update([
-               'amt_enrolled' =>  $courseAmt++
+                'amt_enrolled' => $courseAmt++
             ]);
 
         } elseif ($request->has('rejected')) {
@@ -85,8 +84,6 @@ class AdminController extends Controller
         $update = Course_Application::find($application_id)->update([
             'status' => $decision,
         ]);
-
-
 
 
         return redirect(route('Admin-Home'));
