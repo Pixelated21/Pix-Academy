@@ -28,12 +28,16 @@
         <ul id="list" class="flex flex-col py-5 space-y-2">
             <li class="px-5 mt-4 hidden md:block">
                 <div class="flex flex-col items-center h-8 ">
-                    <a href="{{url('/')}}"><p class="text-2xl font-extrabold"><span class="text-pink-600">Pix</span>-<span class="text-yellow-400">Ac</span><span class="text-green-400">ade</span><span class="text-gray-600">my</span></p></a>
+                    <a class="text-lg font-extrabold text-gray-700 transition-colors duration-300 transform md:text-md hover:text-white"
+                       {{--                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span></a>--}}
+                       href="{{route("User-Home")}}"><span class="text-orange-500">Amber</span>-<span class="text-blue-600">HEART</span>
+                        Academy
+                    </a>
                 </div>
             </li>
 
             <li class="pt-20">
-                <a href="{{url("/dashboard#header")}}" id="dashboard-btn" class="relative inactive  flex flex-row items-center h-11 focus:outline-none hover:bg-pink-800 duration-500 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-pink-500 dark:hover:border-gray-800 pr-6">
+                <a href="{{url("/dashboard#header")}}" id="dashboard-btn" class="relative inactive  flex flex-row items-center h-11 focus:outline-none hover:bg-orange-600 duration-500 text-white-600 border-l-4 border-black hover:border-blue-600  pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                 </span>
@@ -41,7 +45,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{url("/courses")}}" class="relative flex flex-row items-center inactive h-11 focus:outline-none hover:bg-pink-800 duration-500 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-pink-500 dark:hover:border-gray-800 pr-6">
+                <a href="{{url("/courses")}}" class="relative inactive  flex flex-row items-center h-11 focus:outline-none hover:bg-orange-600 duration-500 text-white-600 border-l-4 border-black hover:border-blue-600  pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
                 </span>
@@ -57,7 +61,7 @@
                 </div>
             </li>
             <li>
-                <a href="{{url('/dashboard/profile#header')}}" id="customize-profile-btn" class="relative flex flex-row items-center inactive h-11 focus:outline-none hover:bg-pink-800 dark:hover:bg-gray-600 text-white-600 duration-500 hover:text-white-800 border-l-4 border-transparent hover:border-pink-500 dark:hover:border-gray-800 pr-6">
+                <a href="{{url('/dashboard/profile#header')}}" id="customize-profile-btn" class="relative inactive  flex flex-row items-center h-11 focus:outline-none hover:bg-orange-600 duration-500 text-white-600 border-l-4 border-black hover:border-blue-600  pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </span>
@@ -65,7 +69,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="relative flex flex-row items-center h-11 inactive focus:outline-none hover:bg-pink-800 dark:hover:bg-gray-600 text-white-600 duration-500 hover:text-white-800 border-l-4 border-transparent hover:border-pink-500 dark:hover:border-gray-800 pr-6">
+                <a href="#" class="relative inactive  flex flex-row items-center h-11 focus:outline-none hover:bg-orange-600 duration-500 text-white-600 border-l-4 border-black hover:border-blue-600  pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
@@ -76,7 +80,7 @@
                 </a>
             </li>
             <li>
-                <form method="post" action="{{route("logout")}}"  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-red-600 dark:hover:bg-gray-600 text-white-600 duration-500 hover:text-white-800 border-l-4 border-transparent hover:border-pink-500 dark:hover:border-gray-800 pr-6">
+                <form method="post" action="{{route("logout")}}"  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-red-600 dark:hover:bg-gray-600 text-white-600 duration-500 hover:text-white-800 dark:hover:border-gray-800 pr-6">
                     @csrf
                     <button class="inline-flex w-full h-full  justify-start items-center ml-4">
                 <span>

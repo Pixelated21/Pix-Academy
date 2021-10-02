@@ -44,9 +44,10 @@
                                     name="street_address"
                                     type="text"
                                     disabled
+                                    autocomplete="false"
                                     value="{{$student[0]["student"]["addr_ln_1"]}}"
-                                    placeholder="Street Adress"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    placeholder="Street Address"
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -60,9 +61,10 @@
                                     name="district_town"
                                     type="text"
                                     disabled
+                                    autocomplete="false"
                                     value="{{$student[0]["student"]["city_nm"]}}"
                                     placeholder="District / Town"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -74,9 +76,10 @@
                                     name="postal_zone"
                                     type="text"
                                     disabled
+                                    autocomplete="false"
                                     value="{{$student[0]["student"]["postal_zone"]}}"
-                                    placeholder="Street Adress"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    placeholder="Street Address"
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -87,8 +90,7 @@
                                 <select
                                     name="parish"
                                     disabled
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
-
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
                                     <option selected>St.Catherine</option>
                                     <option>Clarendon</option>
                                     <option>St Andrew</option>
@@ -126,9 +128,10 @@
                                     name="first_name"
                                     type="text"
                                     disabled
+                                    autocomplete="false"
                                     value="{{ucwords(strtolower($student[0]["student"]["first_nm"]))}}"
                                     placeholder="First Name"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -139,9 +142,10 @@
                                     name="middle_name"
                                     type="text"
                                     disabled
+                                    autocomplete="false"
                                     value="{{ucwords(strtolower($student[0]["student"]["middle_nm"]))}}"
                                     placeholder="Middle Name"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -151,10 +155,11 @@
                                 <input
                                     name="last_name"
                                     disabled
+                                    autocomplete="false"
                                     type="text"
                                     value="{{ucwords(strtolower($student[0]["student"]["last_nm"]))}}"
                                     placeholder="Last Name"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -164,10 +169,11 @@
                                 <input
                                     name="email"
                                     disabled
+                                    autocomplete="false"
                                     value="{{strtolower($student[0]["email_addr"])}}"
                                     type="text"
                                     placeholder="Email"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -176,14 +182,16 @@
                         <div>
                             <label class="text-sm text-gray-400">Gender</label>
                             <div class="w-full inline-flex">
-                                <input
+                                <select
                                     name="gender"
                                     disabled
-                                    type="text"
-                                    value="{{ucwords(strtolower($student[0]["student"]["gender"]))}}"
-                                    placeholder="Gender"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
+                                    <option @if($student[0]['student']["gender"] === "Male" ) selected @endif value="Male">Male</option>
+                                    <option @if($student[0]['student']["gender"] === "Female" ) selected @endif value="Female">Female</option>
+                                    <option @if($student[0]['student']["gender"] === "Other" ) selected @endif value="Other">Other</option>
+
+                                </select>
                             </div>
                         </div>
                         <div class="md:w-full max-w-sm mx-auto">
@@ -192,10 +200,11 @@
                                 <input
                                     name="TRN"
                                     disabled
+                                    autocomplete="false"
                                     value="{{($student[0]["student"]["trn_nbr"])}}"
                                     type="text"
                                     placeholder="TRN"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -205,10 +214,11 @@
                                 <input
                                     name="dob"
                                     disabled
+                                    autocomplete="false"
                                     value="{{($student[0]["student"]["dob"])}}"
                                     type="date"
                                     placeholder="DOB"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -218,10 +228,11 @@
                                 <input
                                     name="telephone"
                                     disabled
+                                    autocomplete="false"
                                     type="text"
                                     value="{{($student[0]["student"]["tele_nbr"])}}"
                                     placeholder="Telephone Number"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -239,10 +250,11 @@
                                 <input
                                     name="card_holder_nm"
                                     type="text"
+                                    autocomplete="false"
                                     value="{{$student[0]["student"]["payment_info"][0]["card_holder_nm"]}}"
                                     disabled
                                     placeholder="Card Holder"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -254,9 +266,10 @@
                                     name="card_number"
                                     type="text"
                                     disabled
+                                    autocomplete="false"
                                     value="{{$student[0]["student"]["payment_info"][0]["card_nbr"]}}"
                                     placeholder="Card Number"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -267,10 +280,11 @@
                                 <input
                                     name="billing_addr"
                                     disabled
+                                    autocomplete="false"
                                     type="text"
                                     value="{{$student[0]["student"]["payment_info"][0]["billing_addr"]}}"
                                     placeholder="Billing Address"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -285,10 +299,11 @@
                                 <input
                                     name="cvv"
                                     disabled
+                                    autocomplete="false"
                                     type="number"
                                     value="{{$student[0]["student"]["payment_info"][0]["cvv"]}}"
                                     placeholder="CVV"
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -299,11 +314,10 @@
                                 <select
                                     name="expiration_year"
                                     disabled
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                                     @for ($i = date("Y",strtotime(now())); $i < 2034 ; $i++)
-                                        @if ($i === $student[0]["student"]["payment_info"][0]["exp_year"])
-
+                                        @if ($i == $student[0]["student"]["payment_info"][0]["exp_year"])
                                             <option selected value="{{$i}}">{{$i}}</option>
                                         @else
                                             <option value="{{$i}}">{{$i}}</option>
@@ -321,13 +335,21 @@
                                 <select
                                     name="expiration_month"
                                     disabled
-                                    class="focus:shadow-outline-pink duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-pink-500  dark:focus:border-blue-500  focus:shadow-2xl focus:outline-none ">
+                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                                     @for ($i = 1; $i <= 12 ; $i++)
                                         @if ($i < 10)
-                                            <option value="{{$i}}">0{{$i}}</option>
+                                            @if ($student[0]["student"]["payment_info"][0]["exp_month"] == $i)
+                                                <option selected value="{{$i}}">0{{$i}}</option>
+                                            @else
+                                                <option value="{{$i}}">0{{$i}}</option>
+                                            @endif
                                         @else
-                                            <option value="{{$i}}">{{$i}}</option>
+                                            @if ($student[0]["student"]["payment_info"][0]["exp_month"] == $i)
+                                                <option selected value="{{$i}}">{{$i}}</option>
+                                            @else
+                                                <option value="{{$i}}">{{$i}}</option>
+                                            @endif
                                         @endif
 
                                     @endfor
@@ -566,7 +588,6 @@
                 </div>
             </div>
         </div>
-        {{--        TODO ADJUST BACK TO MENU ON REFRESH--}}
     </section>
 
 

@@ -144,41 +144,41 @@ $(document).ready(function () {
     function activeTab(Form){
         //purge
         personalInfoHeader.removeClass("text-4xl")
-        personalInfoHeader.removeClass("text-pink-500")
+        personalInfoHeader.removeClass("text-orange-500")
 
         residentialInfoHeader.removeClass("text-4xl")
-        residentialInfoHeader.removeClass("text-pink-500")
+        residentialInfoHeader.removeClass("text-orange-500")
 
 
         cardInfoHeader.removeClass("text-4xl")
-        cardInfoHeader.removeClass("text-pink-500")
+        cardInfoHeader.removeClass("text-orange-500")
 
         qualificationsInfoHeader.removeClass("text-4xl")
-        qualificationsInfoHeader.removeClass("text-pink-500")
+        qualificationsInfoHeader.removeClass("text-orange-500")
 //
 
 
         if(Form === "personal"){
             personalInfoHeader.addClass("duration-300")
             personalInfoHeader.addClass("text-4xl")
-            personalInfoHeader.addClass("text-pink-500")
+            personalInfoHeader.addClass("text-orange-500")
         }
         else if (Form === "residential"){
             residentialInfoHeader.addClass("duration-300")
             residentialInfoHeader.addClass("text-4xl")
-            residentialInfoHeader.addClass("text-pink-500")
+            residentialInfoHeader.addClass("text-orange-500")
         }
 
         else if(Form === "card"){
             cardInfoHeader.addClass("duration-300")
             cardInfoHeader.addClass("text-4xl")
-            cardInfoHeader.addClass("text-pink-500")
+            cardInfoHeader.addClass("text-orange-500")
         }
 
         else if(Form === "qualification"){
             qualificationsInfoHeader.addClass("duration-300")
             qualificationsInfoHeader.addClass("text-4xl")
-            qualificationsInfoHeader.addClass("text-pink-500")
+            qualificationsInfoHeader.addClass("text-orange-500")
         }
     }
 
@@ -246,14 +246,14 @@ $(document).ready(function () {
                 form[i].removeAttribute("disabled");
                 form[i].classList.add("duration-1000");
                 form[i].classList.add("transition-border");
-                form[i].classList.add("border-pink-400");
+                form[i].classList.add("border-orange-400");
                 form[i].classList.add("text-gray-700");
                 console.log(form)
             }
         else if (toggle === false) {
             for (let i = 0; i < form.length; i++) {
                 form[i].setAttribute("disabled", true);
-                form[i].classList.remove("border-pink-400");
+                form[i].classList.remove("border-orange-400");
                 form[i].classList.remove("text-gray-700");
 
 
