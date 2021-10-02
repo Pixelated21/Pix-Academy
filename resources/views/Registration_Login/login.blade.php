@@ -29,10 +29,10 @@
                                name="email_addr"
                                id="login-email"
                                autofocus
-                               autocomplete
+                               autocomplete="false"
                                required
                                placeholder="Enter Email Address"
-                               class="focus:border-pink-500  w-full px-4 py-3 duration-75 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                               class="focus:border-blue-600  w-full px-4 py-3 duration-75 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                         >
                     </div>
 
@@ -48,7 +48,7 @@
                                required
                                placeholder="Enter Password"
                                minlength="6"
-                               class="focus:border-pink-500  w-full px-4 py-3  rounded-lg bg-gray-200  border focus:border-blue-500 focus:bg-white focus:outline-none"
+                               class="focus:border-blue-600  w-full px-4 py-3  rounded-lg bg-gray-200  border focus:border-blue-500 focus:bg-white focus:outline-none"
                                >
                             <button
                                 id="viewPwdBtn"
@@ -80,7 +80,7 @@
 {{-- TODO                       <a href="#" class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</a>--}}
                     </div>
 
-                    <button type="submit" class="w-full block bg-pink-500 hover:bg-pink-400 focus:bg-pink-400 text-white font-semibold rounded-lg
+                    <button type="submit" class="w-full block bg-orange-500 hover:bg-orange-600 focus:bg-orange-500 text-white font-semibold rounded-lg
               px-4 py-3 mt-6">Log In</button>
                 </form>
 
@@ -98,7 +98,7 @@
 {{--                </button>--}}
 
 
-                <p class="mt-8 text-center">Need an account? <a href="{{url('/register')}}" class="text-pink-500 hover:text-pink-700 font-semibold"><br>Create an
+                <p class="mt-8 text-center">Need an account? <a href="{{url('/register')}}" class="text-orange-500 hover:text-orange-600 font-semibold"><br>Create an
                         account</a></p>
 
 {{--                <div class="bg-pink-300 py-2 lg:rounded-box">Testing</div>--}}

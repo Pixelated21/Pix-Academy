@@ -19,10 +19,10 @@
                     <table>
                         <tr>
                             <td>
-                                <input type="text" name="first_nm" id="first_name" placeholder="First Name" class="focus:border-pink-500 w-full px-4 py-3  rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus required>
+                                <input type="text" name="first_nm" id="first_name" placeholder="First Name" class="focus:border-blue-600 w-full px-4 py-3  rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus required>
                             </td>
                             <td>
-                                <input type="text" name="last_nm" id="last_name" placeholder="Last Name" class="focus:border-pink-500 w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required>
+                                <input type="text" name="last_nm" id="last_name" placeholder="Last Name" class="focus:border-blue-600 w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required>
                             </td>
                         </tr>
                     </table>
@@ -42,7 +42,7 @@
 
                         @else
                         placeholder="Enter Email Address"
-                        class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border  focus:border-pink-500 focus:bg-white focus:outline-none"
+                        class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border  focus:border-blue-600 focus:bg-white focus:outline-none"
                         @endif
                      >
 
@@ -50,7 +50,7 @@
 
                 <div>
 
-                    <select name="gender" id="gender"  class="text-gray-400 font-normal w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-pink-500 focus:bg-white  focus:outline-none" required>
+                    <select name="gender" id="gender"  class="text-gray-400 font-normal w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-600 focus:bg-white  focus:outline-none" required>
                         <option disabled selected>Gender</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="form-control py-2">
-                    <input type="date"  name="dob" class="text-gray-400 font-normal w-full px-4 py-3 rounded-lg bg-gray-200  border focus:border-pink-500 focus:bg-white  focus:outline-none">
+                    <input type="date"  name="dob" class="text-gray-400 font-normal w-full px-4 py-3 rounded-lg bg-gray-200  border focus:border-blue-600 focus:bg-white  focus:outline-none">
                 </div>
 
                 <div>
@@ -71,7 +71,7 @@
                                     name="password"
                                     id="password"
                                     placeholder="Enter Password"
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-200 border  focus:border-pink-500 focus:bg-white focus:outline-none"
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-200 border  focus:border-blue-600 focus:bg-white focus:outline-none"
                                     >
 
                             </td>
@@ -82,7 +82,7 @@
                                     name="password_confirmation"
                                     id="password_confirmation"
                                     placeholder="Verify Password"
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-200 border focus:border-pink-500 focus:bg-white focus:outline-none"
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-200 border focus:border-blue-600 focus:bg-white focus:outline-none"
                                     >
 
                             </td>
@@ -96,7 +96,7 @@
 <a href="#" class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</a>--}}
                 </div>
 
-                <button type="submit" class="w-full block bg-pink-500 hover:bg-pink-400 focus:bg-pink-400 text-white font-semibold rounded-lg
+                <button type="submit" class="w-full block bg-orange-500 hover:bg-orange-600 focus:bg-orange-500 text-white font-semibold rounded-lg
               px-4 py-3 mt-6">Register</button>
             </form>
 
@@ -114,7 +114,7 @@
 {{--                </div>--}}
 {{--            </button>--}}
 
-            <p class="text-center mt-8">Already Have an account?<br> <a href="{{url('/login')}}" class="text-pink-500 hover:text-pink-700 font-semibold">Login To Your Account</a></p>
+            <p class="text-center mt-8">Already Have an account?<br> <a href="{{url('/login')}}" class="text-orange-500 hover:text-orange-600 font-semibold">Login To Your Account</a></p>
 
 
         </div>
