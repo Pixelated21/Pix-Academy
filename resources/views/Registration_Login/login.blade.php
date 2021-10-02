@@ -19,7 +19,7 @@
                 </div>
                 @endif
 
-                <h1 class="text-xl md:text-4xl font-bold leading-tight mt-12">Log in to your account</h1>
+                <h1 class="text-xl md:text-4xl font-bold leading-tight mt-12">Log into your account</h1>
 
                 <form class="mt-6" action="{{url('login')}}" method="POST">
                     @csrf

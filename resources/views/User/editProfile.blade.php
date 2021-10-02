@@ -385,7 +385,7 @@
                                      @endif" class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
                                 <label>
                                     <span class="h-full">
-                                        <div class="bg-pink-500 rounded-b-2xl text-white text-2xl py-5">Add Picture Of Qualification</div>
+                                        <div class="bg-orange-500 rounded-b-2xl text-white text-2xl py-5">Add Picture Of Qualification</div>
                                     <input name="qualImg" class=" hidden" id="qualImgInput" type="file"
                                            onchange="submit()"/>
                                     </span>
@@ -411,7 +411,7 @@
                                      @endif" class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
                                 <label>
                                     <span class="h-full">
-                                        <div class="bg-pink-500 rounded-b-2xl text-white text-2xl py-5">Add Passport Size Picture</div>
+                                        <div class="bg-orange-500 rounded-b-2xl text-white text-2xl py-5">Add Passport Size Picture</div>
                                     <input name="passportImg" class=" hidden" id="passportImgInput" type="file"
                                            onchange="submit()"/>
                                     </span>
@@ -427,7 +427,7 @@
                 <div id="personalInfoBtnGroup"
                      class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
                     <button id="pi-update-btn"
-                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg
                             fill="none"
                             class="w-4 text-white mr-2"
@@ -445,7 +445,7 @@
                     </button>
 
                     <button id="pi-back-btn"
-                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -461,7 +461,7 @@
                     </button>
 
                     <button id="pi-submit-btn"
-                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"
@@ -481,7 +481,7 @@
                 <div id="residentialInfoBtnGroup"
                      class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
                     <button id="ri-update-btn"
-                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg
                             fill="none"
                             class="w-4 text-white mr-2"
@@ -499,7 +499,7 @@
                     </button>
 
                     <button id="ri-back-btn"
-                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -515,7 +515,7 @@
                     </button>
 
                     <button id="ri-submit-btn"
-                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"
@@ -536,7 +536,7 @@
                 <div id="cardInfoBtnGroup"
                      class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
                     <button id="ci-update-btn"
-                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-pink-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg
                             fill="none"
                             class="w-4 text-white mr-2"
@@ -554,7 +554,7 @@
                     </button>
 
                     <button id="ci-back-btn"
-                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -570,7 +570,7 @@
                     </button>
 
                     <button id="ci-submit-btn"
-                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-green-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"
