@@ -955,34 +955,16 @@
                                 <thead class="top-20 sticky">
                                 <tr>
                                     <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Course
+                                        First Name
                                     </th>
                                     <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Price
+                                        Last Name
                                     </th>
                                     <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Training
+                                        Amount Paid
                                     </th>
                                     <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Format
-                                    </th>
-                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Award
-                                    </th>
-                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Enrolled
-                                    </th>
-                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Capacity
-                                    </th>
-                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Price
-                                    </th>
-                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Training Start
-                                    </th>
-                                    <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
-                                        Training End
+                                        Date Paid
                                     </th>
                                 </tr>
                                 </thead>
@@ -990,50 +972,53 @@
                                 <tbody>
 
 
+                                @forelse($paymentActivity as $payments)
                                 <tr>
 
-                                    <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Web Development
-                                    </td>
-                                    <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        $5000
-                                    </td>
-                                    <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <div class="flex justify-center items-center">
-                                            <span class="mr-2 font-bold text-center">Full Time</span>
-                                        </div>
+                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                        {{$payments['payment_info']['student']['first_nm']}}
                                     </td>
 
                                     <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                        Blended
+                                        {{$payments['payment_info']['student']['last_nm']}}
                                     </td>
 
                                     <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                        NVQJ Award
+                                        ${{number_format($payments['amount_paid'],2)}}
                                     </td>
 
                                     <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                        9
-                                    </td>
-
-                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                        50
-                                    </td>
-
-                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                        $5000
-                                    </td>
-
-                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                        1/02/2021
-                                    </td>
-
-                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                                        1/02/2021
+                                        {{\Carbon\Carbon::parse($payments['created_at'])->diffForHumans()}}
                                     </td>
 
 
                                 </tr>
+                                @empty
+
+                                    <tr>
+
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                            N/A
+                                        </td>
+
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                            N/A
+                                        </td>
+
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                            N/A
+                                        </td>
+
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                            N/A
+                                        </td>
+
+
+
+
+                                    </tr>
+
+                                @endforelse
 
 
                                 </tbody>
@@ -1125,8 +1110,8 @@
                             <div class="relative w-full max-w-full flex-grow   flex-1">
                                 <div
                                     class="font-semibold flex gap-10 justify-around text-base text-2xl text-center text-gray-900  dark:text-gray-50">
-                                    <div class="bg-orange-400  font-bold rounded py-2 h-full w-2/3">Settings</div>
-                                    <div class=" w-2/3">
+{{--                                    <div class="bg-orange-400  font-bold rounded py-2 h-full w-2/3">Settings</div>--}}
+                                    <div class=" w-full">
                                         <form class="w-full" method="post" action="{{route("All Student XML")}}">
                                             @csrf
                                             <button type="submit" class="bg-blue-500 font-bold rounded py-2 h-full w-full">All Applicants XML</button>

@@ -37,7 +37,7 @@ class Payment_Activity extends Model
         'payment_info_id',
     ];
 
-    public function payment_activity(){
-        return $this->belongsTo(Payment_info::class);
+    public function payment_info(){
+        return $this->belongsTo(Payment_info::class,"payment_info_id","payment_info_id")->with('student');
     }
 }

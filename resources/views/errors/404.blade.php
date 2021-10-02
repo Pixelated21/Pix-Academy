@@ -93,7 +93,7 @@
                 </div>
                 <p class="text-sm  md:text-base text-white p-2 mb-4">The stuff you were looking for doesn't exist
                 </p>
-                <a href="{{'/home'}}"
+                <a href="{{'/'}}"
                    class="bg-transparent hover:bg-pink-600 text-pink-600 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-pink-600 hover:border-transparent">
                     Return Home</a>
             </div>

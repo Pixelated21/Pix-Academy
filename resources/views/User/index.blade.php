@@ -19,7 +19,7 @@
     ::-webkit-scrollbar {
         background-clip: padding-box;
         width: 5px; /* Remove scrollbar space */
-        background: #e5e7eb; /* Optional: just make scrollbar invisible */
+        background: #ffffff; /* Optional: just make scrollbar invisible */
     }
 
     /* Optional: show position indicator in red */
@@ -29,6 +29,10 @@
         background: black;
 
 
+    }
+
+    ::selection{
+        color: orangered;
     }
 
 
@@ -50,22 +54,22 @@
 <body>
 <div>
     <header class="bg-black" x-data="{ isOpen: false }">
-        {{--                <video--}}
-        {{--                    autoplay--}}
-        {{--                    muted--}}
-        {{--                    loop--}}
-        {{--                    preload="auto"--}}
-        {{--                    class="absolute object-cover" style="filter: grayscale(0.3) contrast(1.5) opacity(0.1) blur(2px);">--}}
-        {{--                    <source src="{{"/media/pix-academy.mp4"}}" type="video/mp4"/>--}}
-        {{--                </video>--}}
+{{--                        <video--}}
+{{--                            autoplay--}}
+{{--                            muted--}}
+{{--                            loop--}}
+{{--                            preload="auto"--}}
+{{--                            class="absolute object-cover" style="filter: grayscale(0.3) contrast(1.5) opacity(0.1) blur(2px);">--}}
+{{--                            <source src="{{"/media/pix-academy.mp4"}}" type="video/mp4"/>--}}
+{{--                        </video>--}}
 
         <nav
             class="container relative  sticky z-50 w-screen top-0 px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div class="flex items-center  justify-between">
-                <a class="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-700"
+                <a class="text-lg font-bold text-gray-700 transition-colors duration-300 transform md:text-2xl hover:text-white"
                    {{--                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span></a>--}}
-                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-yellow-400">Ac</span><span
-                        class="text-green-400">ade</span><span class="text-gray-600">my</span>
+                   href="{{route("User-Home")}}"><span class="text-orange-500">Amber</span>-<span class="text-blue-600">HEART</span>
+                    Academy
                 </a>
 
                 <!-- Mobile menu button -->
@@ -85,13 +89,13 @@
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
             <div :class="isOpen ? 'flex' : 'hidden'"
                  class="flex-col mt-2 text-re space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
+                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-blue-600"
                    href="{{url("/courses")}}">Courses</a>
-                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
+                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-orange-500"
                    href="{{url('/gallery')}}">Gallery</a>
-                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
+                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-blue-600"
                    href="{{url('/dashboard')}}">Dashboard</a>
-                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"
+                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-orange-500"
                    href="{{url('/contact')}}">Contact Us</a>
 
 
@@ -99,13 +103,13 @@
                     <form action="{{url('/logout')}}" method="post">
                         @csrf
                         <button
-                            class="px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:text-black hover:bg-pink-400"
+                            class="px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:text-white hover:border-transparent hover:bg-red-600"
                         >Logout
                         </button>
                     </form>
 
                 @else
-                    <a class="px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:text-black hover:bg-pink-400"
+                    <a class="px-4 py-1 text-sm font-medium text-center text-gray-200 transition duration-300 transform border rounded hover:border-transparent hover:text-white hover:scale-1 hover:bg-orange-500"
                        href="{{url('/login')}}"
                     >Login
                     </a>
@@ -116,19 +120,22 @@
         <section class="flex items-center relative justify-center" style="height: 92vh;">
             <div class="text-center flex flex-col gap-y-8">
                 {{--                <p class="text-xl font-medium tracking-wider text-white">Welcome To <span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span>--}}
-                <p class="text-5xl font-medium tracking-wider text-white">Welcome To <span
-                        class="text-pink-600">Pix</span>-<span class="text-yellow-400">Ac</span><span
-                        class="text-green-400">ade</span><span class="text-gray-600">my</span>
-                </p>
+                <p class="text-6xl font-medium tracking-wider text-white"><span
+                        class="text-orange-500">AMBER</span>-<span class="text-blue-600">HEART</span>
+                Academy
+{{--                    <span class="text-yellow-400">Ac</span><span--}}
+{{--                        class="text-green-400">ade</span><span class="text-gray-600">my</span>--}}
+{{--                </p>--}}
                 <div class="flex flex-col">
                     <h2 class="mt-6 text-3xl font-bold hover:text-white text-gray-300 md:text-2xl">Start learning from,
                         <br>
+{{--                        <p class="text-sky">Jamaica's best institution</p>--}}
                         <span class="text-yellow-400">Jam</span><span class="text-green-400">ai</span><span
-                            class="text-gray-700">ca's</span> best institutions...</h2>
+                            class="text-gray-700">ca's</span> best institution...</h2>
 
                     <div class="flex justify-center mt-8">
                         {{--        TODO Animated Scroll To Section--}}
-                        <a class="px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform bg-pink-700 rounded hover:bg-pink-600"
+                        <a class="px-8 py-2 text-lg font-medium text-white  duration-500 bg-orange-700 hover:scale-105 rounded  bg-gradient-to-l hover:from-blue-600 hover:to-orange-600"
                            href="{{url('/courses')}}">Apply Now</a>
                     </div>
                 </div>
@@ -142,7 +149,7 @@
         <div class="flex justify-center items-center ">
 
             <Div style="width: 2em; height: 2em; background-color: transparent; z-index: 80;
-            bottom: 25px; position: absolute; border-width: 0 0.25em 0.25em 0; border-style: solid; border-color: #718096; animation: scrolldown 1.5s ease-in-out infinite 0.20s;"></Div>
+            bottom: 25px; position: absolute; border-width: 0 0.25em 0.25em 0; border-style: solid; border-color: #504444; animation: scrolldown 1.5s ease-in-out infinite 0.20s;"></Div>
 
             <Div style="width: 2em; height: 2em; background-color: transparent; z-index: 80;
             bottom: 40px; position: absolute; border-width: 0 0.25em 0.25em 0; border-style: solid; border-color: green; animation: scrolldown 1.5s ease-in-out infinite 0.15s;"></Div>
@@ -155,27 +162,25 @@
         {{--        ---}}
     </header>
 
-    <section class="bg-gray-200 duration-300 transform hover:scale-105">
+    <section class="bg-white duration-300 transform hover:scale-105">
 
 
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
 
-                    <h3 class="text-3xl font-semibold text-gray-800">With Over A 99% Success Rate</h3>
-                    <p class="max-w-md mt-4 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    <h2 class="text-5xl font-bold text-gray-800">Guaranteed Jobs!! <br> For All Successful Graduates</h2>
+                    <p class="max-w-md mt-4 text-gray-600 font-semibold">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Dignissimos dolorum, excepturi harum ipsa officia praesentium tempore voluptatem? Accusantium
                         alias beatae corporis deserunt eos, excepturi impedit iste iusto mollitia nesciunt odio officiis
                         optio possimus quasi ratione reiciendis repellendus similique sunt tempore unde, vel vero vitae.
                         Optio porro quidem quisquam rem voluptatibus!</p>
-                    {{--                    TODO Make Testimonial Page P.S. Templates Sir--}}
-                    <a href="#" class="block mt-8 text-indigo-700 underline">Testimonials</a>
                 </div>
 
                 <div class="mt-8 md:mt-0 md:w-1/2">
                     <div class="flex items-center justify-center">
                         <div class="max-w-md transform rotate-2">
-                            <img class="object-cover object-center w-full rounded-md shadow" style="height: 500px;"
+                            <img class="object-cover border-4 border-orange-500 object-center w-full rounded-md shadow" style="height: 500px;"
                                  src={{url('/public/homepage/Graduation.jpg')}}>
                         </div>
                     </div>
@@ -184,21 +189,21 @@
         </div>
     </section>
 
-    <section class="bg-gray-200  duration-300 transform hover:scale-105 hover:scale-105 ">
+    <section class="bg-white duration-300 transform hover:scale-105 hover:scale-105 ">
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
                     <div class="flex items-center justify-center">
                         <div class="max-w-md">
-                            <img class="object-cover object-center w-full rounded-md shadow" style="height: 500px;"
+                            <img class="object-cover border-4 border-blue-500 object-center w-full rounded-md shadow" style="height: 500px;"
                                  src="{{url('/public/homepage/enginering.jpg')}}">
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-8 md:mt-0 md:w-1/2 transform duration-300 ">
-                    <h3 class="text-3xl font-semibold text-gray-800">Lorem ipsum dolor sit amet, consectetur</h3>
-                    <p class="max-w-md mt-4 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+                    <h3 class="text-4xl font-bold text-gray-800">Lorem ipsum dolor sit amet, consectetur</h3>
+                    <p class="max-w-md mt-4 font-semibold text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
                         amet aspernatur explicabo sequi tenetur? Deserunt dicta, nostrum officia perspiciatis temporibus
                         vero? Atque cum cumque dolores eaque ex explicabo illo inventore laboriosam, libero mollitia
                         obcaecati perspiciatis provident reprehenderit suscipit unde. At laudantium natus saepe. Amet
@@ -210,7 +215,7 @@
     </section>
 
 
-    <section class="bg-gray-200">
+    <section class="bg-white">
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <h2 class="text-5xl font-semibold text-gray-800">Explore Top Courses</h2>
 
@@ -222,26 +227,19 @@
 
                         @foreach($topCourses as $topCourse)
 
+                            <a href="{{'/courses/'.$topCourse->course_id}}">
                             <div class="p-4 md:w-1/3">
                                 <div
-                                    class="hover:shadow-2xl duration-300 transform  hover:scale-105  h-full border-2 border-gray-3y00 border-opacity-60 rounded-lg overflow-hidden">
+                                    class="hover:shadow-2xl duration-300 transform  hover:scale-105 hover:border-blue-600  h-full border-2 border-orange-600 border-opacity-60 rounded-lg overflow-hidden">
                                     <img class="lg:h-48 md:h-36 w-full object-cover object-center"
                                          src="{{$topCourse->course_img}}" alt="blog">
                                     <div class="p-6">
-                                        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{$topCourse->course_nm}}</h1>
-                                        <p class="leading-relaxed mb-3">
+                                        <h1 class="title-font text-xl font-bold text-gray-800 mb-3">{{$topCourse->course_nm}}</h1>
+                                        <p class="leading-relaxed text-gray-600 font-medium mb-3">
                                             {{$topCourse->course_desc}}
                                         </p>
                                         <div class="flex items-center flex-wrap ">
-                                            <a href="{{'/courses/'.$topCourse->course_id}}"
-                                               class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Apply
-                                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor"
-                                                     stroke-width="2" fill="none" stroke-linecap="round"
-                                                     stroke-linejoin="round">
-                                                    <path d="M5 12h14"></path>
-                                                    <path d="M12 5l7 7-7 7"></path>
-                                                </svg>
-                                            </a>
+                                            <a></a>
                                             <span
                                                 class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
@@ -257,6 +255,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
 
                         @endforeach
 
@@ -305,7 +304,7 @@
         </div>
     </section>
 
-    <section class="bg-gray-200 ">
+    <section class="bg-white ">
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="px-8 py-12 bg-black rounded-md md:px-20 md:flex md:items-center md:justify-between">
                 <div>
@@ -315,76 +314,52 @@
                         volutpat, viverra magna risus aliquam massa.</p>
                 </div>
 
-                <a class="px-8 py-2 text-lg font-medium  text-white transition-colors duration-300 transform bg-pink-700 rounded hover:bg-pink-600"
-                   href="{{url('/about')}}">About Us</a>
+                <a class="px-8 py-2 text-lg font-medium  text-white transition-colors duration-300 transform bg-orange-600 rounded hover:bg-orange-500"
+                   href="{{route("About-Us")}}">About Us</a>
             </div>
         </div>
     </section>
 
-    <section class="bg-gray-200">
+    <section class="bg-white">
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="md:flex md:justify-between">
-                <h2 class="text-3xl font-semibold text-gray-800">Newly Added Courses <br></h2>
+                <h2 class="text-5xl font-semibold text-gray-800">Newly Added Courses <br></h2>
                 {{--                <a href="#" class="block mt-6 text-indigo-700 underline md:mt-0">Experienced team</a>--}}
             </div>
 
-            <div class="grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-8 mt-20 md:grid-cols-2 lg:grid-cols-3">
                 @foreach($newCourses as $newCourse)
+{{--{{$newCourse}}--}}
 
-                    <div class="px-6 py-8 overflow-hidden bg-white rounded-md shadow-md">
-                        <h2 class="text-xl font-medium text-gray-800">{{$newCourse->course_nm}}</h2>
-                        <p class="max-w-md mt-4  text-gray-400">{{$newCourse->course_desc}}</p>
-                        <p class="flex text-sm font-bold text-gray-500 justify-end">{{$newCourse->created_at}}</p>
-                    </div>
+                    <a href="{{'/courses/'.$newCourse->course_id}}" class="px-6 py-8 overflow-hidden bg-white border border-orange-600 duration-300 transform hover:scale-110 hover:border-blue-600 hover:shadow-2xl rounded-md shadow-md">
+                        <h2 class="text-xl font-bold text-gray-800">{{$newCourse->course_nm}}</h2>
+                        <p class="max-w-md mt-4 mb-6 font-semibold  text-gray-600">{{$newCourse->course_desc}}</p>
+                        <p class="flex text-sm font-bold text-gray-500 justify-end">{{\Carbon\Carbon::parse($newCourse->created_at)->diffForHumans()}}</p>
+                    </a>
 
                 @endforeach
             </div>
         </div>
     </section>
 
-    <section class="bg-gray-200">
-        <div class="max-w-5xl px-6 py-16 mx-auto text-center">
-            <h2 class="text-3xl font-semibold text-gray-800">Guaranteed Jobs!! <br> For All Successful Graduates</h2>
-            <p class="max-w-lg mx-auto mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit
+    <section class="bg-white ">
+        <div class="max-w-full py-16  mx-auto text-center">
+            <h2 class="text-5xl  font-bold text-gray-800">With Over A 99% Success Rate</h2>
+            <p class="max-w-lg font-semibold mx-auto mt-10 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit
                 esse
                 cillum
                 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
                 officia
                 deserunt mollit anim id est laborum.</p>
 
-            <img class="object-cover object-center w-full mt-16 rounded-md shadow h-80"
+            <img class=" w-screen object-cover object-center mt-16  shadow-md h-80"
                  src="{{url('public/homepage/fmc-group-career.jpg')}}">
         </div>
     </section>
 
-    {{--    <section class="bg-gray-200">--}}
-    {{--        <div class="max-w-5xl px-6 py-16 mx-auto space-y-8 md:flex md:items-center md:space-y-0">--}}
-    {{--            <div class="md:w-2/3">--}}
-    {{--                <div class="hidden md:flex md:items-center md:space-x-10">--}}
-    {{--                    <img class="object-cover object-center rounded-md shadow w-72 h-72"--}}
-    {{--                         src="https://images.unsplash.com/photo-1614030126544-b79b92e29e98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">--}}
-    {{--                    <img class="object-cover object-center w-64 rounded-md shadow h-96"--}}
-    {{--                         src="https://images.unsplash.com/photo-1618506469810-282bef2b30b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">--}}
-    {{--                </div>--}}
-    {{--                <h2 class="text-3xl font-semibold text-gray-800 md:mt-6">Lorem ipsum dolor </h2>--}}
-    {{--                <p class="max-w-lg mt-4 text-gray-600 overflow-clip">--}}
-    {{--                    Duis aute irure dolor in reprehenderit in voluptate velit esse illum--}}
-    {{--                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui--}}
-    {{--                    officia--}}
-    {{--                    deserunt mollit anim id est laborum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat--}}
-    {{--                    non proident, sunt in culpa qui officia--}}
-    {{--                    deserunt mollit anim id est laborum.--}}
-    {{--                </p>--}}
-    {{--            </div>--}}
-    {{--            <div class="md:w-1/3">--}}
-    {{--                <img class="object-cover object-center w-full rounded-md shadow" style="height: 700px;"--}}
-    {{--                     src="https://images.unsplash.com/photo-1593352216840-1aee13f45818?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </section>--}}
 
 
-    <footer class="border-t bg-gray-200 ">
+    <footer class=" bg-white ">
         <x-user.footer/>
     </footer>
 </div>

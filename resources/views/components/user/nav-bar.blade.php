@@ -22,9 +22,9 @@
 <header class="bg-black" x-data="{ isOpen: false }">
     <nav class="container px-6 py-4 mx-auto md:flex te md:justify-between md:items-center">
         <div class="flex items-center justify-between sna">
-            <a style="animation-iteration-count: infinite" class="text-xl animate__zoomInDown font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-700"
-               {{--                   href="#"><span class="text-pink-600">Pix</span>-<span class="text-blue-400">Academy</span></a>--}}
-               href="{{url('/')}}"><span class="text-pink-600">Pix</span>-<span class="text-yellow-400">Ac</span><span class="text-green-400">ade</span><span class="text-gray-600">my</span>
+            <a class="text-lg font-bold text-gray-700 transition-colors duration-300 transform md:text-2xl hover:text-white"
+               href="{{route("User-Home")}}"><span class="text-orange-500">Amber</span>-<span class="text-blue-600">HEART</span>
+                Academy
             </a>
             <!-- Mobile menu button -->
             <div @click="isOpen = !isOpen" class="flex md:hidden">
@@ -42,15 +42,14 @@
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
         <div :class="isOpen ? 'flex' : 'hidden'"
              class="flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-{{--                    <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"--}}
-{{--                       href="#">Home</a>--}}
-{{--                    <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"--}}
-{{--                       href="#">Templates</a>--}}
-{{--                    <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"--}}
-{{--                       href="#">Price</a>--}}
-{{--                    <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-pink-400"--}}
-{{--                       href="#">Help</a>--}}
-{{--            TODO Add Menu Options--}}
+            <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-blue-600"
+               href="{{url("/courses")}}">Courses</a>
+            <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-orange-500"
+               href="{{url('/gallery')}}">Gallery</a>
+            <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-blue-600"
+               href="{{url('/dashboard')}}">Dashboard</a>
+            <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-orange-500"
+               href="{{url('/contact')}}">Contact Us</a>
 
 
             @auth

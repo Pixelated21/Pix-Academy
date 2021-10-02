@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Course_Application;
 use App\Models\Institution;
+use App\Models\Payment_Activity;
 use App\Models\Student;
 use App\Models\User_Activity;
 use Illuminate\Http\Request;
@@ -32,9 +33,12 @@ class AdminController extends Controller
 
         $usersActivity = User_Activity::with('student')->orderBy('created_at', 'desc')->get()->toArray();
 
+        $paymentActivity = Payment_Activity::with('payment_info')->orderBy('created_at', 'desc')->get()->toArray();
+
         $acceptedApplicants = Course_Application::with('student')->orderBy('created_at', 'desc')->where('status', '=', 'Accepted')->get()->toArray();
 
 //        dd($usersActivity);
+//        dd($paymentActivity);
 //        dd($institutionsInfo);
 //        dd($coursesInfo);
 //        dd($applicants);
@@ -47,7 +51,7 @@ class AdminController extends Controller
             'courses', 'applicants', 'coursesInfo',
             'institutionsInfo', 'usersActivity',
             'usersActivityCard', 'applicationCount',
-            'acceptedApplicants'));
+            'acceptedApplicants','paymentActivity'));
 
     }
 

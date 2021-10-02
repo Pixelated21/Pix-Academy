@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Application;
 use App\Http\Controllers\Components_Testing;
@@ -7,9 +8,11 @@ use App\Http\Controllers\Contact;
 use App\Http\Controllers\Course;
 use App\Http\Controllers\Courses;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\Homepage;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\XMLController;
@@ -40,9 +43,11 @@ Route::post('/logout', [Login::class, 'logout'])->name("logout");
 
 // User Access
 
-Route::get('/application', [Application::class, 'index']);
 Route::get('/', [Homepage::class, 'index'])->name("User-Home");
-Route::get("/contact", [Contact::class, 'index']);
+Route::get('/gallery', [GalleryController::class, 'index'])->name("Gallery");
+Route::get('/about-us', [AboutUsController::class, 'index'])->name("About-Us");
+Route::get("/contact", [Contact::class, 'index'])->name("Contact");
+Route::get("/privacy-policy", [PrivacyPolicyController::class, 'index'])->name("Privacy-Policy");
 
 //// Courses
 Route::get("/courses", [Courses::class, 'index']);

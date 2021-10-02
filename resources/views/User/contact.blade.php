@@ -1,14 +1,16 @@
 <link rel="stylesheet" href="{{url('css/app.css')}}">
 
-<x-user.nav-bar/>
+<div class="flex h-screen flex-col bg-gray-200">
+        <x-user.nav-bar/>
 
-<div class="flex flex-col bg-black">
+
+<div class="flex flex-col bg-gray-300">
     <div>
         <section class="text-gray-600 body-font relative">
             <div class="absolute inset-0 bg-gray-300">
                 <iframe width="100%" height="100%" style="filter: grayscale(0.2) contrast(1.2) opacity(0.4);" loading="lazy"  allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJsTVvX3g-244R6cXxaHmjtdc&key=AIzaSyA40KgtucSmu4mX1kwHy4n-8WKn9xeSOQ4"></iframe>
             </div>
-            <div class="container px-5 py-24 mx-auto flex">
+            <div class="container px-5 py-12 mx-auto flex">
 {{--                TODO ADD SOCIAL MEDIA ICONS--}}
                 <div class="lg:w-1/3 md:w-1/2 bg-black rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
                     <h2 class="text-white text-2xl text-lg mb-1 font-medium title-font">How can we help?</h2>
@@ -24,13 +26,12 @@
                         <textarea id="message" name="message" class="w-full bg-gray-300 focus:bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" autocomplete="off"></textarea>
                     </div>
                     <button class="text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded duration-300 text-lg">Submit</button>
-                    {{--            TODO MESSAGE ON SUBMIT<p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>--}}
+{{--                                TODO MESSAGE ON SUBMIT--}}
+                    <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
                 </div>
             </div>
         </section>
     </div>
-    <div>
-        <x-user.footer/>
-    </div>
+</div>
 </div>
 

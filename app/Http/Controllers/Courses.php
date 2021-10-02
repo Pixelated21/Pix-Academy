@@ -11,8 +11,7 @@ class Courses extends Controller
     {
         $courses = Course::orderBy("amt_enrolled","desc")->get();
 
-        return view("User.courses")
-            ->with(compact("courses"));
+        return view("User.courses",compact("courses"));
     }
 
 

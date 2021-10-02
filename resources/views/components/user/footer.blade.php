@@ -1,76 +1,50 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@3.0.6/css/line.css">
 
-{{--TODO MAKE THIS RELATED TO THE WEBPAGE--}}
 
 <footer class="bg-black pt-10 sm:mt-10 pt-10">
-    <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
-        <!-- Col-1 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-pink-400 font-medium mb-6">
-                Getting Started
-            </div>
+    <div class=" justify-around m-auto text-gray-800 flex flex-wrap justify-left">
 
-        </div>
 
-        <!-- Col-2 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-pink-400 font-medium mb-6">
-                Core Concepts
-            </div>
+            <a href="{{route("Contact")}}" class="text-xs uppercase duration-300 text-white  hover:text-orange-500 font-medium mb-6">
+                Contact Us
+            </a>
 
-            <!-- Links -->
 
-        </div>
 
-        <!-- Col-3 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-pink-400 font-medium mb-6">
-                Customization
-            </div>
+            <a href="{{route("About-Us")}}" class="text-xs uppercase duration-300 text-white hover:text-orange-500 font-medium mb-6">
+                About Us
+            </a>
 
-            <!-- Links -->
 
-        </div>
 
-        <!-- Col-3 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-pink-400 font-medium mb-6">
-                Community
-            </div>
+            <a href="{{route("Privacy-Policy")}}" class="text-xs uppercase duration-300 text-white hover:text-orange-500 font-medium mb-6">
+                Privacy Policy
+            </a>
 
-            <!-- Links -->
-
-        </div>
     </div>
 
-    <!-- Copyright Bar -->
     <div class="pt-2">
         <div class="flex pb-5 px-3 m-auto pt-5
             border-t border-gray-500 text-gray-400 text-sm
             flex-col md:flex-row max-w-6xl">
             <div class="mt-2">
-                Pix-Academy© Copyright 1998-2021. All Rights Reserved.
+                <span class="text-orange-500">Amber</span>-<span class="text-blue-600">HEART</span> Academy© Copyright 2021-2025. All Rights Reserved.
             </div>
 
-            <!-- Required Unicons (if you want) -->
             <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
-                <a href="#" class="w-6 mx-1">
+                <a target="_blank"  href="https://www.facebook.com/AmberGroupLtd" class="w-6 hover:text-white duration-300 mx-1">
                     <i class="uil uil-facebook-f"></i>
                 </a>
-                <a href="#" class="w-6 mx-1">
+                <a target="_blank"  href="https://twitter.com/MyAmberGrp" class="w-6 hover:text-white duration-300 mx-1">
                     <i class="uil uil-twitter-alt"></i>
                 </a>
-                <a href="#" class="w-6 mx-1">
+                <a target="_blank"  href="https://www.youtube.com/watch?v=E4Tp3kCtOgI" class="w-6 hover:text-white duration-300 mx-1">
                     <i class="uil uil-youtube"></i>
                 </a>
-                <a href="#" class="w-6 mx-1">
+                <a target="_blank"  href="https://jm.linkedin.com/company/amber-group-global?trk=similar-pages" class="w-6 hover:text-white duration-300 mx-1">
                     <i class="uil uil-linkedin"></i>
                 </a>
-                <a href="#" class="w-6 mx-1">
+                <a target="_blank"  href="https://www.instagram.com/explore/tags/amberheartacademy/" class="w-6 hover:text-white duration-300 mx-1">
                     <i class="uil uil-instagram"></i>
                 </a>
             </div>
