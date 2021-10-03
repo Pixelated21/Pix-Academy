@@ -9,7 +9,6 @@
 
             <div id="dashboard-view" class="flex  p-4 gap-4">
 
-                <!-- Social Traffic -->
                 <div
                     class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                     <div class="rounded-t mb-0 px-0 border-0">
@@ -21,8 +20,8 @@
 
 
                             <div class="relative w-full max-w-full flex-grow flex-1 text-right">
-                                <button id="view_all_course-btn" style="background-color: #A86C8E"
-                                        class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                <button id="view_all_course-btn"
+                                        class="bg-orange-500 hover:bg-orange-400 duration-300 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         type="button">View all
                                 </button>
                             </div>
@@ -56,17 +55,17 @@
                                                     <span class="mr-2">{{floor(($course["amt_enrolled"]/ $course["capacity"]) * 100)}}%</span>
                                                     <div class="relative w-full">
                                                         <div
-                                                            class="overflow-hidden h-2 text-xs flex rounded bg-pink-200">
+                                                            class="overflow-hidden h-2 text-xs flex rounded bg-orange-200">
                                                             <div
                                                                 style="width: {{floor(($course["amt_enrolled"]/ $course["capacity"]) * 100)}}%"
-                                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-600"></div>
+                                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-orange-600"></div>
                                                         </div>
                                                     </div>
                                                 @else
                                                     {{--                                                    <span class="mr-2">0</span>--}}
                                                     <div class="relative w-full">
-                                                        <div class="overflow-hidden h-2 text-xs flex rounded bg-200">
-                                                            <div style="width: 0"
+                                                        <div class="overflow-hidden opacity-20 h-2 text-xs flex rounded bg-200">
+                                                            <div style="width: 100%"
                                                                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
                                                         </div>
                                                     </div>
@@ -75,7 +74,27 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    None
+
+                                    <tr class="text-gray-700 dark:text-gray-100">
+                                        <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">N/A</th>
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                            N/A
+                                        </td>
+                                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                            <div class="flex items-center">
+                                                    <span class="mr-2">0%</span>
+                                                    <div class="relative w-full">
+                                                        <div
+                                                            class="overflow-hidden h-2 text-xs flex rounded bg-orange-200">
+                                                            <div
+                                                                style="width: 100%"
+                                                                class="shadow-none opacity-20 flex flex-col text-center whitespace-nowrap text-white justify-center bg-orange-600"></div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
                                 @endforelse
 
                                 </tbody>
@@ -83,9 +102,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- ./Social Traffic -->
 
-                <!-- Recent Activities -->
                 <div
                     class="relative  flex flex-col min-w-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                     <div class="rounded-t mb-0 px-0 border-0">
@@ -95,8 +112,8 @@
                                     Activities</h3>
                             </div>
                             <div class="relative w-full max-w-full flex-grow flex-1 text-right">
-                                <button id="view_all_user_activity" style="background-color: #A86C8E"
-                                        class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                <button id="view_all_user_activity"
+                                        class="bg-orange-500 hover:bg-orange-400 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         type="button">See all
                                 </button>
                             </div>
@@ -124,7 +141,7 @@
                                             <div class="self-center  font-medium">
                                                 <a class="font-bold text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100"
                                                    href="#0" style="outline: none;">{{$userActivityCard["student"]["first_nm"]}} {{$userActivityCard["student"]["last_nm"]}}</a> did a {{($userActivityCard["activity_type"])}}
-
+{{--                                                TODO TAKES YOU TO A PROFILE PAGE OF THE USER--}}
                                             </div>
 
 
@@ -139,12 +156,30 @@
                                 </li>
                                 @empty
 
+                                    <li class="flex px-4">
+
+
+                                        <div
+                                            class="flex-grow flex items-center border-b border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
+
+                                            <div class="flex-grow flex  justify-between items-center">
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="justify-center text-sm font-bold items-center flex">
+                                            N/A
+                                        </div>
+
+                                    </li>
+
                                 @endforelse
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!-- ./Recent Activities -->
             </div>
 
             <div id="applicant-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
@@ -203,7 +238,7 @@
                                         <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
                                             <form method="post" action="{{route("View-Applicant",[$applicant["course_applicants_id"],$applicant['student'][0]['users']['user_id']])}}">
                                                 @csrf
-                                                <button class="py-2 bg-pink-400 px-4 font-bold rounded">View</button>
+                                                <button class="py-2 bg-orange-500 text-white hover:bg-orange-600 duration-300 px-4 font-bold rounded">View</button>
                                             </form>
 
                                         </td>
@@ -212,6 +247,33 @@
                                     </tr>
                                 @empty
 
+                                    <tr class="text-gray-700 dark:text-gray-100">
+                                        <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                                            N/A
+                                        </td>
+                                        <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                            N/A
+                                        </td>
+                                        <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                            <div class="flex justify-center items-center">
+                                                <span
+                                                    class="mr-2 font-bold text-center">
+                                            N/A
+                                                </span>
+                                            </div>
+                                        </td>
+
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                            N/A
+                                        </td>
+
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                            N/A
+                                        </td>
+
+
+                                    </tr>
+
                                 @endforelse
 
                                 </tbody>
@@ -219,10 +281,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- ./Social Traffic -->
 
-                <!-- Recent Activities -->
-                <!-- ./Recent Activities -->
             </div>
 
             <div id="course-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
@@ -235,10 +294,11 @@
                                 <div
                                     class="font-semibold z-50 flex gap-10 justify-around text-base text-2xl text-center text-gray-900  dark:text-gray-50">
                                     <button id="show-course-btn"
-                                            class="bg-red-400  duration-300 font-bold rounded py-2 h-full w-1/2">Course
+                                            class="bg-orange-500 hover:bg-orange-400  duration-300 font-bold rounded py-2 h-full w-1/2">Course
                                     </button>
                                     <button id="add-course-btn"
-                                            class="bg-pink-400 duration-300 font-bold rounded py-2 h-full w-1/2">Add
+
+                                            class="bg-blue-600 hover:bg-blue-400 duration-300 font-bold rounded py-2 h-full w-1/2">Add
                                         Course
                                     </button>
                                 </div>
@@ -342,7 +402,7 @@
                                 @empty
                                     <tr>
 
-                                        <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$courseInfo["course_nm"]}}</td>
+                                        <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">N/A</td>
                                         <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                             N/A
                                         </td>
@@ -396,28 +456,52 @@
 
                             <div id="add-course-view" class="h-full hidden">
 
-                                <!-- component -->
-                                <form method="post" action="" class="rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+                                <form method="post"  enctype="multipart/form-data" action="{{route("Add Course")}}" class="rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+                                    @csrf
                                     <div class="-mx-3 md:flex mb-6">
                                         <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-course_start">
                                                 Course Starts
                                             </label>
-                                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-course_start" type="date">
+                                            <input
+                                                name="course_start"
+                                                required
+                                                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-course_start" type="date">
                                         </div>
                                         <div class="md:w-1/2 px-3">
                                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-course_end">
                                                 Course Ends
                                             </label>
-                                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-course_end" type="date">
+                                            <input
+                                                name="course_end"
+                                                required
+                                                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-course_end" type="date">
                                         </div>
                                     </div>
                                     <div class="-mx-3 md:flex mb-6">
-                                        <div class="md:w-full px-3">
+                                        <div class="md:w-1/2 px-3">
                                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-course_name">
                                                 Course Name
                                             </label>
-                                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-course_name" type="text">
+                                            <input
+                                                name="course_nm"
+                                                required
+                                                autocomplete="false"
+                                                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-course_name" type="text">
+                                        </div>
+                                        <div class="md:w-1/2 px-3">
+                                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
+                                                Award Type
+                                            </label>
+                                            <div>
+                                                <select
+                                                    name="award_type"
+                                                    required
+                                                    class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+                                                    <option disabled selected>Select Award Type</option>
+                                                    <option value="NVQJ Award">NVQJ Award</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="-mx-3  md:flex mb-10">
@@ -425,14 +509,22 @@
                                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
                                                 Price
                                             </label>
-                                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" type="text" placeholder="Albuquerque">
+                                            <input
+                                                name="course_price"
+                                                required
+                                                autocomplete="false"
+                                                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" type="text" placeholder="Albuquerque">
                                         </div>
                                         <div class="md:w-1/2 px-3">
                                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
                                                 Format
                                             </label>
                                             <div>
-                                                <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+                                                <select
+                                                    name="course_format"
+                                                    required
+                                                    class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+                                                    <option disabled selected>Select Course Format</option>
                                                     <option>Full Time</option>
                                                     <option>Part-Time</option>
                                                     <option>Assessment Only</option>
@@ -444,7 +536,12 @@
                                                 Training Type
                                             </label>
                                             <div>
-                                                <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+                                                <select
+                                                    name="course_training_type"
+                                                    required
+                                                    autocomplete="false"
+                                                    class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+                                                    <option selected disabled>Select Institution</option>
                                                     <option>Institution</option>
                                                 </select>
                                             </div>
@@ -456,7 +553,11 @@
                                                 Modality
                                             </label>
                                             <div>
-                                                <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+                                                <select
+                                                    name="course_modality"
+                                                    required
+                                                    class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+                                                    <option disabled selected>Select A Modality</option>
                                                     <option>Face To Face</option>
                                                     <option>Blended</option>
                                                     <option>Walk-In</option>
@@ -468,11 +569,14 @@
                                                 Institution
                                             </label>
                                             <div>
-                                                <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+                                                <select
+                                                    name="institution_id"
+                                                    required
+                                                    class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
                                                     <option selected disabled>Select Institution</option>
 
                                                 @forelse ($institutionsInfo as $institutions)
-                                                        <option>{{$institutions["institution_nm"]}}</option>
+                                                        <option value="{{$institutions["institution_id"]}}">{{$institutions["institution_nm"]}}</option>
                                                     @empty
                                                         <option selected disabled>No Available Institutions</option>
                                                     @endforelse
@@ -483,19 +587,33 @@
                                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-capacity">
                                                 Capacity
                                             </label>
-                                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-capacity" type="text" placeholder="Enter Capacity">
+                                            <input
+                                                name="course_capacity"
+                                                required
+                                                autocomplete="false"
+                                                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-capacity"
+                                                type="number" placeholder="Enter Capacity">
                                         </div>
                                     </div>
 
                                     <div class=" mt-5 w-full flex justify-center items-center">
-                                            <input type="file" name="file">
+                                        <label>
+                                            <div class="flex gap-2">
+                                                <div><span class="py-2 px-4 rounded-2xl bg-orange-500">Add Course Image</span></div>
+                                                <div>
+                                                    <input required accept="image/*" id="course-img" type="file" class="hidden" value="Add Course Image" name="course_img">
+                                                </div>
+                                                <div>
+                                                    <p id="image-nm"></p>
+                                                </div>
+                                            </div>
+                                        </label>
                                     </div>
-
                                     <div class=" mt-10 border border-black w-full md:flex mb-6">
-                                        <input type="text">
+                                        <textarea required name="course_desc" minlength="50" placeholder="Enter Course Description. Min-50 characters" class="h-20 resize-none font-bold w-full"></textarea>
                                     </div>
 
-                                    <button class="bg-blue-400 text-2xl font-bold py-3 rounded" type="submit">Create Course</button>
+                                    <button class="bg-blue-400 hover:bg-blue-600 duration-300 text-2xl font-bold py-3 rounded" type="submit">Create Course</button>
 
                                 </form>
 
@@ -503,75 +621,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- ./Social Traffic -->
-            {{--                    <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">--}}
-            {{--                        <div class="rounded-t mb-0 px-0  border-0">--}}
-            {{--                            <div class="flex flex-wrap items-center top-0 sticky bg-gray-100   px-4 py-4">--}}
-            {{--                                <div class="relative w-full max-w-full flex-grow   flex-1">--}}
-            {{--                                    <h3 class="font-semibold text-base  text-2xl text-center text-gray-900  dark:text-gray-50">Courses</h3>--}}
-            {{--                                </div>--}}
 
-            {{--                            </div>--}}
-            {{--                            <div class="block w-full">--}}
-            {{--                                <table class="items-center w-full bg-transparent border-collapse">--}}
-            {{--                                    <thead class="top-15 sticky">--}}
-            {{--                                    <tr>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Course Name</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Institution</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Award Type</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center min-w-140-px">Action</th>--}}
-            {{--                                    </tr>--}}
-            {{--                                    </thead>--}}
-
-            {{--                                    <tbody>--}}
-
-
-            {{--                                    @foreach($applicants as $applicant)--}}
-            {{--                                        <tr>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                {{$applicant['student'][0]['last_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                <div class="flex justify-center items-center">--}}
-            {{--                                                    <span class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>--}}
-            {{--                                                </div>--}}
-            {{--                                            </td>--}}
-
-            {{--                                            <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">--}}
-            {{--                                                {{\App\Models\Course::find($applicant['course_id'])->course_nm}}--}}
-            {{--                                            </td>--}}
-
-            {{--                                        </tr>    <tr>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                {{$applicant['student'][0]['last_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                <div class="flex justify-center items-center">--}}
-            {{--                                                    <span class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>--}}
-            {{--                                                </div>--}}
-            {{--                                            </td>--}}
-
-            {{--                                            <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">--}}
-            {{--                                                {{\App\Models\Course::find($applicant['course_id'])->course_nm}}--}}
-            {{--                                            </td>--}}
-
-            {{--                                        </tr>--}}
-
-            {{--                                    @endforeach--}}
-
-            {{--                                    </tbody>--}}
-            {{--                                </table>--}}
-            {{--                            </div>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
-
-            <!-- Recent Activities -->
-                <!-- ./Recent Activities -->
             </div>
 
             <div id="institution-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
 
-                <!-- Social Traffic -->
+
                 <div
                     class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                     <div class="rounded-t mb-0 px-0  border-0">
@@ -579,10 +634,10 @@
                             <div class="relative w-full max-w-full flex-grow   flex-1">
                                 <div
                                     class="font-semibold flex gap-10 justify-around text-base text-2xl text-center text-gray-900  dark:text-gray-50">
-                                    <button id="show-institution-btn" class="bg-red-400 font-bold rounded py-2 h-full w-1/2">
+                                    <button id="show-institution-btn" class="bg-orange-500 hover:bg-orange-400 duration-300 font-bold rounded py-2 h-full w-1/2">
                                         Institution
                                     </button>
-                                    <button id="add-institution-btn" class="bg-pink-400 font-bold rounded py-2 h-full w-1/2">
+                                    <button id="add-institution-btn" class="bg-blue-600 hover:bg-blue-400 duration-300 font-bold rounded py-2 h-full w-1/2">
                                         Add Institution
                                     </button>
                                 </div>
@@ -643,6 +698,28 @@
                                     </tr>
                                 @empty
 
+                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                        N/A
+                                    </td>
+
+                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                        N/A
+                                    </td>
+
+                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                        N/A
+
+                                    </td>
+
+                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                        N/A
+                                    </td>
+
+
+                                    <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                        N/A
+                                    </td>
+
                                 @endforelse
 
 
@@ -652,7 +729,6 @@
 
                                 <div id="add-institution-view" class="h-full  hidden">
 
-                                    <!-- component -->
                                     <form method="post" action="{{route("Add Institution")}}" class="rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                                         @csrf
                                         <div class="-mx-3 md:flex mb-6">
@@ -680,7 +756,7 @@
                                         </div>
 
 
-                                        <button class="bg-pink-400 text-2xl font-bold py-3 rounded" type="submit">Create Institution</button>
+                                        <button class="bg-blue-600 duration-300 hover:bg-blue-500 text-2xl font-bold py-3 rounded" type="submit">Create Institution</button>
 
                                     </form>
 
@@ -690,70 +766,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ./Social Traffic -->
-            {{--                    <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">--}}
-            {{--                        <div class="rounded-t mb-0 px-0  border-0">--}}
-            {{--                            <div class="flex flex-wrap items-center top-0 sticky bg-gray-100   px-4 py-4">--}}
-            {{--                                <div class="relative w-full max-w-full flex-grow   flex-1">--}}
-            {{--                                    <h3 class="font-semibold text-base  text-2xl text-center text-gray-900  dark:text-gray-50">Courses</h3>--}}
-            {{--                                </div>--}}
-
-            {{--                            </div>--}}
-            {{--                            <div class="block w-full">--}}
-            {{--                                <table class="items-center w-full bg-transparent border-collapse">--}}
-            {{--                                    <thead class="top-15 sticky">--}}
-            {{--                                    <tr>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Course Name</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Institution</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Award Type</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center min-w-140-px">Action</th>--}}
-            {{--                                    </tr>--}}
-            {{--                                    </thead>--}}
-
-            {{--                                    <tbody>--}}
-
-
-            {{--                                    @foreach($applicants as $applicant)--}}
-            {{--                                        <tr>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                {{$applicant['student'][0]['last_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                <div class="flex justify-center items-center">--}}
-            {{--                                                    <span class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>--}}
-            {{--                                                </div>--}}
-            {{--                                            </td>--}}
-
-            {{--                                            <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">--}}
-            {{--                                                {{\App\Models\Course::find($applicant['course_id'])->course_nm}}--}}
-            {{--                                            </td>--}}
-
-            {{--                                        </tr>    <tr>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                {{$applicant['student'][0]['last_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                <div class="flex justify-center items-center">--}}
-            {{--                                                    <span class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>--}}
-            {{--                                                </div>--}}
-            {{--                                            </td>--}}
-
-            {{--                                            <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">--}}
-            {{--                                                {{\App\Models\Course::find($applicant['course_id'])->course_nm}}--}}
-            {{--                                            </td>--}}
-
-            {{--                                        </tr>--}}
-
-            {{--                                    @endforeach--}}
-
-            {{--                                    </tbody>--}}
-            {{--                                </table>--}}
-            {{--                            </div>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
-
-            <!-- Recent Activities -->
-                <!-- ./Recent Activities -->
             </div>
 
             <div id="user-activity-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
@@ -765,7 +777,7 @@
                             <div class="relative w-full max-w-full flex-grow flex-1">
                                 <div
                                     class="font-semibold flex gap-10 justify-around text-base text-2xl text-center text-gray-900  dark:text-gray-50">
-                                    <div class="bg-red-400 font-bold rounded py-2 h-full w-full">User Activity</div>
+                                    <div class="bg-orange-500 font-bold rounded py-2 h-full w-full">User Activity</div>
                                 </div>
                             </div>
 
@@ -849,6 +861,12 @@
                                 <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
                                     N/A
                                 </td>
+                                <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                    N/A
+                                </td>
+                                <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                    N/A
+                                </td>
 
 
                             </tr>
@@ -869,70 +887,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ./Social Traffic -->
-            {{--                    <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">--}}
-            {{--                        <div class="rounded-t mb-0 px-0  border-0">--}}
-            {{--                            <div class="flex flex-wrap items-center top-0 sticky bg-gray-100   px-4 py-4">--}}
-            {{--                                <div class="relative w-full max-w-full flex-grow   flex-1">--}}
-            {{--                                    <h3 class="font-semibold text-base  text-2xl text-center text-gray-900  dark:text-gray-50">Courses</h3>--}}
-            {{--                                </div>--}}
-
-            {{--                            </div>--}}
-            {{--                            <div class="block w-full">--}}
-            {{--                                <table class="items-center w-full bg-transparent border-collapse">--}}
-            {{--                                    <thead class="top-15 sticky">--}}
-            {{--                                    <tr>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Course Name</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Institution</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Award Type</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center min-w-140-px">Action</th>--}}
-            {{--                                    </tr>--}}
-            {{--                                    </thead>--}}
-
-            {{--                                    <tbody>--}}
-
-
-            {{--                                    @foreach($applicants as $applicant)--}}
-            {{--                                        <tr>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                {{$applicant['student'][0]['last_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                <div class="flex justify-center items-center">--}}
-            {{--                                                    <span class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>--}}
-            {{--                                                </div>--}}
-            {{--                                            </td>--}}
-
-            {{--                                            <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">--}}
-            {{--                                                {{\App\Models\Course::find($applicant['course_id'])->course_nm}}--}}
-            {{--                                            </td>--}}
-
-            {{--                                        </tr>    <tr>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                {{$applicant['student'][0]['last_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                <div class="flex justify-center items-center">--}}
-            {{--                                                    <span class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>--}}
-            {{--                                                </div>--}}
-            {{--                                            </td>--}}
-
-            {{--                                            <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">--}}
-            {{--                                                {{\App\Models\Course::find($applicant['course_id'])->course_nm}}--}}
-            {{--                                            </td>--}}
-
-            {{--                                        </tr>--}}
-
-            {{--                                    @endforeach--}}
-
-            {{--                                    </tbody>--}}
-            {{--                                </table>--}}
-            {{--                            </div>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
-
-            <!-- Recent Activities -->
-                <!-- ./Recent Activities -->
             </div>
 
             <div id="payment-activity-view" class="grid grid-cols-1 hidden lg:grid-cols-1 p-4 gap-4">
@@ -944,7 +898,7 @@
                             <div class="relative w-full max-w-full flex-grow   flex-1">
                                 <div
                                     class="font-semibold flex gap-10 justify-around text-base text-2xl text-center text-gray-900  dark:text-gray-50">
-                                    <div class="bg-red-400 font-bold rounded py-2 h-full w-full">Payment Activity</div>
+                                    <div class="bg-orange-500 font-bold rounded py-2 h-full w-full">Payment Activity</div>
                                 </div>
                             </div>
 
@@ -1034,70 +988,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ./Social Traffic -->
-            {{--                    <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">--}}
-            {{--                        <div class="rounded-t mb-0 px-0  border-0">--}}
-            {{--                            <div class="flex flex-wrap items-center top-0 sticky bg-gray-100   px-4 py-4">--}}
-            {{--                                <div class="relative w-full max-w-full flex-grow   flex-1">--}}
-            {{--                                    <h3 class="font-semibold text-base  text-2xl text-center text-gray-900  dark:text-gray-50">Courses</h3>--}}
-            {{--                                </div>--}}
-
-            {{--                            </div>--}}
-            {{--                            <div class="block w-full">--}}
-            {{--                                <table class="items-center w-full bg-transparent border-collapse">--}}
-            {{--                                    <thead class="top-15 sticky">--}}
-            {{--                                    <tr>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Course Name</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Institution</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Award Type</th>--}}
-            {{--                                        <th class="px-4 bg-gray-100 text-center dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center min-w-140-px">Action</th>--}}
-            {{--                                    </tr>--}}
-            {{--                                    </thead>--}}
-
-            {{--                                    <tbody>--}}
-
-
-            {{--                                    @foreach($applicants as $applicant)--}}
-            {{--                                        <tr>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                {{$applicant['student'][0]['last_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                <div class="flex justify-center items-center">--}}
-            {{--                                                    <span class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>--}}
-            {{--                                                </div>--}}
-            {{--                                            </td>--}}
-
-            {{--                                            <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">--}}
-            {{--                                                {{\App\Models\Course::find($applicant['course_id'])->course_nm}}--}}
-            {{--                                            </td>--}}
-
-            {{--                                        </tr>    <tr>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{{$applicant['student'][0]['first_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                {{$applicant['student'][0]['last_nm']}}</td>--}}
-            {{--                                            <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">--}}
-            {{--                                                <div class="flex justify-center items-center">--}}
-            {{--                                                    <span class="mr-2 font-bold text-center">{{$applicant['student'][0]['tele_nbr']}}</span>--}}
-            {{--                                                </div>--}}
-            {{--                                            </td>--}}
-
-            {{--                                            <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">--}}
-            {{--                                                {{\App\Models\Course::find($applicant['course_id'])->course_nm}}--}}
-            {{--                                            </td>--}}
-
-            {{--                                        </tr>--}}
-
-            {{--                                    @endforeach--}}
-
-            {{--                                    </tbody>--}}
-            {{--                                </table>--}}
-            {{--                            </div>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
-
-            <!-- Recent Activities -->
-                <!-- ./Recent Activities -->
             </div>
 
 
@@ -1110,11 +1000,10 @@
                             <div class="relative w-full max-w-full flex-grow   flex-1">
                                 <div
                                     class="font-semibold flex gap-10 justify-around text-base text-2xl text-center text-gray-900  dark:text-gray-50">
-{{--                                    <div class="bg-orange-400  font-bold rounded py-2 h-full w-2/3">Settings</div>--}}
                                     <div class=" w-full">
                                         <form class="w-full" method="post" action="{{route("All Student XML")}}">
                                             @csrf
-                                            <button type="submit" class="bg-blue-500 font-bold rounded py-2 h-full w-full">All Applicants XML</button>
+                                            <button type="submit" class="bg-blue-500 duration-300 hover:bg-blue-400 font-bold rounded py-2 h-full w-full">All Applicants XML</button>
                                         </form>
                                     </div>
 
@@ -1178,8 +1067,7 @@
                                     </td>
 
                                     <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-{{--                                        {{$acceptedApplicant['student'][0]['gender']}}--}}
-                                        Male
+                                        {{$acceptedApplicant['student'][0]['gender']}}
                                     </td>
 
                                     <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs p-4 text-center">
@@ -1199,7 +1087,7 @@
                                         <div class=" flex justify-center items-center">
                                             <form class="w-full  flex items-center justify-center" method="post" action="{{route("Single Student XML",[$acceptedApplicant['student'][0]['student_id']])}}">
                                                 @csrf
-                                                <button type="submit" class="flex justify-center text-center font-bold rounded py-2 h-full w-full">
+                                                <button type="submit" class="flex justify-center duration-300 hover:text-orange-500 text-center font-bold rounded py-2 h-full w-full">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                                         </svg>
@@ -1212,6 +1100,50 @@
 
                                 </tr>
                                     @empty
+
+                                    <tr>
+
+                                        <td class="border-t-0 font-bold text-center align-middle border-l-0 border-r-0 text-xs  p-4 text-left">
+                                            N/A
+                                        </td>
+                                        <td class="border-t-0 font-bold px-4 text-center border-l-0 border-r-0 text-xs  p-4">
+                                            N/A
+                                        </td>
+                                        <td class="border-t-0 px-4 text-center text-center border-l-0 border-r-0 text-xs  p-4">
+
+                                            <div class="flex justify-center items-center">
+                                            <span class="mr-2 font-bold text-center">
+                                            N/A
+                                            </span>
+                                            </div>
+                                        </td>
+
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                            N/A
+                                        </td>
+
+                                        <td class="border-t-0 font-bold px-4 align-middle border-l-0 border-r-0 text-xs p-4 text-center">
+                                            N/A
+                                        </td>
+
+
+                                        <td class="border-t-0 font-bold align-middle border-l-0 border-r-0 text-xs  p-4 text-center">
+                                            N/A
+                                        </td>
+
+                                        <td class="border-t-0 font-bold align-middle border-l-0 border-r-0 text-xs  p-4 text-center">
+                                            N/A
+                                        </td>
+
+                                        <td class="border-t-0  font-bold  align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                                            <div class=" flex justify-center items-center">
+                                                N/A
+                                            </div>
+
+                                        </td>
+
+
+                                    </tr>
 
                                 @endforelse
 

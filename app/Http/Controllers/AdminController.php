@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Course_Application;
 use App\Models\Institution;
+use App\Models\Media;
 use App\Models\Payment_Activity;
 use App\Models\Student;
 use App\Models\User_Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class AdminController extends Controller
@@ -104,6 +107,35 @@ class AdminController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'Institution Added Successfully');
+
+    }
+
+    public function addCourse(Request $request)
+    {
+//        dd($request->all());
+
+        $currentImage = "/public/coursesIMG/" . uniqid('', true) . "." . $request->file("course_img")->getClientOriginalExtension();
+
+        $saveImage = $request->file("course_img")->storeAs("/", $currentImage);
+
+
+        Course::create([
+            'training_start' => $request->course_start,
+            'training_end' => $request->course_end,
+            'course_nm' => $request->course_nm,
+            'price' => $request->course_price,
+            'format' => $request->course_format,
+            'award_type' => $request->award_type,
+            'training_type' => $request->course_training_type,
+            'modality' => $request->course_modality,
+            "institution_id" => $request->institution_id,
+            "capacity" => $request->course_capacity,
+            'course_desc' => $request->course_desc,
+            'course_img' => $currentImage
+
+        ]);
+
+        return redirect()->back()->with('message', 'Course Added Successfully');
 
     }
 

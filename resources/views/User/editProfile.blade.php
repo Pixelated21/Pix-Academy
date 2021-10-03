@@ -91,19 +91,20 @@
                                     name="parish"
                                     disabled
                                     class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
-                                    <option selected>St.Catherine</option>
-                                    <option>Clarendon</option>
-                                    <option>St Andrew</option>
-                                    <option>Saint Thomas</option>
-                                    <option>Hanover</option>
-                                    <option>Saint James</option>
-                                    <option>Saint Elizabeth</option>
-                                    <option>Westmoreland</option>
-                                    <option>Saint Mary</option>
-                                    <option>Saint Ann</option>
-                                    <option>Portland</option>
-                                    <option>Saint Thomas</option>
-                                    <option>Trelawny</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "St.Catherine" ) selected @endif value="St.Catherine">St.Catherine</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "Clarendon" ) selected @endif value="Clarendon">Clarendon</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "St.Andrew" ) selected @endif value="St.Andrew">St.Andrew</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "St.Thomas" ) selected @endif value="St.Thomas">St.Thomas</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "Hanover" ) selected @endif value="Hanover">Hanover</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "St.James" ) selected @endif value="St.James">St.James</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "St.Elizabeth" ) selected @endif value="St.Elizabeth">St.Elizabeth</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "Westmoreland" ) selected @endif value="Westmoreland">Westmoreland</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "St.Mary" ) selected @endif value="St.Mary">St.Mary</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "St.Ann" ) selected @endif value="St.Ann">St.Ann</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "Portland" ) selected @endif value="Portland">Portland</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "Trelawny" ) selected @endif value="Trelawny">Trelawny</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "Manchester" ) selected @endif value="Manchester">Manchester</option>
+                                    <option @if($student[0]['student']["parish_nm"] === "Kingston" ) selected @endif value="Kingston">Kingston</option>
 
 
                                 </select>
@@ -259,7 +260,6 @@
                             </div>
                         </div>
                         <div class="md:w-full max-w-sm mx-auto">
-                            {{--                            TODO explode and hide certain parts of the value--}}
                             <label class="text-sm text-gray-400">Card Number</label>
                             <div class="w-full inline-flex">
                                 <input
@@ -385,7 +385,7 @@
                                      @endif" class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
                                 <label>
                                     <span class="h-full">
-                                        <div class="bg-orange-500 rounded-b-2xl text-white text-2xl py-5">Add Picture Of Qualification</div>
+                                        <div class="bg-orange-500 hover:bg-orange-400 duration-300 rounded-b-2xl text-white text-2xl py-5">Add Picture Of Qualification</div>
                                     <input name="qualImg" class=" hidden" id="qualImgInput" type="file"
                                            onchange="submit()"/>
                                     </span>
@@ -411,7 +411,7 @@
                                      @endif" class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
                                 <label>
                                     <span class="h-full">
-                                        <div class="bg-orange-500 rounded-b-2xl text-white text-2xl py-5">Add Passport Size Picture</div>
+                                        <div class="bg-orange-500 hover:bg-orange-400 duration-300 rounded-b-2xl text-white text-2xl py-5">Add Passport Size Picture</div>
                                     <input name="passportImg" class=" hidden" id="passportImgInput" type="file"
                                            onchange="submit()"/>
                                     </span>
@@ -427,7 +427,7 @@
                 <div id="personalInfoBtnGroup"
                      class="md:w-2/12  mb-3 flex justify-around gap-3  bg-white text-center md:pl-6">
                     <button id="pi-update-btn"
-                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-2/3 mx-auto max-w-sm rounded-md text-center bg-orange-500 duration-300 hover:bg-orange-400 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg
                             fill="none"
                             class="w-4 text-white mr-2"
@@ -445,7 +445,7 @@
                     </button>
 
                     <button id="pi-back-btn"
-                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-600 duration-300 hover:bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -461,7 +461,7 @@
                     </button>
 
                     <button id="pi-submit-btn"
-                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-600 duration-300 hover:bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"
@@ -499,7 +499,7 @@
                     </button>
 
                     <button id="ri-back-btn"
-                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-600 duration-300 hover:bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -515,7 +515,7 @@
                     </button>
 
                     <button id="ri-submit-btn"
-                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-600 duration-300 hover:bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"
@@ -554,7 +554,7 @@
                     </button>
 
                     <button id="ci-back-btn"
-                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-orange-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white  w-full mx-auto max-w-sm rounded-md text-center bg-red-600 duration-300 hover:bg-red-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-extrabold text-white mr-2"
                              fill="none"
@@ -570,7 +570,7 @@
                     </button>
 
                     <button id="ci-submit-btn"
-                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
+                            class="text-white w-full  mx-auto max-w-sm rounded-md text-center bg-blue-600 duration-300 hover:bg-blue-500 py-2 px-4 inline-flex items-center justify-center focus:outline-none md:float-right">
                         <p class="font-medium">Submit</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="w-4 font-bold text-white ml-2"

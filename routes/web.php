@@ -84,6 +84,7 @@ Route::post('/admin/applicant/{application_id}/{student_id}', [AdminController::
 // AdminController Actions
 
 Route::post('/admin/addInstitution', [AdminController::class, 'addInstitution'])->name("Add Institution");
+Route::post('/admin/addCourse', [AdminController::class, 'addCourse'])->name("Add Course");
 
 Route::post('/admin/applicantAction/{application_id}/{course_id}', [AdminController::class, 'applicantAction'])->name("Admin_Applicant_Action");
 

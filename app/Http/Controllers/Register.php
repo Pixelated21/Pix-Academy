@@ -24,7 +24,7 @@ class Register extends Controller
             'first_nm' => ['required','string','alpha','min:2'],
             'last_nm' => ['required','string','alpha','min:2'],
             'email_addr' => ['required','email','unique:users'],
-            'password' => ['required','alpha_dash','min:5','confirmed'],
+            'password' => ['required','alpha_dash','','min:5','confirmed'],
             'password_confirmation' => ['required','alpha_dash','min:5'],
         ]);
 
@@ -65,5 +65,6 @@ class Register extends Controller
         if(Auth::attempt($loginValidate)){
             return redirect('/');
         }
+        return back();
     }
 }

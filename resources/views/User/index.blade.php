@@ -235,7 +235,7 @@
                                          src="{{$topCourse->course_img}}" alt="blog">
                                     <div class="p-6">
                                         <h1 class="title-font text-xl font-bold text-gray-800 mb-3">{{$topCourse->course_nm}}</h1>
-                                        <p class="leading-relaxed text-gray-600 font-medium mb-3">
+                                        <p class="leading-relaxed text-gray-600 font-medium truncate mb-3">
                                             {{$topCourse->course_desc}}
                                         </p>
                                         <div class="flex items-center flex-wrap ">
@@ -314,7 +314,7 @@
                         volutpat, viverra magna risus aliquam massa.</p>
                 </div>
 
-                <a class="px-8 py-2 text-lg font-medium  text-white transition-colors duration-300 transform bg-orange-600 rounded hover:bg-orange-500"
+                <a class="px-8 py-2  text-lg font-medium md:mt-0  text-white transition-colors duration-300 transform bg-orange-600 rounded hover:bg-orange-500"
                    href="{{route("About-Us")}}">About Us</a>
             </div>
         </div>
@@ -333,7 +333,7 @@
 
                     <a href="{{'/courses/'.$newCourse->course_id}}" class="px-6 py-8 overflow-hidden bg-white border border-orange-600 duration-300 transform hover:scale-110 hover:border-blue-600 hover:shadow-2xl rounded-md shadow-md">
                         <h2 class="text-xl font-bold text-gray-800">{{$newCourse->course_nm}}</h2>
-                        <p class="max-w-md mt-4 mb-6 font-semibold  text-gray-600">{{$newCourse->course_desc}}</p>
+                        <p class="max-w-md mt-4 mb-6 font-semibold truncate  text-gray-600">{{$newCourse->course_desc}}</p>
                         <p class="flex text-sm font-bold text-gray-500 justify-end">{{\Carbon\Carbon::parse($newCourse->created_at)->diffForHumans()}}</p>
                     </a>
 

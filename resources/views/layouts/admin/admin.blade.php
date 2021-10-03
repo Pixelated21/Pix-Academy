@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script defer src="{{asset("js/adminFormControl.js")}}"></script>
+    <script defer src="{{asset("js/custom_file_name_display.js")}}"></script>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -25,7 +26,7 @@
         <div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
                 <div
-                    class="bg-black cursor-pointer hover:bg-gray-800 duration-300 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-pink-600 dark:border-gray-600 text-white font-medium group">
+                    class="bg-black {{--cursor-pointer hover:bg-gray-800--}} duration-300 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                     <div
                         class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                         <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -41,7 +42,7 @@
                 </div>
                 <div
                     id="course_card_btn"
-                    class="bg-black cursor-pointer hover:bg-gray-800 duration-300  dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-pink-600 dark:border-gray-600 text-white font-medium group">
+                    class="bg-black cursor-pointer hover:bg-gray-800 duration-300  dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                     <div
                         class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                         <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -59,7 +60,7 @@
                 </div>
                 <div
                     id="institution_card_btn"
-                    class="bg-black cursor-pointer hover:bg-gray-800 duration-300  dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-pink-600 dark:border-gray-600 text-white font-medium group">
+                    class="bg-black cursor-pointer hover:bg-gray-800 duration-300  dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                     <div
                         class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                         <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -75,7 +76,7 @@
                 </div>
                 <div
                     id="applicant_card_btn"
-                    class="bg-black cursor-pointer hover:bg-gray-800 duration-300 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-pink-600 dark:border-gray-600 text-white font-medium group">
+                    class="bg-black cursor-pointer hover:bg-gray-800 duration-300 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                     <div
                         class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                         <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"

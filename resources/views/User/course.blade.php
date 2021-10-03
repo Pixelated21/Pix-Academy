@@ -33,17 +33,9 @@
 
                         <h2 class="font-semibold text-gray-800 md:text-xl md:mt-1">{{$course[0]["institution"]["institution_nm"]}}</h2>
 
-                        <p class="mt-2 text-sm  text-gray-500 mt-5 md:text-base ">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi consequatur corporis
-                            culpa cumque dicta dolore eos eum expedita explicabo fugit laboriosam laudantium modi
-                            necessitatibus odio praesentium quas quis rem repudiandae soluta, unde, velit veritatis. A
-                            alias animi, atque ea eveniet expedita impedit ipsa ipsum iusto laboriosam minima nam natus
-                            nobis optio placeat porro, quam qui sapiente vel voluptate? Architecto asperiores ea esse in
-                            magnam, maiores necessitatibus nemo perspiciatis quibusdam voluptatibus? Adipisci alias
-                            dolore doloremque, fugiat impedit incidunt laborum maxime velit. Atque autem earum enim est
-                            exercitationem, expedita iure magni maiores nam neque nihil, nulla quidem rem totam velit
-                            voluptate!
+                        <p class="mt-2 text-sm md:h-64  text-gray-500 mt-5 md:text-base ">
 
+                            {{$course[0]['course_desc']}}
 
                         </p>
 
@@ -89,7 +81,7 @@
                                         <button
                                             value="{{$course[0]["course_id"]}}"
                                             name="course"
-                                            class="bg-pink-500  text-base w-full px-5 py-3  shadow-sm font-medium tracking-wider text-pink-100 rounded hover:shadow-2xl duration-300 hover:bg-pink-700">
+                                            class="bg-orange-500  text-base w-full px-5 py-3  shadow-sm font-medium tracking-wider text-pink-100 rounded hover:shadow-2xl duration-300 hover:bg-orange-600">
                                             Apply
                                         </button>
                                     </form>

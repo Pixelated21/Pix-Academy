@@ -45,11 +45,11 @@ $(document).ready(function (){
 
     function coursesBtnControl(toggle){
 
-        course_show_btn.removeClass("bg-red-600")
-        course_add_btn.removeClass("bg-pink-600")
+        course_show_btn.removeClass("bg-orange-500")
+        course_add_btn.removeClass("bg-blue-500")
 
         if (toggle === "show"){
-            course_show_btn.addClass("bg-red-600")
+            course_show_btn.addClass("bg-orange-600")
 
 
             show_course_view.show()
@@ -58,7 +58,7 @@ $(document).ready(function (){
         }
         else if(toggle === "add"){
 
-            course_add_btn.addClass("bg-pink-600")
+            course_add_btn.addClass("bg-blue-600")
 
             show_course_view.hide()
             add_course_view.show()
@@ -68,11 +68,11 @@ $(document).ready(function (){
 
     function institutionBtnControl(toggle){
 
-        show_institution_btn.removeClass("bg-red-600")
-        add_institution_btn.removeClass("bg-pink-600")
+        show_institution_btn.removeClass("bg-orange-500")
+        add_institution_btn.removeClass("bg-blue-500")
 
         if (toggle === "show"){
-            show_institution_btn.addClass("bg-red-600")
+            show_institution_btn.addClass("bg-orange-600")
 
 
             show_institution_view.show()
@@ -81,7 +81,7 @@ $(document).ready(function (){
         }
         else if(toggle === "add"){
 
-            add_institution_btn.addClass("bg-pink-600")
+            add_institution_btn.addClass("bg-blue-600")
 
             show_institution_view.hide()
             add_institution_view.show()
@@ -132,70 +132,68 @@ $(document).ready(function (){
 
         function activeTabView(form){
 
-            dash_btn.removeClass("bg-pink-700")
+            dash_btn.removeClass("bg-orange-600")
             dash_btn.removeClass("border-l-4")
-            dash_btn.removeClass("border-pink-500")
+            dash_btn.removeClass("border-blue-500")
 
-
-            appli_btn.removeClass("bg-pink-700")
+            appli_btn.removeClass("bg-orange-600")
             appli_btn.removeClass("border-l-4")
-            appli_btn.removeClass("border-pink-500")
+            appli_btn.removeClass("border-blue-500")
 
-            course_btn.removeClass("bg-pink-700")
+            course_btn.removeClass("bg-orange-600")
             course_btn.removeClass("border-l-4")
-            course_btn.removeClass("border-pink-500")
+            course_btn.removeClass("border-blue-500")
 
-            inst_btn.removeClass("bg-pink-700")
+            inst_btn.removeClass("bg-orange-600")
             inst_btn.removeClass("border-l-4")
-            inst_btn.removeClass("border-pink-500")
+            inst_btn.removeClass("border-blue-500")
 
-            userActivity_btn.removeClass("bg-pink-700")
+            userActivity_btn.removeClass("bg-orange-600")
             userActivity_btn.removeClass("border-l-4")
-            userActivity_btn.removeClass("border-pink-500")
+            userActivity_btn.removeClass("border-blue-500")
 
-
-            payActivity_btn.removeClass("bg-pink-700")
+            payActivity_btn.removeClass("bg-orange-600")
             payActivity_btn.removeClass("border-l-4")
-            payActivity_btn.removeClass("border-pink-500")
+            payActivity_btn.removeClass("border-blue-500")
 
-           settings_btn.removeClass("bg-pink-700")
+           settings_btn.removeClass("bg-orange-600")
             settings_btn.removeClass("border-l-4")
-            settings_btn.removeClass("border-pink-500")
+            settings_btn.removeClass("border-blue-500")
 
             if (form === "dashboard"){
-                dash_btn.addClass("bg-pink-700")
+                dash_btn.addClass("bg-orange-600")
                 dash_btn.addClass("border-l-4")
-                dash_btn.addClass("border-pink-500")
+                dash_btn.addClass("border-blue-500")
             }
             if (form === "application"){
-                appli_btn.addClass("bg-pink-700")
+                appli_btn.addClass("bg-orange-600")
                 appli_btn.addClass("border-l-4")
-                appli_btn.addClass("border-pink-500")
+                appli_btn.addClass("border-blue-500")
             }
             if (form === "course"){
-                course_btn.addClass("bg-pink-700")
+                course_btn.addClass("bg-orange-600")
                 course_btn.addClass("border-l-4")
-                course_btn.addClass("border-pink-500")
+                course_btn.addClass("border-blue-500")
             }
             if (form === "institution"){
-                inst_btn.addClass("bg-pink-700")
+                inst_btn.addClass("bg-orange-600")
                 inst_btn.addClass("border-l-4")
-                inst_btn.addClass("border-pink-500")
+                inst_btn.addClass("border-blue-500")
             }
             if (form === "user_activity"){
-                userActivity_btn.addClass("bg-pink-700")
+                userActivity_btn.addClass("bg-orange-600")
                 userActivity_btn.addClass("border-l-4")
-                userActivity_btn.addClass("border-pink-500")
+                userActivity_btn.addClass("border-blue-500")
             }
             if (form === "payment_activity"){
-                payActivity_btn.addClass("bg-pink-700")
+                payActivity_btn.addClass("bg-orange-600")
                 payActivity_btn.addClass("border-l-4")
-                payActivity_btn.addClass("border-pink-500")
+                payActivity_btn.addClass("border-blue-500")
             }
             if (form === "settings"){
-                settings_btn.addClass("bg-pink-700")
+                settings_btn.addClass("bg-orange-600")
                 settings_btn.addClass("border-l-4")
-                settings_btn.addClass("border-pink-500")
+                settings_btn.addClass("border-blue-500")
             }
 
 
