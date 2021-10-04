@@ -47,6 +47,7 @@ Route::get('/', [Homepage::class, 'index'])->name("User-Home");
 Route::get('/gallery', [GalleryController::class, 'index'])->name("Gallery");
 Route::get('/about-us', [AboutUsController::class, 'index'])->name("About-Us");
 Route::get("/contact", [Contact::class, 'index'])->name("Contact");
+Route::post("/mail", [Contact::class, 'sendMail'])->name("Mail");
 Route::get("/privacy-policy", [PrivacyPolicyController::class, 'index'])->name("Privacy-Policy");
 
 //// Courses

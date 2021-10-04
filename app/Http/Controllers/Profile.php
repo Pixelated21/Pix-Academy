@@ -19,6 +19,9 @@ class Profile extends Controller
     public function updatePP(Request $request)
     {
 
+        $this->validate($request,[
+            'profilePicture' => 'required|image|max:10000'
+        ]);
 
         $currentImage = "/public/media/" . uniqid('', true) . "." . $request->file("profilePicture")->getClientOriginalExtension();
 
@@ -57,7 +60,25 @@ class Profile extends Controller
     public function personalInfoUpdate(Request $request)
     {
 
-//TODO ADD VALIDATION
+        $gender = ['Male','Female','Others'];
+
+        $validate = $request->validate([
+            'first_name' => 'required|max:50|alpha',
+            'middle_name' => 'nullable|max:25|alpha',
+            'last_name' => 'required|max:25|alpha',
+            'gender' => 'required|in_array:gender',
+            'TRN' => 'required|numeric',
+            'dob' => 'required|before: 18 years ago',
+            'telephone' => 'required|numeric'
+        ],[
+            'first_name.required' => 'Your First Name is Required',
+            'last_name.required' => 'Your Last Name is Required',
+            'TRN.required' => 'Your TRN is Required',
+            'telephone.required' => 'Your Telephone Number is Required',
+        ]);
+
+
+
 
         $userPerInfoUpdate = Student::where("student_id", Auth::user()->user_id)
             ->update(["first_nm" => $request->get("first_name"),
@@ -84,10 +105,19 @@ class Profile extends Controller
 
     public function residentialInfoUpdate(Request $request)
     {
+//        dd($request->all());
+        $validate = $request->validate([
+            'street_address' => 'required|max:100',
+            'city_nm' => 'required|max:50',
+            'postal_zone' => 'required|max:50',
+            'parish' => 'required|max:50'
+
+        ]);
 
         $userResInfoUpdate = Student::where("student_id",'=', Auth::user()->user_id)
-            ->update(["addr_ln_1" => $request->get("street_address"),
-                "city_nm" => $request->get("district_town"),
+            ->update([
+                "addr_ln_1" => $request->get("street_address"),
+                "city_nm" => $request->get("city_nm"),
                 "postal_zone" => $request->get("postal_zone"),
                 "parish_nm" => $request->get("parish")]);
 
@@ -101,12 +131,17 @@ class Profile extends Controller
 
     public function qualificationsUpdate(Request $request){
 
+        $validate = $request->validate([
+            'qualDoc' => 'required|max:10000',
+        ]);
+
 
         // Qualifications Update Process
 
-        $qualificationImage = "/public/media/" . uniqid('', true) . "." . $request->file("qualImg")->getClientOriginalExtension();
+//        dd($request->file('qualDoc'));
+        $qualificationImage = "/public/media/" . uniqid('', true) . "." . $request->file("qualDoc")->getClientOriginalExtension();
 
-        $saveQualImage = $request->file("qualImg")->storeAs("/", $qualificationImage);
+        $saveQualImage = $request->file("qualDoc")->storeAs("/", $qualificationImage);
 
 
         User_Activity::create([
@@ -130,6 +165,10 @@ class Profile extends Controller
     }
 
     public function passportUpdate(Request $request) {
+
+        $validate = $request->validate([
+            'passportImg' => 'required|image|file|max:10000',
+        ]);
 
         // Passport Update Process
         $passportImage = "/public/media/" . uniqid('', true) . "." . $request->file("passportImg")->getClientOriginalExtension();
@@ -161,7 +200,16 @@ class Profile extends Controller
     {
 
 
-//       dd(($request->all()));
+        $validate = $request->validate([
+            'billing_addr' => 'required|max:100',
+            'cvv' => 'required|numeric',
+            'card_number' => 'required|numeric',
+            'card_holder_nm' => 'required|max:50',
+            'expiration_month' => 'required',
+            'expiration_year' => 'required',
+
+        ]);
+
         $userPaymentInfoUpdate = Payment_info::find(Payment_info::where("student_id",'=',Student::where('user_id','=',Auth::user()->user_id)->first()->student_id)->first()->student_id)
                                     ->update([
 

@@ -39,14 +39,13 @@
 
                         </p>
 
-                        <div class="flex justify-around text-xs mt-5 flex-col md:flex-row lg:flex-row">
-                            <div><span class="font-extrabold">Modality: </span> <span class="font-bold">{{$course[0]["modality"]}}</span>
+                        <div class="flex items-center justify-around text-xs mt-5 flex-col md:flex-row lg:flex-row">
+                            <div class="p-1"><span class="font-extrabold">Modality: </span> <span class="font-bold">{{$course[0]["modality"]}} </span>
                             </div>
-                            <div><span class="font-extrabold ">Training Starts: </span> <span class="font-bold">{{date("d-M-Y",strtotime($course[0]["training_start"]))}}</span>
+                            <div class="p-1"><span class="font-extrabold "> Training Starts: </span> <span class="font-bold">{{date("d-M-Y",strtotime($course[0]["training_start"]))}} </span>
                             </div>
-                            <div><span class="font-extrabold">Training Ends: </span><span
-                                    class="font-bold">{{$course[0]["training_end"]}}</span></div>
-                            <div><span class="font-extrabold">Award: </span><span class="font-bold"><span
+                            <div class="p-1"> <span class="font-extrabold"> Training Ends: </span><span class="font-bold">{{$course[0]["training_end"]}}</span></div>
+                            <div ><span class="font-extrabold">Award: </span><span class="font-bold"><span
                                         class="font-bold">{{$course[0]["award_type"]}}</span></span>
                             </div>
                         </div>

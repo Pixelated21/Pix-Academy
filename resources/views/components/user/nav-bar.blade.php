@@ -55,7 +55,8 @@
             @auth
                 <form action="{{url('/logout')}}" method="post">
                     @csrf
-                    <button class="px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:text-black hover:bg-pink-400"
+                    <button
+                        class="px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:text-white hover:border-transparent hover:bg-red-600"
                     >Logout
                     </button>
                 </form>

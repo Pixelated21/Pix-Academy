@@ -13,22 +13,28 @@
             <div class="container px-5 py-12 mx-auto flex">
 {{--                TODO ADD SOCIAL MEDIA ICONS--}}
                 <div class="lg:w-1/3 md:w-1/2 bg-black rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
-                    <h2 class="text-white text-2xl text-lg mb-1 font-medium title-font">How can we help?</h2>
-                    <p class="leading-relaxed mb-5 text-gray-400">We usually respond in a few hours</p>
+                    <h2 class="text-blue-500 text-2xl text-lg mb-1 font-medium title-font">How can we help?</h2>
+                @if (session()->has('message'))
+                        <p class="text-center mb-5 rounded bg-green-400 py-2 text-white">Mail Sent{{session("message")}}</p>
+                    @else
+                        <p class="leading-relaxed mb-5 text-gray-400">We usually respond in a few hours</p>
+                    @endif
 {{--                    TODO make this viable--}}
 {{--                     <a href="tel:8768547729">Call Us</a>--}}
+                    <form action="{{route("Mail")}}" method="post">
+                        @csrf
                     <div class="relative mb-4">
                         <label for="email" class="leading-7 text-sm text-gray-200">Email</label>
-                        <input autofocus type="email" id="email" name="email" class="w-full bg-gray-300 focus:bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autocomplete="off">
+                        <input autofocus type="email" id="email" name="email" class="w-full bg-gray-300 focus:bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autocomplete="off">
                     </div>
                     <div class="relative mb-4">
                         <label for="message" class="leading-7 text-sm text-gray-200">Message</label>
-                        <textarea id="message" name="message" class="w-full bg-gray-300 focus:bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" autocomplete="off"></textarea>
+                        <textarea id="message" name="message" class="w-full bg-gray-300 focus:bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" autocomplete="off"></textarea>
                     </div>
-                    <button class="text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded duration-300 text-lg">Submit</button>
-{{--                                TODO MESSAGE ON SUBMIT--}}
-                    <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+                    <button type="submit" class="text-white text-center bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded duration-300 text-lg">Submit</button>
+                    </form>
                 </div>
+
             </div>
         </section>
     </div>

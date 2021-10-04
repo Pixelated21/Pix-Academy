@@ -38,7 +38,12 @@
 
                     <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
                         <div>
-                            <label class="text-sm text-gray-400">Street Address</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Address Line 1 </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('street_address'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="street_address"
@@ -47,7 +52,7 @@
                                     autocomplete="false"
                                     value="{{$student[0]["student"]["addr_ln_1"]}}"
                                     placeholder="Street Address"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class="@error('street_address') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -55,22 +60,32 @@
 
                         {{--                        {{dd(Auth::user())}}--}}
                         <div class="md:w-full max-w-sm mx-auto">
-                            <label class="text-sm text-gray-400">District / Town</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">City </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('city_nm'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
-                                    name="district_town"
+                                    name="city_nm"
                                     type="text"
                                     disabled
                                     autocomplete="false"
                                     value="{{$student[0]["student"]["city_nm"]}}"
-                                    placeholder="District / Town"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    placeholder="City"
+                                    class="@error('city_nm') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
 
                         <div>
-                            <label class="text-sm text-gray-400">Postal Zone</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Postal Zone </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('postal_zone'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="postal_zone"
@@ -78,19 +93,26 @@
                                     disabled
                                     autocomplete="false"
                                     value="{{$student[0]["student"]["postal_zone"]}}"
-                                    placeholder="Street Address"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    placeholder="Postal Zone"
+                                    class="@error('postal_zone') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
 
                         <div class="md:w-full max-w-sm mx-auto">
-                            <label class="text-sm text-gray-400">Parish</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Parish </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('parish'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <select
                                     name="parish"
                                     disabled
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class="@error('parish') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    <option selected disabled>Select A Parish</option>
+
                                     <option @if($student[0]['student']["parish_nm"] === "St.Catherine" ) selected @endif value="St.Catherine">St.Catherine</option>
                                     <option @if($student[0]['student']["parish_nm"] === "Clarendon" ) selected @endif value="Clarendon">Clarendon</option>
                                     <option @if($student[0]['student']["parish_nm"] === "St.Andrew" ) selected @endif value="St.Andrew">St.Andrew</option>
@@ -123,7 +145,12 @@
 
                     <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
                         <div>
-                            <label class="text-sm text-gray-400">First Name</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">First Name </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('first_name'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="first_name"
@@ -132,12 +159,17 @@
                                     autocomplete="false"
                                     value="{{ucwords(strtolower($student[0]["student"]["first_nm"]))}}"
                                     placeholder="First Name"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('first_name') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none">
 
                             </div>
                         </div>
                         <div class="md:w-full max-w-sm mx-auto">
-                            <label class="text-sm text-gray-400">Middle Name</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Middle Name </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('middle_name'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="middle_name"
@@ -146,12 +178,17 @@
                                     autocomplete="false"
                                     value="{{ucwords(strtolower($student[0]["student"]["middle_nm"]))}}"
                                     placeholder="Middle Name"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class="@error('middle_name') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
                         <div class="md:w-full max-w-sm mx-auto">
-                            <label class="text-sm text-gray-400">Last Name</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Last Name </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('last_name'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="last_name"
@@ -160,12 +197,17 @@
                                     type="text"
                                     value="{{ucwords(strtolower($student[0]["student"]["last_nm"]))}}"
                                     placeholder="Last Name"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class="@error('last_name') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
                         <div>
-                            <label class="text-sm text-gray-400 dark:text-green-800">Email</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Email Address </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('email'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="email"
@@ -174,19 +216,24 @@
                                     value="{{strtolower($student[0]["email_addr"])}}"
                                     type="text"
                                     placeholder="Email"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('email') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
                     </div>
                     <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
                         <div>
-                            <label class="text-sm text-gray-400">Gender</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Gender </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('gender'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <select
                                     name="gender"
                                     disabled
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('gender') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                                     <option @if($student[0]['student']["gender"] === "Male" ) selected @endif value="Male">Male</option>
                                     <option @if($student[0]['student']["gender"] === "Female" ) selected @endif value="Female">Female</option>
@@ -196,7 +243,12 @@
                             </div>
                         </div>
                         <div class="md:w-full max-w-sm mx-auto">
-                            <label class="text-sm text-gray-400">TRN</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">TRN </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('TRN'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="TRN"
@@ -205,12 +257,17 @@
                                     value="{{($student[0]["student"]["trn_nbr"])}}"
                                     type="text"
                                     placeholder="TRN"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class="  @error('TRN') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
                         <div class="md:w-full max-w-sm mx-auto">
-                            <label class="text-sm text-gray-400">DOB</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">DOB </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('dob'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="dob"
@@ -219,12 +276,17 @@
                                     value="{{($student[0]["student"]["dob"])}}"
                                     type="date"
                                     placeholder="DOB"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('dob') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
                         <div>
-                            <label class="text-sm text-gray-400 dark:text-green-800">Telephone Number</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Telephone Number </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('telephone'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="telephone"
@@ -233,7 +295,7 @@
                                     type="text"
                                     value="{{($student[0]["student"]["tele_nbr"])}}"
                                     placeholder="Telephone Number"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('telephone') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -246,7 +308,12 @@
 
                     <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
                         <div>
-                            <label class="text-sm text-gray-400">Card Holder</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Card Holder Name</label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('card_holder_nm'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="card_holder_nm"
@@ -255,12 +322,17 @@
                                     value="{{$student[0]["student"]["payment_info"][0]["card_holder_nm"]}}"
                                     disabled
                                     placeholder="Card Holder"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('card_holder_nm') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
                         <div class="md:w-full max-w-sm mx-auto">
-                            <label class="text-sm text-gray-400">Card Number</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Card Number </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('card_number'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="card_number"
@@ -269,13 +341,18 @@
                                     autocomplete="false"
                                     value="{{$student[0]["student"]["payment_info"][0]["card_nbr"]}}"
                                     placeholder="Card Number"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('card_number') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
 
                         <div>
-                            <label class="text-sm text-gray-400">Billing Address</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Billing Address </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('billing_addr'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="billing_addr"
@@ -284,7 +361,7 @@
                                     type="text"
                                     value="{{$student[0]["student"]["payment_info"][0]["billing_addr"]}}"
                                     placeholder="Billing Address"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('billing_addr') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
@@ -294,7 +371,12 @@
 
                     <div class="md:w-4/5 mx-auto max-w-sm space-y-5">
                         <div>
-                            <label class="text-sm text-gray-400">CVV</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">CVV </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('cvv'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <input
                                     name="cvv"
@@ -303,20 +385,28 @@
                                     type="number"
                                     value="{{$student[0]["student"]["payment_info"][0]["cvv"]}}"
                                     placeholder="CVV"
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('cvv') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
                             </div>
                         </div>
 
                         <div class="md:w-full max-w-sm mx-auto">
-                            <label class="text-sm text-gray-400">Expiration Year</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Expiration Year </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('expiration_year'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <select
                                     name="expiration_year"
                                     disabled
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('expiration_year') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
-                                    @for ($i = date("Y",strtotime(now())); $i < 2034 ; $i++)
+                                    <option disabled selected>Select A Year</option>
+
+
+                                @for ($i = date("Y",strtotime(now())); $i < 2034 ; $i++)
                                         @if ($i == $student[0]["student"]["payment_info"][0]["exp_year"])
                                             <option selected value="{{$i}}">{{$i}}</option>
                                         @else
@@ -330,14 +420,21 @@
                         </div>
 
                         <div>
-                            <label class="text-sm text-gray-400 dark:text-green-800">Expiration Month</label>
+                            <div class="flex items-center gap-5">
+                                <label class="text-sm text-gray-400">Expiration Month </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('expiration_month'){{$message}}@enderror</p>
+                                @endif
+                            </div>
                             <div class="w-full inline-flex">
                                 <select
                                     name="expiration_month"
                                     disabled
-                                    class="focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
+                                    class=" @error('expiration_month') border-red-600 @enderror focus:shadow-outline-orange duration-300 transition-shadow w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500  dark:focus:border-blue-500  focus:outline-none ">
 
-                                    @for ($i = 1; $i <= 12 ; $i++)
+                                    <option disabled selected>Select A Month</option>
+
+                                @for ($i = 1; $i <= 12 ; $i++)
                                         @if ($i < 10)
                                             @if ($student[0]["student"]["payment_info"][0]["exp_month"] == $i)
                                                 <option selected value="{{$i}}">0{{$i}}</option>
@@ -346,7 +443,7 @@
                                             @endif
                                         @else
                                             @if ($student[0]["student"]["payment_info"][0]["exp_month"] == $i)
-                                                <option selected value="{{$i}}">{{$i}}</option>
+                                                <option selected  value="{{$i}}">{{$i}}</option>
                                             @else
                                                 <option value="{{$i}}">{{$i}}</option>
                                             @endif
@@ -373,23 +470,27 @@
                                   action="{{route("Qualifications-Update")}}">
                                 @csrf
                                 <img id="qualOutput"
-                                     src="@if (empty($student[0]["student"]["media"][0]["qualification_pic"]))
+                                     src="
 
 
                                          /public/media/addDocument.jpg
 
-                                     @else
 
-                                     {{$student[0]["student"]["media"][0]["qualification_pic"]}}
 
-                                     @endif" class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
+                                    " class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
                                 <label>
+                                    <p id="qual_name">
+                                        {{$student[0]["student"]["media"][0]["qualification_pic"]}}
+                                    </p>
                                     <span class="h-full">
-                                        <div class="bg-orange-500 hover:bg-orange-400 duration-300 rounded-b-2xl text-white text-2xl py-5">Add Picture Of Qualification</div>
-                                    <input name="qualImg" class=" hidden" id="qualImgInput" type="file"
+                                        <div class="bg-orange-500 hover:bg-orange-400 duration-300 rounded-b-2xl text-white text-2xl py-5">Add Qualification Documents </div>
+                                    <input id="qualDocInput" name="qualDoc" class=" hidden"  {{--accept="image/*"--}} type="file"
                                            onchange="submit()"/>
                                     </span>
                                 </label>
+                                    @if (session()->has('errors'))
+                                        <p class="text-xs text-red-600 text-gray-400">@error('qualImg'){{$message}}@enderror</p>
+                                    @endif
                             </form>
 
                         </div>
@@ -408,14 +509,18 @@
 
                                             {{$student[0]["student"]["media"][0]["passport_pic"]}}
 
-                                     @endif" class="mb-2 h-72 w-full object-contain border border-black rounded-t-2xl ">
+                                     @endif" class="mb-2 h-72 w-full object-cover border border-black rounded-t-2xl ">
                                 <label>
+                                    <p id="passport_name">{{$student[0]["student"]["media"][0]["passport_pic"]}}</p>
                                     <span class="h-full">
                                         <div class="bg-orange-500 hover:bg-orange-400 duration-300 rounded-b-2xl text-white text-2xl py-5">Add Passport Size Picture</div>
-                                    <input name="passportImg" class=" hidden" id="passportImgInput" type="file"
+                                    <input name="passportImg" class=" hidden" id="passportImgInput" accept="image/*" type="file"
                                            onchange="submit()"/>
                                     </span>
                                 </label>
+                                @if (session()->has('errors'))
+                                    <p class="text-xs text-red-600 text-gray-400">@error('passportImg'){{$message}}@enderror</p>
+                                @endif
                             </form>
                         </div>
 
