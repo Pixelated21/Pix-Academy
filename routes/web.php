@@ -43,6 +43,8 @@ Route::post('/logout', [Login::class, 'logout'])->name("logout");
 
 // User Access
 
+
+
 Route::get('/', [Homepage::class, 'index'])->name("User-Home");
 Route::get('/gallery', [GalleryController::class, 'index'])->name("Gallery");
 Route::get('/about-us', [AboutUsController::class, 'index'])->name("About-Us");
@@ -52,6 +54,9 @@ Route::get("/privacy-policy", [PrivacyPolicyController::class, 'index'])->name("
 
 //// Courses
 Route::get("/courses", [Courses::class, 'index']);
+
+Route::group(['middleware' => 'UserAccess'],function(){
+
 
 //Single View
 Route::get("/courses/{course_id}", [Course::class, 'singleCourseView']);
@@ -76,6 +81,11 @@ Route::post("/ciUpdate", [Profile::class, 'paymentInfoUpdate']);
 Route::post("/qualUpdate", [Profile::class, 'qualificationsUpdate'])->name("Qualifications-Update");
 Route::post("/passUpdate", [Profile::class, 'passportUpdate'])->name("Passport-Update");
 ////
+///
+ });
+
+
+Route::group(['middleware' => 'AdminAccess'],function (){
 
 // AdminController
 
@@ -93,6 +103,7 @@ Route::post('/singleStudentXML/{student_id}', [XMLController::class, "singleStud
 Route::post('/allStudentXML', [XMLController::class, "allStudent"])->name("All Student XML");
 
 //
+});
 
 
 //Testing

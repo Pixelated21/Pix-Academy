@@ -15,7 +15,6 @@ class Login extends Controller
 //
         return view("Registration_Login.login");
     }
-//    TODO remember me token
 
     public function loginUser(Request $request)
     {
@@ -25,7 +24,15 @@ class Login extends Controller
         ]);
 
         if (Auth::attempt($validation)) {
-            return redirect('/');
+            $User = User::where('email_addr','=',$request->email_addr)->get()->toArray();
+//            dd($User);
+
+            if ($User[0]['account_type'] === 'user') {
+                return redirect(route("User-Home"));
+            }
+            elseif ($User[0]['account_type'] === 'admin') {
+                return redirect(route("Admin-Home"));
+            }
 
         }
 

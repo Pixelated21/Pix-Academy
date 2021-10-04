@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class Dashboard extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware("auth");
-    }
 
     public function index(){
         $student = User::with("student")->where("user_id","=",Auth::user()->user_id)->get()->toArray();

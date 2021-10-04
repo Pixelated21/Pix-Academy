@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\adminAcess;
+use App\Http\Middleware\UserAccess;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -44,6 +46,13 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'UserAccess' => [
+            UserAccess::class
+        ],
+
+        'AdminAccess' => [
+            adminAcess::class
+        ]
     ];
 
     /**
